@@ -38,3 +38,7 @@ app.post('/send-email', async (req, res) => {
 });
 
 app.listen(5000, () => console.log('Server running on port 5000'));
+
+app.get("/ping", (req,res) => {
+  res.send("pong");
+});
