@@ -1,0 +1,1013 @@
+import React from "react";
+import Scrollspy from 'react-scrollspy';
+import { FaGithub,FaLinkedin, FaChevronDown,FaBriefcase, FaGraduationCap, FaPlane,FaBasketballBall,FaDumbbell} from "react-icons/fa"; /**font awesome */
+import './index.css';
+import {Link, animateScroll as scroll} from 'react-scroll';
+import {easeInOut, motion,AnimatePresence} from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect, useRef, useState } from "react";
+import * as THREE from "three";
+import NET from "vanta/dist/vanta.net.min";
+import axios from "axios";
+
+// infinte scroll for projects or circular gallery rolling gallery
+//add circular text as title
+{/**add a logo to  show the website, make it scroll and animate when it moves to the about section make it go DOWN like scroll down and add animations? when ur on a certain page it should glow  not as important */}
+
+export default function Home () {
+  const { ref:homeRef, inView: isHomeInView} = useInView({
+threshold:0.1
+
+})
+
+
+// shows the state and sets the state
+const [form, setForm] = useState({name:"", email:"", subject:"", message:""});
+
+const [status, setStatus] = useState("");
+// sets the status
+
+const handleChange = (e) => {
+  // change in input
+setForm({...form, [e.target.name]: e.target.value})
+// changes the input so like it keeps everything before and changes the information stored inside the target
+};
+
+
+const handleSubmit = async (e) => {
+  // whenever the submit button is hit
+  e.preventDefault(); 
+  // stops the browser from reloading
+  setStatus("Sending...");
+  try {
+    // uses axios to send the stuff to the backend server
+    await axios.post("http://localhost:5000/send-email",form);
+    setStatus("Message sent!")
+    setForm({name:"",email:"",subject:"",message:""});
+    setTimeout(() => setStatus(""),2000) 
+  }
+  catch (error){
+    // didnt work
+    setStatus("Failed to send message")
+    setTimeout(()=> setStatus(""),2000)
+
+  }
+};
+
+
+// projects section 
+const projects = [
+{id:1,
+name: "ECG Research",
+short_desc : "Research",
+icon:"/ecg.PNG",
+description : "I’m currently conducting research on multimodal deep learning models that integrate physiological signals, text, and image data for various downstream applications.",
+
+tags : ["Research","Deep Learning"]
+},
+
+{id:2,
+name: "Personal Website",
+short_desc : "Web Development",
+icon:"/website.PNG",
+
+description : "I built this personal website using JavaScript, React, and Tailwind CSS to showcase my resume.",
+
+tags : ["React","HTML", "TailWind", "CSS"]
+},
+
+
+
+{id:3,
+name: "Lung Cancer Detection",
+short_desc : "Project",
+description : "I evaluated and tested seven machine learning algorithms on a Lung Cancer dataset. The best-performing model was the Support Vector Machine, achieving a Recall of 99%, Accuracy of 94%, Precision of 95%, and a F1 Score of 97%.",
+icon:"/lungcancer.jpg",
+tags : ["Machine Learning", "Data Analysis"],
+link: "https://colab.research.google.com/gist/temii70/b300e9ca79168cc0b1c82c9110a06e56/models.ipynb"
+
+},
+
+
+{id:4,
+name: "Alzheimer's Speech Research",
+short_desc : "Research",
+description : "I conducted research using an audio dataset to perform classification and regression tasks for the early detection of dementia and mild cognitive impairment (MCI). As part of the ICASSP 2025 SPGC challenge, I developed a random forest model to classify patients into three categories with corresponding scores. To improve prediction performance, I explored self-supervised learning techniques and utilized pre-trained models from previous research, to enhance metrics such as F1 score, recall, precision, and RMSE.",
+icon:"/brain.jpg",
+tags : ["Machine Learning", "Research"]
+
+
+
+
+
+},
+
+
+
+{
+id:5,
+name: "Emotion Detection",
+short_desc : "Project",
+description : "I built a Convolutional Neural Network using TensorFlow and integrated it with OpenCV for real-time emotion detection.",
+icon:"/emotion.PNG",
+tags : ["Machine Learning", "Data Analysis","Deep Learning"]
+
+
+},
+
+{id:6,
+name: "App",
+short_desc : "Project",
+description : "I developed a Basketball Chatbot using Python, pulling data from a Kaggle SQL database with over 4,800 NBA players and 30 teams using Swift, SQL, and Python.",
+icon:"/basketball.PNG",
+tags : ["Swift", "IOS", "SQL"],
+link: "https://github.com/temii70/NBAChatbot"
+
+
+},
+
+
+];
+// for projects background
+const [selected, setSelected] = useState(null);
+
+// so messy
+const vantaRef = useRef(null);
+// pass to a div
+const [vantaEffect, setVantaEffect] = useState(null);
+
+useEffect(() => {
+  if (!vantaEffect) {
+    setVantaEffect(
+      NET({
+        el: vantaRef.current,
+        THREE: THREE,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1,
+        scaleMobile: 0.5,
+        color: 0x555555,
+        backgroundColor: 0x000000,
+        points: 20.0,
+        maxDistance: 14.0,
+        spacing: 10.0,
+      })
+    );
+  }
+
+  return () => {
+    if (vantaEffect) vantaEffect.destroy();
+  };
+}, [vantaEffect]);
+
+// this is used to see if the main page is active or not
+
+
+
+// main website
+return (
+  
+
+  <div  className="relative min-h-screen font-sans bg-cover bg-center"> {/**gray background making the div atleast as tall as fullscreen and uses font sans */}
+    {/*header section relative means any child element with abs or fixed positioning will use this container as a refrence instead of whole page*/}
+<header className={`fixed top-0 w-full flex items-center justify-between px-8 py-6 z-50 transition-all duration-300 ease-in-out
+  ${!isHomeInView ? 'bg-black/30 backdrop-blur-lg border-b border-white/10' : 'bg-transparent'}
+`}>
+
+
+
+  {/* Left: Logo */}
+  <a href="/" className="hover:opacity-80 transition duration-300 hover:text-teal-400">
+    <img
+      src="/logowhite.png"
+      alt="temi logo"
+      className="h-10 w-auto object-contain"
+    />
+  </a>
+
+  {/* Center: Navigation */}
+  <Scrollspy
+    items={['Home','About','Experience','Projects','Activities','Contact']}
+    currentClassName="text-blue-400 font-bold"
+    className="hidden sm:flex space-x-8 text-white"
+  >
+    <Link to="Home" smooth duration={1000} className="hover:text-blue-400 transition font-bold cursor-pointer">Home</Link>
+    <Link to="About" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">About</Link>
+    <Link to="Experience" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">Experience</Link>
+    <Link to="Projects" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">Projects</Link>
+    <Link to="Activities" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">Activities</Link>
+    <Link to="Contact" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">Contact</Link>
+  </Scrollspy>
+
+  {/* Right: Social Icons */}
+  <div className="flex space-x-4 text-white">
+    <a href="https://github.com/temii70" className="hover:text-teal-400 transition" target="_blank" rel="noopener noreferrer">
+      <FaGithub size={20} />
+    </a>
+    <a href="https://www.linkedin.com/in/temi-otun-297801250/" className="hover:text-teal-400 transition" target="_blank" rel="noopener noreferrer">
+      <FaLinkedin size={20} />
+    </a>
+  </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+   {/* Intro Section */}
+<main ref={homeRef} id="Home" className = " h-screen bg-cover bg-center flex flex-col items-center justify-start pt-60 text-center px-8"  style={{backgroundImage:"url('/vegas.png')"}}>
+  <p className= "text-2xl font-semibold text-white" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>Hi! my name is</p>
+  <h1 className="text-6xl font-bold mb-4 text-white"> Temi Otun</h1>
+  <p className= "text-white text-xl  font-semibold max-w-xl" style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}> I am a Student Researcher passionate about ML and software development.</p>
+ <Link to="About" smooth={true} duration= {1000} offset = {4} className= "mt-80 inline-block bg-gray-100 text-white font-semibold tracking-widest px-8 py-2 rounded-full hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer pb-50 animate-bounce " >  <FaChevronDown className= "text-gray-800 text-xl"></FaChevronDown></Link>
+  <p className = "text-white text-base font-semibold bottom-4  -mt-40" style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}>Background: Grand Canyon by Temi Otun</p>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+{/* About Me */}
+<section id="About" className= "min-h-screen font-sans bg-neutral-100 text-white flex pt-40 flex-col items-center justify-start">
+<h2 className="text-4xl font-bold mb-40" 
+
+> About Me</h2>
+
+
+<div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5">
+  {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
+
+{/* Left Section */}
+<img src= "/temp.jpg" alt= "Temi Otun" className=" self-start -mt-16 w-[22rem] h-[22rem] sm:w-[24rem] sm:h-[24rem] md:w-[26rem] md:h-[26rem] rounded-full "/>
+
+{/* Bio Section */}
+<div className="flex flex-col  md:items-start text-base leading-relaxed"
+  
+  >
+  
+<p className= "text-base leading-relaxed text-left" style={{fontFamily:" 'Work Sans',sans-serif"}}
+
+ 
+ 
+  transition={{duration: 0.8, ease: "easeOut"}}> I am a Computer Science student specializing in Artificial Intelligence at the University of Alberta. I have programming experience in C, Python, and SQL. Currently, I am completing a work semester at Dr. Wishart's Lab, where I apply machine learning and deep learning techniques alongside data analysis in the field of meteorology.</p>
+ <p className= "mt-4 text-base leading-relaxed text-left" style={{fontFamily:" 'Work Sans',sans-serif"}} 
+ 
+  
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}> I am also a member of Dr. Greiner's lab, helping out in  projects focused on AI-driven survival and disease prediction. Outside of academics and research, I volunteer with the ColorStack club at the University of Alberta. In my free time, I enjoy going to the gym, reading books and manga, and playing basketball. </p>
+
+
+<a href ="/TemiOtunresume-12.pdf" className= "self-center mt-4 inline-block bg-gray-400 text-white font-semibold tracking-widest px-5 py-3 hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer " download  
+
+  
+  transition={{duration: 0.8, ease: "easeOut"}}> Download Resume</a>
+  </div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* Experience Section */}
+
+<section id="Experience" className="min-h-screen font-sans bg-black text-white flex pt-24 flex-col items-center justify-start"style={{fontFamily:" 'Work Sans',sans-serif"}}>
+  
+   <motion.h2  className="text-4xl font-bold text-center mb-12"
+    initial = {{opacity:0,y:20}}
+    whileInView={{opacity: 1,y: 0}}
+    transition= {{duration:0.7 ,ease: "easeOut"}}
+    viewport= {{once:true}}>Work Experience 
+    </motion.h2>
+
+  <motion.div className= "relative w-full max-w-6xl flex flex-col space-y-12"
+    initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.6 }}
+  variants={{
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.9, // time between animations
+      },
+    },
+  }}
+  >
+{/* vertical Line */}
+    {/* Job Item */}
+
+
+    <motion.div  className="flex items-start gap-8"
+ 
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}
+  >
+
+      {/* Left: Title & Date */}
+      <div className="w-1/3 text-right pr-4">
+        <h3 className="text-xl font-bold text-blue-400">Research Assistant</h3>
+        <p className="text-sm text-gray-400  font-semibold">Jan 2025 – Present</p>
+      </div>
+
+      {/* Center: Icon + Line */}
+      <div className="flex flex-col items-center">
+        
+        <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+          <FaBriefcase className="text-white text-xl" />
+        </div>
+        <div className="w-px bg-gray-600 h-full mt-2" />
+      </div>
+
+      {/* Right: Company & Description */}
+      <div className="w-1/2">
+        <h4 className="text-lg font-bold ">TMIC Wishart Node</h4>
+        <p className="text-sm mt-2 text-white mb-2 font-semibold">
+          At Wishart’s Lab, I’ve been working on meteorological forecasting, applying a broad range of techniques in both data analysis and model development. My work has included exploratory data analysis, time series decomposition, partial and auto-correlation analysis, trend and seasonality extraction, feature imputation, and the use of Fast Fourier Transforms to identify cyclical patterns. 
+          </p >
+
+           <p className="text-sm mt-2 text-gray-200 mb-2 font-semibold">
+                 I’ve gained a deep understanding of statistical models like ARIMA and SARIMA, deep learning architectures such as LSTMs, RNNs, and Transformers, and machine learning methods including LightGBM and XGBoost. Across a six-year test set, my models achieved up to 47% lower MAE, with an average improvement of 24.26% compared to previous approaches.
+
+
+            
+             </p>
+
+   
+        {/* <p className="text-sm mt-2 text-gray-200 mb-2" > 
+        </p> */}
+        {/* add later^ */}
+      </div>
+    </motion.div>
+
+    {/* second job*/}
+    {/* ... */}
+     {/* Job Item */}
+     <motion.div  className="flex items-start gap-8"
+  
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}>
+
+
+      {/* Left: Title & Date */}
+      <div className="w-1/3 text-right pr-4">
+        <h3 className="text-xl font-bold text-blue-400">Research Assistant</h3>
+        <p className="text-sm text-gray-400  font-semibold">Sept 2024 – Present</p>
+      </div>
+
+      {/* Center: Icon + Line */}
+      <div className="flex flex-col items-center">
+        <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+          <FaBriefcase className="text-white text-xl" />
+        </div>
+        <div className="w-px bg-gray-600 h-full mt-2" />
+      </div>
+
+      {/* Right: Company & Description */}
+      <div className="w-1/2">
+        <h4 className="text-lg font-bold text-white-400">University of Alberta</h4>
+        <p className="text-sm mt-2   font-semibold">
+I’m currently involved in projects focused on predictive healthcare modeling. As part of the research lab, I regularly participate in weekly presentations where PhD and Master’s students share insights on topics like survival analysis and heart disease prediction. I also contribute to ongoing research by documenting experiments and assisting with various aspects of the lab’s work.        </p>
+      </div>
+    </motion.div>
+    {/*  third job */}
+     {/* Job Item */}
+
+    <motion.div  className="flex items-start gap-8"
+   
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}>
+
+
+      {/* Left: Title & Date */}
+      <div className="w-1/3 text-right pr-4">
+        <h3 className="text-xl font-bold text-blue-400">Data Management Intern</h3>
+        <p className="text-sm text-gray-400  font-semibold">Feb 2024 - May 2024</p>
+      </div>
+
+      {/* Center: Icon + Line */}
+      <div className="flex flex-col items-center">
+        <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+          <FaBriefcase className="text-white text-xl" />
+        </div>
+        <div className="w-px bg-gray-600 h-full mt-2" />
+      </div>
+
+      {/* Right: Company & Description */}
+      <div className="w-1/2">
+        <h4 className="text-lg font-bold ">InfoStrux</h4>
+        <p className="text-sm mt-2  font-semibold">
+I focused on optimizing query performance using both the UI and SQL to build advanced data models. I contributed to the design of data architecture, which gave me a deeper understanding of how data structures are organized and managed in cloud environments. I also created and managed databases and schemas to handle structured, semi-structured, and unstructured data. </p>
+      </div>
+
+
+ 
+
+
+
+
+
+</motion.div>
+
+   <motion.h2 className= "text-4xl font-bold text-center pr-[110px] "
+      variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}
+      > 
+      Education
+    </motion.h2>
+
+
+<motion.div className="flex items-start gap-8"
+   variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}
+
+>
+  {/* left degree and date */}
+  <div className= "w-1/3 text-right pr-4">
+  <h3 className="text-xl font-bold text-teal-400">
+  Bachelor of Science
+  </h3>
+  <p className="text-sm text-white  font-semibold"> 2022-2027</p>
+
+
+  </div>
+
+
+  {/* center icon */}
+  <div className = "flex flex-col items-center">
+    <div className= "w-10 h-10 bg-gray-700  rounded-full flex items-center justify-center">
+    <FaGraduationCap className = "text-white text-xl">
+
+    </FaGraduationCap>
+
+    </div>
+
+  </div>
+
+{/* right */}
+   <div className="w-1/2 mb-24">
+        <h4 className="text-lg font-bold text-white">University of Alberta</h4>
+        <p className="text-sm mb-20 font-semibold">
+          Major in computer science, specializing in Artificial Intelligence.
+        </p>
+      </div>
+
+
+</motion.div>
+
+
+
+
+
+
+
+    </motion.div>
+
+  
+</section>
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {/* Projects */}
+
+ <section id="Projects" ref={vantaRef} className="min-h-screen bg-gray text-white px-8 pt-40 font-sans" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+
+
+   <h2  className="text-4xl font-bold text-center mb-12" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
+   
+      Projects
+
+    </h2>
+
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+  {projects.map((proj) => (
+    <motion.div
+    key = {proj.id}
+    className="group relative cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition duration-300"
+    whileHover={ {scale:1.05}}
+    onClick = {() => setSelected(proj)}
+    
+    >
+
+    {/* image */}
+    <img
+    src = {proj.icon}
+    alt = {proj.name}
+    className = "w-full h-60 object-cover transform group-hover:scale-105 transition duration-300"
+    >
+    
+    </img>
+    <div
+    className="absolute inset-0 bg-black bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 flex flex-col justify-center items-center text-center px-4 ">
+    <h3 className= "text-white text-lg font-bold mb-20">
+      {proj.name}
+
+    </h3>
+
+    <p
+    className="text-md text font-bold text-white"
+    > {proj.short_desc}
+
+    </p>
+    
+
+    </div>
+     
+    </motion.div>
+  ))}
+</div>
+
+<AnimatePresence>
+{selected && ( <motion.div
+ className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
+ initial = {{opacity:0}}
+ animate = {{opacity:1}}
+ exit = {{opacity:0}}
+ onClick = { ()=> setSelected(null)}
+ >
+
+<motion.div
+className=" bg-white text-gray-400 p-6 rounded-lg max-w-xl w-full text-center"
+initial = {{scale:0.0}}
+animate = {{scale:1}}
+exit = {{scale:0.8}}
+onClick={(e)=>e.stopPropagation()}
+>
+
+<div>
+<h3 className = "text-xl font-bold text-blue-400"> {selected.name}</h3>
+
+<p className = "text- mt-2 text-gray-300 mb-15 text-left leading-relaxed break-words"> {selected.description}</p>
+ 
+{selected.link && (
+  <a
+  href = {selected.link}
+  target = "_blank"
+  rel = "noopener noreferrer"
+  className="px-4 py-2  text-blue-400 rounded hover: transition">
+    Link
+  </a>
+)} 
+
+
+</div>
+<button
+  onClick = {()=> setSelected(null)}
+  className = "mt-4 px-4 py-2 bg-teal-400 text-black rounded hover: bg-teal-400 transition"
+
+>
+  Close
+
+</button>
+
+
+
+
+
+
+</motion.div>
+
+</motion.div>
+)}
+
+</AnimatePresence>
+ </section>
+
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+{/* Activities */}
+
+<section id="Activities" className="min-h-screen font-sans bg-gray text-white flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+  
+   <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
+    initial = {{opacity:0,y:20}}
+    whileInView={{opacity: 1,y: 0}}
+    transition= {{duration:0.7 ,ease: "easeOut"}}
+    viewport= {{once:true}}>Activities 
+    </motion.h2>
+
+
+  <motion.div className= "relative w-full max-w-6xl flex flex-col space-y-12"
+    initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.6 }}
+  variants={{
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.9, // time between animations
+      },
+    },
+  }}>
+
+
+
+
+  {/* Travelling Section */}
+    <motion.div  className="flex items-start gap-8"
+ 
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}>
+
+{/* Traveling Section */}
+
+  <div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5">
+  {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
+
+
+<img src= "/traveling.png" alt= "Temi Otun" className=" self-start w-96 h-50 "/>
+
+
+
+
+<div>
+<motion.h3 className= "font-semibold text-xl mb-5 flex items-center gap-2" style={{fontFamily:" 'Work Sans',sans-serif"}}
+
+ 
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}> Traveling  <FaPlane className="text-blue-400"></FaPlane> </motion.h3>
+
+
+<motion.p className= "text-base leading-relaxed text-left" style={{fontFamily:" 'Work Sans',sans-serif"}}
+
+ 
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}> 
+  I’ve had the opportunity to travel to several countries, 
+  including the United States, France, the United Kingdom, Nigeria, Libya,
+   Germany, and the Netherlands. One of the most memorable places I’ve visited is the Grand Canyon in Arizona,
+   I was truly awestruck by its immense size and natural beauty. I hope to continue exploring the world,
+   with East Asia and Latin America next on my list.
+  
+  </motion.p>
+
+</div>
+
+</div>
+
+
+
+
+
+  </motion.div>
+
+{/* Basketball Section */}
+
+    <motion.div  className="flex items-start gap-8 "
+ 
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}>
+
+
+
+  <div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5">
+  {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
+
+
+<img src= "/bball.png" alt= "Temi Otun" className=" self-start w-96 h-50 "/>
+
+
+
+
+<div>
+<motion.h3 className= "font-semibold text-xl mb-5 flex items-center gap-2" style={{fontFamily:" 'Work Sans',sans-serif"}}
+
+ 
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}> Basketball <FaBasketballBall className="text-blue-400"></FaBasketballBall></motion.h3>
+
+
+<motion.p className= "text-base leading-relaxed text-left" style={{fontFamily:" 'Work Sans',sans-serif"}}
+
+ 
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}> 
+ I’ve been playing basketball since middle school, competing for both my 
+ junior and senior high school teams. I love the game and still
+  play recreationally. I’m also an active NBA fan, my favorite 
+ team is the Los Angeles Lakers, as I’m a big LeBron James Fan.</motion.p>
+
+</div>
+
+</div>
+
+
+
+
+
+  </motion.div>
+
+
+
+{/* Working Out Section */}
+
+    <motion.div  className="flex items-start gap-8"
+ 
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}>
+
+
+
+  <div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5">
+  {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
+
+
+<img src= "/goodlife.webp" alt= "Temi Otun" className="  self-start w-96 h-50 "/>
+
+
+
+
+<div>
+<motion.h3 className= "font-semibold text-xl mb-5 flex items-center gap-2" style={{fontFamily:" 'Work Sans',sans-serif"}}
+
+ 
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}> Fitness Training <FaDumbbell className="text-blue-400"></FaDumbbell></motion.h3>
+
+
+<motion.p className= "text-base leading-relaxed text-left mb-60 " style={{fontFamily:" 'Work Sans',sans-serif"}}
+
+ 
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}>I’ve been working out for about seven years, starting in middle school, and I’m a very active gym-goer. When I’m not busy with school or research, 
+  you’ll most likely find me in the gym. </motion.p>
+
+</div>
+
+</div>
+
+
+
+
+
+  </motion.div>
+
+
+
+  </motion.div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* Contact Section */}
+
+
+
+
+<section id="Contact" className="min-h-screen font-sans bg-neutral-100 text-white flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+  
+   <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
+    initial = {{opacity:0,y:20}}
+    whileInView={{opacity: 1,y: 0}}
+    transition= {{duration:0.7 ,ease: "easeOut"}}
+    viewport= {{once:true}}>Contact 
+    </motion.h2>
+
+
+  <motion.div className= "relative w-full max-w-6xl flex flex-col space-y-12"
+    initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.6 }}
+  variants={{
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.9, // time between animations
+      },
+    },
+  }}>
+
+
+    <motion.div className="flex flex-col justify-center "
+        variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}>
+
+    
+    
+    <h3 className=" text-2xl font-bold text-center  font-semibold text-xl pb-3 " >
+        Let's Connect!
+
+    </h3>
+    <p className="text-sm text-white text-center">
+      Please contact me directly at <a href ="mailto:Otun226@gmail.com" class="underline">Otun226@gmail.com</a> or through this form.
+    </p>
+
+    </motion.div>
+
+  <motion.div className="flex flex-col justify-center "
+        variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}>
+
+    <form onSubmit = {handleSubmit} className="max-w-xl mx-auto space-y-6 text-white">
+    <input name= "name"
+      value = {form.name}
+      onChange={handleChange}
+      placeholder="Name"
+      className = "w-full bg-gray-400 p-3 rounded"
+      required
+    />
+    <input
+    name= "email"
+    value = {form.email}
+    onChange={handleChange}
+    placeholder=" Email Address"
+    className="w-full bg-gray-400 p-3 rounded"
+    required
+    
+    
+    />
+      <input
+    name= "subject"
+    value = {form.subject}
+    onChange={handleChange}
+    placeholder="Subject"
+    className="w-full bg-gray-400 p-3 rounded"
+    required
+    />
+
+{/* text area makes it look cleaner */}
+        <textarea
+    name= "message"
+    value = {form.message}
+    onChange={handleChange}
+    placeholder="Message"
+    rows={5}
+    className="w-full bg-gray-400 p-3 rounded  text-left"
+    required
+    
+    />
+    <div  className="flex justify-center">
+    <button
+      type= "submit"
+      className="bg-gray-400 text-white px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white "
+    >
+      {status && (
+        <p className="text-center mt-4 text-sm font-semibold text-teal-400"> {status}</p>
+      )}
+      Send Message
+    </button>
+    </div>
+   {/* bg-gray-400 text-white font-semibold tracking-widest px-5 py-3 hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer */}
+
+    </form>
+    
+    </motion.div>
+
+
+</motion.div>
+
+
+
+</section>
+
+
+<motion.footer 
+className=" mb-4 text-center text-sm text-gray-400 shadow-inner "
+   initial = {{opacity: 0,y: 50}}
+   whileInView={{opacity: 1,y: 0}}
+   viewport={{once:true}}
+  transition={{duration: 0.8, ease: "easeOut", delay:0.5}}
+
+>
+
+&copy; {new Date().getFullYear()} Temi Otun, All rights reserved.
+</motion.footer>
+
+          
+
+
+
+
+</div>
+
+  );
+
+
+
+
+}
+
