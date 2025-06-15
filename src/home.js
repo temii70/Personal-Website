@@ -60,7 +60,7 @@ const projects = [
 {id:1,
 name: "ECG Research",
 short_desc : "Research",
-icon:"/ecg.PNG",
+icon:"/ecg.png",
 description : "I’m currently conducting research on multimodal deep learning models that integrate physiological signals, text, and image data for various downstream applications.",
 
 tags : ["Research","Deep Learning"]
@@ -69,7 +69,7 @@ tags : ["Research","Deep Learning"]
 {id:2,
 name: "Personal Website",
 short_desc : "Web Development",
-icon:"/website.PNG",
+icon:"/website.png",
 
 description : "I built this personal website using JavaScript, React, and Tailwind CSS to showcase my resume.",
 
@@ -109,7 +109,7 @@ id:5,
 name: "Emotion Detection",
 short_desc : "Project",
 description : "I built a Convolutional Neural Network using TensorFlow and integrated it with OpenCV for real-time emotion detection.",
-icon:"/emotion.PNG",
+icon:"/emotion.png",
 tags : ["Machine Learning", "Data Analysis","Deep Learning"]
 
 
@@ -119,7 +119,7 @@ tags : ["Machine Learning", "Data Analysis","Deep Learning"]
 name: "App",
 short_desc : "Project",
 description : "I developed a Basketball Chatbot using Python, pulling data from a Kaggle SQL database with over 4,800 NBA players and 30 teams using Swift, SQL, and Python.",
-icon:"/basketball.PNG",
+icon:"/basketball.png",
 tags : ["Swift", "IOS", "SQL"],
 link: "https://github.com/temii70/NBAChatbot"
 
