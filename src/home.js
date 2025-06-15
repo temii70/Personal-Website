@@ -41,7 +41,7 @@ const handleSubmit = async (e) => {
   setStatus("Sending...");
   try {
     // uses axios to send the stuff to the backend server
-    await axios.post("http://localhost:5000/send-email",form);
+    await axios.post("https://portfolio-te9i.onrender.com/send-email",form);
     setStatus("Message sent!")
     setForm({name:"",email:"",subject:"",message:""});
     setTimeout(() => setStatus(""),2000) 
