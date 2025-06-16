@@ -174,7 +174,7 @@ return (
   <div  className="relative min-h-screen font-sans bg-cover bg-center"> {/**gray background making the div atleast as tall as fullscreen and uses font sans */}
     {/*header section relative means any child element with abs or fixed positioning will use this container as a refrence instead of whole page*/}
 <header className={`fixed top-0 w-full flex items-center justify-between px-8 py-6 z-50 transition-all duration-300 ease-in-out
-  ${!isHomeInView ? 'bg-black/30 backdrop-blur-lg border-b border-white/10' : 'bg-transparent'}
+  ${!isHomeInView ? 'bg-black/90 backdrop-blur-md border-b border-white/10 shadow-md' : 'bg-transparent'}
 `}>
 
 
@@ -223,12 +223,12 @@ return (
 
 
    {/* Intro Section */}
-<main ref={homeRef} id="Home" className = " h-screen bg-cover bg-center flex flex-col items-center justify-start pt-60 text-center px-8"  style={{backgroundImage:"url('/vegas.png')"}}>
+<main ref={homeRef} id="Home" className = " h-screen bg-cover bg-center flex flex-col items-center justify-start pt-60 sm:px-8  text-center px-8"  style={{backgroundImage:"url('/vegas.png')"}}>
   <p className= "text-2xl font-semibold text-white" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>Hi! my name is</p>
-  <h1 className="text-6xl font-bold mb-4 text-white"> Temi Otun</h1>
-  <p className= "text-white text-xl  font-semibold max-w-xl" style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}> I am a Student Researcher passionate about ML and software development.</p>
- <Link to="About" smooth={true} duration= {1000} offset = {4} className= "mt-80 inline-block bg-gray-100 text-white font-semibold tracking-widest px-8 py-2 rounded-full hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer pb-50 animate-bounce " >  <FaChevronDown className= "text-gray-800 text-xl"></FaChevronDown></Link>
-  <p className = "text-white text-base font-semibold bottom-4  -mt-40" style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}>Background: Grand Canyon by Temi Otun</p>
+  <h1 className="text-6xl font-bold mb-4 text-white "> Temi Otun</h1>
+  <p className= "text-white text-xl  font-semibold max-w-xl sm:text-xl"  style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}> I am a Student Researcher passionate about ML and software development.</p>
+ <Link to="About" smooth={true} duration= {1000} offset = {4} className= "mt-80 inline-block bg-gray-100 text-white font-semibold tracking-widest px-8 py-2 rounded-full hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer pb-50 animate-bounce sm:text-xl " >  <FaChevronDown className= "text-gray-800 text-xl"></FaChevronDown></Link>
+  <p className = "text-white text-base font-semibold bottom-4  -mt-40 sm:mt-20" style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}>Background: Grand Canyon by Temi Otun</p>
 
 </main>
 
@@ -243,7 +243,7 @@ return (
 
 
 {/* About Me */}
-<section id="About" className= "min-h-screen font-sans bg-neutral-100 text-white flex pt-40 flex-col items-center justify-start">
+<section id="About" className= "min-h-screen font-sans dark: bg-neutral-100  dark:text-white flex pt-40 flex-col items-center justify-start">
 <h2 className="text-4xl font-bold mb-40" 
 
 > About Me</h2>
@@ -275,7 +275,9 @@ return (
   transition={{duration: 0.8, ease: "easeOut"}}> I am also a member of Dr. Greiner's lab, helping out in  projects focused on AI-driven survival and disease prediction. Outside of academics and research, I volunteer with the ColorStack club at the University of Alberta. In my free time, I enjoy going to the gym, reading books and manga, and playing basketball. </p>
 
 
-<a href ="/TemiOtunresume-12.pdf" className= "self-center mt-4 inline-block bg-gray-400 text-white font-semibold tracking-widest px-5 py-3 hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer " download  
+<a href ="/TemiOtunresume-12.pdf" 
+  className="self-center mt-4 inline-block bg-gray-900 text-white font-semibold tracking-widest px-5 py-3 hover:bg-gray-700 hover:text-blue-400 dark:bg-gray-300 dark:text-black dark:hover:bg-white transition duration-300 hover:scale-105 cursor-pointer"
+ download  
 
   
   transition={{duration: 0.8, ease: "easeOut"}}> Download Resume</a>
@@ -299,7 +301,7 @@ return (
 
 {/* Experience Section */}
 
-<section id="Experience" className="min-h-screen font-sans bg-black text-white flex pt-24 flex-col items-center justify-start"style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Experience" className="min-h-screen font-sans bg-black text-white flex pt-24 flex-col items-center justify-start px-4"style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-12"
     initial = {{opacity:0,y:20}}
@@ -325,7 +327,7 @@ return (
     {/* Job Item */}
 
 
-    <motion.div  className="flex items-start gap-8"
+    <motion.div  className="flex flex-col md:flex-row items-start gap-8 w-full"
  
   variants = {{
     hidden: {opacity : 0, y:50},
@@ -335,13 +337,13 @@ return (
   >
 
       {/* Left: Title & Date */}
-      <div className="w-1/3 text-right pr-4">
+      <div className="w-full md:w-1/3 text-left md:text-right md:pr-4 mb-4 md:mb-0">
         <h3 className="text-xl font-bold text-blue-400">Research Assistant</h3>
         <p className="text-sm text-gray-400  font-semibold">Jan 2025 – Present</p>
       </div>
 
       {/* Center: Icon + Line */}
-      <div className="flex flex-col items-center">
+      <div className="flex flex-row md:flex-col items-center justify-center md:justify-start items-center">
         
         <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
           <FaBriefcase className="text-white text-xl" />
@@ -350,7 +352,7 @@ return (
       </div>
 
       {/* Right: Company & Description */}
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         <h4 className="text-lg font-bold ">TMIC Wishart Node</h4>
         <p className="text-sm mt-2 text-white mb-2 font-semibold">
           At Wishart’s Lab, I’ve been working on meteorological forecasting, applying a broad range of techniques in both data analysis and model development. My work has included exploratory data analysis, time series decomposition, partial and auto-correlation analysis, trend and seasonality extraction, feature imputation, and the use of Fast Fourier Transforms to identify cyclical patterns. 
@@ -373,7 +375,7 @@ return (
     {/* second job*/}
     {/* ... */}
      {/* Job Item */}
-     <motion.div  className="flex items-start gap-8"
+     <motion.div  className="flex flex-col md:flex-row items-start gap-8"
   
   variants = {{
     hidden: {opacity : 0, y:50},
@@ -383,7 +385,7 @@ return (
 
 
       {/* Left: Title & Date */}
-      <div className="w-1/3 text-right pr-4">
+      <div className="w-full md:w-1/3 md:text-right md:pr-4 mb-4 md:mb-0">
         <h3 className="text-xl font-bold text-blue-400">Research Assistant</h3>
         <p className="text-sm text-gray-400  font-semibold">Sept 2024 – Present</p>
       </div>
@@ -397,7 +399,7 @@ return (
       </div>
 
       {/* Right: Company & Description */}
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         <h4 className="text-lg font-bold text-white-400">University of Alberta</h4>
         <p className="text-sm mt-2   font-semibold">
 I’m currently involved in projects focused on predictive healthcare modeling. As part of the research lab, I regularly participate in weekly presentations where PhD and Master’s students share insights on topics like survival analysis and heart disease prediction. I also contribute to ongoing research by documenting experiments and assisting with various aspects of the lab’s work.        </p>
@@ -406,7 +408,7 @@ I’m currently involved in projects focused on predictive healthcare modeling. 
     {/*  third job */}
      {/* Job Item */}
 
-    <motion.div  className="flex items-start gap-8"
+    <motion.div  className="flex flex-col md:flex-row items-start gap-8"
    
   variants = {{
     hidden: {opacity : 0, y:50},
@@ -416,7 +418,7 @@ I’m currently involved in projects focused on predictive healthcare modeling. 
 
 
       {/* Left: Title & Date */}
-      <div className="w-1/3 text-right pr-4">
+      <div className="w-full md:w-1/3 text-left md:text-right md:pr-4 mb-4 md:mb-0">
         <h3 className="text-xl font-bold text-blue-400">Data Management Intern</h3>
         <p className="text-sm text-gray-400  font-semibold">Feb 2024 - May 2024</p>
       </div>
@@ -430,7 +432,7 @@ I’m currently involved in projects focused on predictive healthcare modeling. 
       </div>
 
       {/* Right: Company & Description */}
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         <h4 className="text-lg font-bold ">InfoStrux</h4>
         <p className="text-sm mt-2  font-semibold">
 I focused on optimizing query performance using both the UI and SQL to build advanced data models. I contributed to the design of data architecture, which gave me a deeper understanding of how data structures are organized and managed in cloud environments. I also created and managed databases and schemas to handle structured, semi-structured, and unstructured data. </p>
@@ -465,7 +467,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
 >
   {/* left degree and date */}
-  <div className= "w-1/3 text-right pr-4">
+  <div className= " w-full md:w-1/3  text-left md:text-right md:pr-4 mb-4 md:mb-0">
   <h3 className="text-xl font-bold text-teal-400">
   Bachelor of Science
   </h3>
@@ -487,7 +489,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
   </div>
 
 {/* right */}
-   <div className="w-1/2 mb-24">
+   <div className="w-full md:w-1/2 mb-24">
         <h4 className="text-lg font-bold text-white">University of Alberta</h4>
         <p className="text-sm mb-20 font-semibold">
           Major in computer science, specializing in Artificial Intelligence.
@@ -583,8 +585,8 @@ I focused on optimizing query performance using both the UI and SQL to build adv
  >
 
 <motion.div
-className=" bg-white text-gray-400 p-6 rounded-lg max-w-xl w-full text-center"
-initial = {{scale:0.0}}
+className=" bg-white text-gray-800 p-6 rounded-lg max-w-xl w-full text-center"
+initial = {{scale:0}}
 animate = {{scale:1}}
 exit = {{scale:0.8}}
 onClick={(e)=>e.stopPropagation()}
@@ -593,7 +595,7 @@ onClick={(e)=>e.stopPropagation()}
 <div>
 <h3 className = "text-xl font-bold text-blue-400"> {selected.name}</h3>
 
-<p className = "text- mt-2 text-gray-300 mb-15 text-left leading-relaxed break-words"> {selected.description}</p>
+<p className = "text- mt-2 dark:text-gray-300 mb-15 text-left leading-relaxed break-words"> {selected.description}</p>
  
 {selected.link && (
   <a
@@ -609,7 +611,7 @@ onClick={(e)=>e.stopPropagation()}
 </div>
 <button
   onClick = {()=> setSelected(null)}
-  className = "mt-4 px-4 py-2 bg-teal-400 text-black rounded hover: bg-teal-400 transition"
+  className = "mt-4 px-4 py-2 bg-teal-400 text-black rounded hover: bg-teal-400 transition hover:scale-105"
 
 >
   Close
@@ -644,7 +646,7 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Activities */}
 
-<section id="Activities" className="min-h-screen font-sans bg-gray text-white flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Activities" className="min-h-screen font-sans bg-gray dark:text-white flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
     initial = {{opacity:0,y:20}}
@@ -872,7 +874,7 @@ onClick={(e)=>e.stopPropagation()}
 
 
 
-<section id="Contact" className="min-h-screen font-sans bg-neutral-100 text-white flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Contact" className="min-h-screen font-sans bg-neutral-100 dark:text-white flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
     initial = {{opacity:0,y:20}}
@@ -909,7 +911,7 @@ onClick={(e)=>e.stopPropagation()}
         Let's Connect!
 
     </h3>
-    <p className="text-sm text-white text-center">
+    <p className="text-sm dark:text-white text-center">
       Please contact me directly at <a href ="mailto:Otun226@gmail.com" class="underline">Otun226@gmail.com</a> or through this form.
     </p>
 
@@ -922,12 +924,12 @@ onClick={(e)=>e.stopPropagation()}
   }}
   transition={{duration: 0.8, ease: "easeOut"}}>
 
-    <form onSubmit = {handleSubmit} className="max-w-xl mx-auto space-y-6 text-white">
+    <form onSubmit = {handleSubmit} className="max-w-xl mx-auto space-y-6 dark:text-white">
     <input name= "name"
       value = {form.name}
       onChange={handleChange}
       placeholder="Name"
-      className = "w-full bg-gray-400 p-3 rounded"
+      className = "w-full bg-gray-400 p-3 rounded placeholder:text-black"
       required
     />
     <input
@@ -935,7 +937,7 @@ onClick={(e)=>e.stopPropagation()}
     value = {form.email}
     onChange={handleChange}
     placeholder=" Email Address"
-    className="w-full bg-gray-400 p-3 rounded"
+    className="w-full bg-gray-400 p-3 rounded placeholder:text-black "
     required
     
     
@@ -945,7 +947,7 @@ onClick={(e)=>e.stopPropagation()}
     value = {form.subject}
     onChange={handleChange}
     placeholder="Subject"
-    className="w-full bg-gray-400 p-3 rounded"
+    className="w-full bg-gray-400 p-3 rounded placeholder:text-black"
     required
     />
 
@@ -956,17 +958,17 @@ onClick={(e)=>e.stopPropagation()}
     onChange={handleChange}
     placeholder="Message"
     rows={5}
-    className="w-full bg-gray-400 p-3 rounded  text-left"
+    className="w-full bg-gray-400 p-3 rounded placeholder:text-black"
     required
     
     />
     <div  className="flex justify-center">
     <button
       type= "submit"
-      className="bg-gray-400 text-white px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white "
+      className="bg-gray-400 dark:text-white px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white "
     >
       {status && (
-        <p className="text-center mt-4 text-sm font-semibold text-teal-400"> {status}</p>
+        <p className="text-center mt-4 text-sm font-semibold dark:text-teal-400"> {status}</p>
       )}
       Send Message
     </button>
@@ -986,7 +988,7 @@ onClick={(e)=>e.stopPropagation()}
 
 
 <motion.footer 
-className=" mb-4 text-center text-sm text-gray-400 shadow-inner "
+className=" mb-14 text-center text-sm dark:text-gray-400 shadow-inner "
    initial = {{opacity: 0,y: 50}}
    whileInView={{opacity: 1,y: 0}}
    viewport={{once:true}}
