@@ -965,10 +965,10 @@ onClick={(e)=>e.stopPropagation()}
     required
     
     />
-    <div  className="flex justify-center mt-10 mb-14">
+    <div  className="flex justify-center ">
     <button
       type= "submit"
-      className="bg-gray-400 dark:text-white px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white "
+      className="bg-gray-400 dark:text-white px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white -mt-5 "
     >
       {status && (
         <p className="text-center mt-4 text-sm font-semibold dark:text-teal-400  "> {status}</p>
