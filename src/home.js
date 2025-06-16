@@ -227,8 +227,11 @@ return (
   <p className= "text-2xl font-semibold text-white" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>Hi! my name is</p>
   <h1 className="text-6xl font-bold mb-4 text-white "> Temi Otun</h1>
   <p className= "text-white text-xl  font-semibold max-w-xl sm:text-xl"  style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}> I am a Student Researcher passionate about ML and software development.</p>
- <Link to="About" smooth={true} duration= {1000} offset = {4} className= "mt-80 inline-block bg-gray-100 text-white font-semibold tracking-widest px-8 py-2 rounded-full hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer pb-50 animate-bounce sm:text-xl " >  <FaChevronDown className= "text-gray-800 text-xl"></FaChevronDown></Link>
-  <p className = "text-white text-base font-semibold bottom-4  -mt-40 sm:mt-20" style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}>Background: Grand Canyon by Temi Otun</p>
+ <Link to="About" smooth={true} duration= {1000} offset = {4} className= "mt-60 inline-block bg-gray-100 text-white font-semibold tracking-widest px-8 py-2 rounded-full hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer pb-50 animate-bounce sm:text-xl " >  <FaChevronDown className= "text-gray-800 text-xl"></FaChevronDown></Link>
+  <p
+   className = "text-white text-base font-semibold bottom-4 -mt-40 sm:mt-20" 
+   
+   style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}>Background: Grand Canyon by Temi Otun</p>
 
 </main>
 
@@ -924,7 +927,7 @@ onClick={(e)=>e.stopPropagation()}
   }}
   transition={{duration: 0.8, ease: "easeOut"}}>
 
-    <form onSubmit = {handleSubmit} className="max-w-xl mx-auto space-y-6 dark:text-white">
+    <form onSubmit = {handleSubmit} className="max-w-xl mx-auto space-y-6 dark:text-white ">
     <input name= "name"
       value = {form.name}
       onChange={handleChange}
@@ -962,13 +965,13 @@ onClick={(e)=>e.stopPropagation()}
     required
     
     />
-    <div  className="flex justify-center">
+    <div  className="flex justify-center mt-10 mb-14">
     <button
       type= "submit"
       className="bg-gray-400 dark:text-white px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white "
     >
       {status && (
-        <p className="text-center mt-4 text-sm font-semibold dark:text-teal-400"> {status}</p>
+        <p className="text-center mt-4 text-sm font-semibold dark:text-teal-400  "> {status}</p>
       )}
       Send Message
     </button>
@@ -988,7 +991,7 @@ onClick={(e)=>e.stopPropagation()}
 
 
 <motion.footer 
-className=" mb-14 text-center text-sm dark:text-gray-400 shadow-inner "
+className=" mt-12  text-center text-sm dark:text-gray-400 shadow-inner "
    initial = {{opacity: 0,y: 50}}
    whileInView={{opacity: 1,y: 0}}
    viewport={{once:true}}
