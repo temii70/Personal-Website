@@ -184,7 +184,7 @@ return (
     <img
       src="/logowhite.png"
       alt="temi logo"
-      className="h-10 w-auto object-contain"
+      className="h-14 w-auto object-contain"
     />
   </a>
 
@@ -246,7 +246,7 @@ return (
 
 
 {/* About Me */}
-<section id="About" className= "min-h-screen font-sans dark: bg-neutral-100  dark:text-white flex pt-40 flex-col items-center justify-start">
+<section id="About" className= "min-h-screen font-sans dark: bg-neutral-100  dark:text-black flex pt-40 flex-col items-center justify-start pb-32">
 <h2 className="text-4xl font-bold mb-40" 
 
 > About Me</h2>
@@ -316,7 +316,7 @@ return (
   <motion.div className= "relative w-full max-w-6xl flex flex-col space-y-12"
     initial="hidden"
   whileInView="visible"
-  viewport={{ once: true, amount: 0.6 }}
+  viewport={{ once: true, amount: 0.1 }}
   variants={{
     hidden: {},
     visible: {
@@ -540,11 +540,11 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
     </h2>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-6xl mx-auto px-4 sm:px-0">
   {projects.map((proj) => (
     <motion.div
     key = {proj.id}
-    className="group relative cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition duration-300"
+    className="group relative cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition duration-300 "
     whileHover={ {scale:1.05}}
     onClick = {() => setSelected(proj)}
     
@@ -554,12 +554,12 @@ I focused on optimizing query performance using both the UI and SQL to build adv
     <img
     src = {proj.icon}
     alt = {proj.name}
-    className = "w-full h-60 object-cover transform group-hover:scale-105 transition duration-300"
+    className = "w-full h-60 object-cover transform group-hover:scale-105 transition duration-300 "
     >
     
     </img>
     <div
-    className="absolute inset-0 bg-black bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 flex flex-col justify-center items-center text-center px-4 ">
+    className="absolute inset-0 bg-black bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 flex flex-col justify-center items-center text-center px-4  ">
     <h3 className= "text-white text-lg font-bold mb-20">
       {proj.name}
 
@@ -649,7 +649,7 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Activities */}
 
-<section id="Activities" className="min-h-screen font-sans bg-gray dark:text-white flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Activities" className="min-h-screen font-sans bg-gray dark:text-black flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
     initial = {{opacity:0,y:20}}
@@ -877,7 +877,7 @@ onClick={(e)=>e.stopPropagation()}
 
 
 
-<section id="Contact" className="min-h-screen font-sans bg-neutral-100 dark:text-white flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Contact" className="min-h-screen font-sans bg-neutral-100 dark:text-black flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
     initial = {{opacity:0,y:20}}
@@ -968,7 +968,7 @@ onClick={(e)=>e.stopPropagation()}
     <div  className="flex justify-center ">
     <button
       type= "submit"
-      className="bg-gray-400 dark:text-white px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white -mt-5 "
+      className="bg-gray-400 dark:text-black px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white -mt-5 "
     >
       {status && (
         <p className="text-center mt-4 text-sm font-semibold dark:text-teal-400  "> {status}</p>
@@ -991,7 +991,7 @@ onClick={(e)=>e.stopPropagation()}
 
 
 <motion.footer 
-className=" mt-12  text-center text-sm dark:text-gray-400 shadow-inner "
+className=" mt-12  text-center text-sm dark:text-black shadow-inner "
    initial = {{opacity: 0,y: 50}}
    whileInView={{opacity: 1,y: 0}}
    viewport={{once:true}}
