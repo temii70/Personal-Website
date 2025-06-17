@@ -540,7 +540,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
     </h2>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-6xl mx-auto px-4 sm:px-0">
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-24 max-w-6xl mx-auto px-4 sm:px-0">
   {projects.map((proj) => (
     <motion.div
     key = {proj.id}
@@ -662,7 +662,7 @@ onClick={(e)=>e.stopPropagation()}
   <motion.div className= "relative w-full max-w-6xl flex flex-col space-y-12"
     initial="hidden"
   whileInView="visible"
-  viewport={{ once: true, amount: 0.6 }}
+  viewport={{ once: false, amount: 0.1 }}
   variants={{
     hidden: {},
     visible: {
@@ -690,7 +690,7 @@ onClick={(e)=>e.stopPropagation()}
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 
-<img src= "/traveling.png" alt= "Temi Otun" className="w-full max-w-xs h-auto object cover rounded shadow"/>
+<img src= "/traveling.png" alt= "Temi Otun" className="w-full max-w-xs h-auto object-cover rounded shadow"/>
 
 
 
