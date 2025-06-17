@@ -203,7 +203,7 @@ return (
   </Scrollspy>
 
   {/* Right: Social Icons */}
-  <div className="flex space-x-4 text-white">
+  <div className="flex flex-wrap justify-center space-x-4 sm:space-x-8 text-white text-sm sm:text-base">
     <a href="https://github.com/temii70" className="hover:text-teal-400 transition" target="_blank" rel="noopener noreferrer">
       <FaGithub size={20} />
     </a>
@@ -223,7 +223,7 @@ return (
 
 
    {/* Intro Section */}
-<main ref={homeRef} id="Home" className = " relative h-screen bg-cover bg-center flex flex-col items-center justify-start pt-60 sm:px-8  text-center px-8"  style={{backgroundImage:"url('/vegas.png')"}}>
+<main ref={homeRef} id="Home" className = " relative h-screen bg-cover bg-center flex flex-col items-center justify-start pt-60 sm:px-12 text-center px-8"  style={{backgroundImage:"url('/vegas.png')"}}>
   <p className= "text-2xl font-semibold text-white" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>Hi! my name is</p>
   <h1 className="text-6xl font-bold mb-4 text-white "> Temi Otun</h1>
   <p className= "text-white text-xl  font-semibold max-w-xl sm:text-xl"  style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}> I am a Student Researcher passionate about ML and software development.</p>
@@ -540,7 +540,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
     </h2>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-24 max-w-6xl mx-auto px-4 sm:px-0">
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 max-w-6xl mx-auto px-4 sm:px-0">
   {projects.map((proj) => (
     <motion.div
     key = {proj.id}
@@ -598,7 +598,7 @@ onClick={(e)=>e.stopPropagation()}
 <div>
 <h3 className = "text-xl font-bold text-blue-400"> {selected.name}</h3>
 
-<p className = "text- mt-2 dark:text-gray-300 mb-15 text-left leading-relaxed break-words"> {selected.description}</p>
+<p className = "text- mt-2 dark:text-black mb-15 text-left leading-relaxed break-words"> {selected.description}</p>
  
 {selected.link && (
   <a
@@ -649,7 +649,7 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Activities */}
 
-<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8" style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
     initial = {{opacity:0,y:20}}
