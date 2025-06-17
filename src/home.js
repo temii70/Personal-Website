@@ -322,18 +322,18 @@ return (
 > About Me</h2>
 
 
-<div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5 px-4 sm:px-6">
+<div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-12 px-4 sm:px-6">
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 {/* Left Section */}
-<img src= "/temp.jpg" alt= "Temi Otun" className=" self-center -mt-10 w-60 h-60 sm:w-72 sm:h-72 md:w-[26rem] md:h-[26rem] rounded-full "/>
+<img src= "/temp.jpg" alt= "Temi Otun" className=" self-start -mt-10 w-60 h-60 sm:w-72 sm:h-72 md:w-[26rem] md:h-[26rem] rounded-full "/>
 
 {/* Bio Section */}
 <div className="flex flex-col  md:items-start text-base leading-relaxed px-4 sm:px-6 w-full max-w-3xl"
   
   >
   
-<p className= "text-base leading-relaxed text-left" style={{fontFamily:" 'Work Sans',sans-serif"}}
+<p className= "text-base leading-relaxed text-left mb-4" style={{fontFamily:" 'Work Sans',sans-serif"}}
 
  
  
@@ -349,7 +349,7 @@ return (
 
 
 <a href ="/TemiOtunresumewebsite.pdf" 
-  className="self-center mt-4 inline-block bg-gray-900 text-white font-semibold tracking-widest px-5 py-3 hover:bg-gray-700 hover:text-blue-400 dark:bg-gray-300 dark:text-black dark:hover:bg-white transition duration-300 hover:scale-105 cursor-pointer"
+  className="self-center mt-6 inline-block bg-gray-900 text-white font-semibold tracking-widest px-5 py-3 hover:bg-gray-700 hover:text-blue-400 dark:bg-gray-300 dark:text-black dark:hover:bg-white transition duration-300 hover:scale-105 cursor-pointer"
  download  
 
   
@@ -562,10 +562,10 @@ I focused on optimizing query performance using both the UI and SQL to build adv
   </div>
 
 {/* right */}
-   <div className="w-full md:w-1/2 mb-32 ">
+   <div className="w-full md:w-1/2 mb-16 ">
         <h4 className="text-lg font-bold text-white">University of Alberta</h4>
         <p className="text-sm mb-20 font-semibold">
-          Major in computer science, specializing in Artificial Intelligence.
+          Major in Computer Dcience, specializing in Artificial Intelligence.
         </p>
       </div>
 
@@ -601,7 +601,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
  {/* Projects */}
 
- <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans pb-96 sm:pb-40 md:pb-64 lg:pb-96  " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+ <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans sm:pb-16 md:pb-64 lg:pb-96  " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
 
    <h2  className="text-4xl font-bold text-center mb-12" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
@@ -759,8 +759,7 @@ onClick={(e)=>e.stopPropagation()}
   <div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5">
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
-
-<img src= "/traveling.png" alt= "Temi Otun" className="w-full max-w-xs h-auto object-cover rounded shadow"/>
+<img src= "/traveling.png" alt= "Temi Otun" className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[400px] h-auto object-cover rounded shadow"/>
 
 
 
@@ -817,9 +816,7 @@ onClick={(e)=>e.stopPropagation()}
   <div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5">
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
-
-<img src= "/bball.png" alt= "Temi Otun" className=" w-full max-w-xs h-auto object cover rounded shadow "/>
-
+<img src= "/bball.png" alt= "Temi Otun" className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[400px] h-auto object-cover rounded shadow "/>
 
 
 
@@ -875,7 +872,7 @@ onClick={(e)=>e.stopPropagation()}
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 
-<img src= "/goodlife.webp" alt= "Temi Otun" className="  w-full max-w-xs h-auto object cover rounded shadow "/>
+<img src= "/goodlife.webp" alt= "Temi Otun" className=" w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[400px] h-auto object-cover rounded shadow "/>
 
 
 
@@ -891,7 +888,7 @@ onClick={(e)=>e.stopPropagation()}
   transition={{duration: 0.8, ease: "easeOut"}}> Fitness Training <FaDumbbell className="text-blue-400"></FaDumbbell></motion.h3>
 
 
-<motion.p className= "text-base leading-relaxed text-left mb-60 " style={{fontFamily:" 'Work Sans',sans-serif"}}
+<motion.p className= "text-base leading-relaxed text-left mb-64 " style={{fontFamily:" 'Work Sans',sans-serif"}}
 
  
   variants = {{
