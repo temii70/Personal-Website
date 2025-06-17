@@ -1,6 +1,6 @@
 import React from "react";
 import Scrollspy from 'react-scrollspy';
-import { FaGithub,FaLinkedin, FaChevronDown,FaBriefcase, FaGraduationCap, FaPlane,FaBasketballBall,FaDumbbell, FaBars} from "react-icons/fa"; /**font awesome */
+import { FaGithub,FaLinkedin, FaChevronDown,FaBriefcase, FaGraduationCap, FaPlane,FaBasketballBall,FaDumbbell, FaTimes, FaBars} from "react-icons/fa"; /**font awesome */
 import './index.css';
 import {Link, animateScroll as scroll} from 'react-scroll';
 import {easeInOut, motion,AnimatePresence} from "framer-motion";
@@ -205,23 +205,6 @@ return (
     <Link to="Contact" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">Contact</Link>
   </Scrollspy>
 
-{menuOpen && (
-  <div className="absolute top-full left-0 w-full bg-black flex flex-col items-center py-4 sm:hidden z-50">
-    {['Home','About','Experience','Projects','Activities','Contact'].map((item) => (
-      <Link
-        key={item}
-        to={item}
-        smooth
-        duration={1000}
-        onClick={() => setMenuOpen(false)}
-        className="text-white py-2 hover:text-teal-400 font-bold"
-      >
-        {item}
-      </Link>
-    ))}
-  </div>
-)}
-
 
 
 
@@ -236,20 +219,48 @@ return (
     <a href="https://www.linkedin.com/in/temi-otun-297801250/" className="hover:text-teal-400 transition" target="_blank" rel="noopener noreferrer">
       <FaLinkedin size={20} />
     </a>
-      <button
-className= "sm:hidden text-white"
-onClick= {()=> setMenuOpen(!menuOpen)}
->
-  
-  <FaBars size={24}></FaBars>
+    {/* hamburger */}
 
-</button>
+      <button className="sm:hidden text-white" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
 
   </div>
 
 
+
 </header>
 
+{menuOpen && (
+  <div
+    className="fixed inset-0 bg-black bg-opacity-60 z-40"
+    onClick={() => setMenuOpen(false)}
+  />
+)}
+
+{/* menu overlay when open */}
+
+  {/* Overlay when menu is open */}
+     
+      {/* Mobile Nav Dropdown */}
+      <div
+        className={`absolute top-16 left-0 w-full bg-black z-50 sm:hidden flex flex-col items-center space-y-4 py-6 transition-all duration-300 ease-in-out ${
+          menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
+        }`}
+      >
+        {['Home', 'About', 'Experience', 'Projects', 'Activities', 'Contact'].map((item) => (
+          <Link
+            key={item}
+            to={item}
+            smooth
+            duration={800}
+            onClick={() => setMenuOpen(false)}
+            className="text-white text-lg py-2 font-bold hover:text-teal-400 transition"
+          >
+            {item}
+          </Link>
+        ))}
+      </div>
 
 
 
