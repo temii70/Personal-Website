@@ -173,7 +173,7 @@ return (
 
   <div  className="relative min-h-screen font-sans bg-cover bg-center"> {/**gray background making the div atleast as tall as fullscreen and uses font sans */}
     {/*header section relative means any child element with abs or fixed positioning will use this container as a refrence instead of whole page*/}
-<header className={`fixed top-0 w-full flex items-center justify-between px-8 py-6 z-50 transition-all duration-300 ease-in-out sm:px-8 py-4 z-50 transition-all duration-300 ease-in-out
+<header className={`fixed top-0 w-full flex items-center justify-between px-4 sm:px-8 py-4 z-50 transition-all duration-300 ease-in-out 
   ${!isHomeInView ? 'bg-black/90 backdrop-blur-md border-b border-white/10 shadow-md' : 'bg-transparent'}
 `}>
 
@@ -192,7 +192,7 @@ return (
   <Scrollspy
     items={['Home','About','Experience','Projects','Activities','Contact']}
     currentClassName="text-blue-400 font-bold"
-    className="sm:flex space-x-8 text-white"
+    className="hidden sm:flex space-x-8 text-white justify-center space-x-4 sm:space-x-8 text-white"
   >
     <Link to="Home" smooth duration={1000} className="hover:text-blue-400 transition font-bold cursor-pointer">Home</Link>
     <Link to="About" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">About</Link>
@@ -223,13 +223,13 @@ return (
 
 
    {/* Intro Section */}
-<main ref={homeRef} id="Home" className = " h-screen bg-cover bg-center flex flex-col items-center justify-start pt-60 sm:px-8  text-center px-8"  style={{backgroundImage:"url('/vegas.png')"}}>
+<main ref={homeRef} id="Home" className = " relative h-screen bg-cover bg-center flex flex-col items-center justify-start pt-60 sm:px-8  text-center px-8"  style={{backgroundImage:"url('/vegas.png')"}}>
   <p className= "text-2xl font-semibold text-white" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>Hi! my name is</p>
   <h1 className="text-6xl font-bold mb-4 text-white "> Temi Otun</h1>
   <p className= "text-white text-xl  font-semibold max-w-xl sm:text-xl"  style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}> I am a Student Researcher passionate about ML and software development.</p>
- <Link to="About" smooth={true} duration= {500} offset = {4} className= "mt-60 inline-block bg-gray-100 text-white font-semibold tracking-widest px-8 py-2 rounded-full hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer pb-50 animate-bounce sm:text-xl " >  <FaChevronDown className= "text-gray-800 text-xl"></FaChevronDown></Link>
+ <Link to="About" smooth={true} duration= {500} offset = {4} className= " absolute bottom-32 mt-20 inline-block bg-white text-black font-semibold tracking-widest px-8 py-2 rounded-full hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer pb-50 animate-bounce sm:text-xl " >  <FaChevronDown className= "text-gray-800 text-xl"></FaChevronDown></Link>
   <p
-   className = "text-white text-base font-semibold bottom-4 -mt-40 sm:mt-20" 
+   className = " absolute bottom-2 text-white text-base font-semibold bottom-4 -mt-40 sm:mt-20" 
    
    style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}>Background: Grand Canyon by Temi Otun</p>
 
@@ -588,7 +588,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
  >
 
 <motion.div
-className=" bg-white text-gray-800 p-6 rounded-lg max-w-xl w-full text-center"
+className=" bg-white text-black p-6 rounded-lg max-w-xl w-full text-center"
 initial = {{scale:0}}
 animate = {{scale:1}}
 exit = {{scale:0.8}}
@@ -690,7 +690,7 @@ onClick={(e)=>e.stopPropagation()}
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 
-<img src= "/traveling.png" alt= "Temi Otun" className=" self-start w-96 h-50 "/>
+<img src= "/traveling.png" alt= "Temi Otun" className="w-full max-w-xs h-auto object cover rounded shadow"/>
 
 
 
@@ -748,7 +748,7 @@ onClick={(e)=>e.stopPropagation()}
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 
-<img src= "/bball.png" alt= "Temi Otun" className=" self-start w-96 h-50 "/>
+<img src= "/bball.png" alt= "Temi Otun" className=" w-full max-w-xs h-auto object cover rounded shadow "/>
 
 
 
@@ -791,7 +791,7 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Working Out Section */}
 
-    <motion.div  className="flex items-start gap-8"
+    <motion.div  className=" w-full flex flex-col md:flex-row items-start gap-6"
  
   variants = {{
     hidden: {opacity : 0, y:50},
@@ -805,7 +805,7 @@ onClick={(e)=>e.stopPropagation()}
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 
-<img src= "/goodlife.webp" alt= "Temi Otun" className="  self-start w-96 h-50 "/>
+<img src= "/goodlife.webp" alt= "Temi Otun" className="  w-full max-w-xs h-auto object cover rounded shadow "/>
 
 
 
@@ -926,7 +926,7 @@ onClick={(e)=>e.stopPropagation()}
     visible : {opacity: 1,y:0},
   }}
   transition={{duration: 0.8, ease: "easeOut"}}>
-
+<div className=" w-full px-6 sm:px-10 max-w-2xl mx-auto">
     <form onSubmit = {handleSubmit} className="max-w-xl mx-auto space-y-6 dark:text-white ">
     <input name= "name"
       value = {form.name}
@@ -979,7 +979,7 @@ onClick={(e)=>e.stopPropagation()}
    {/* bg-gray-400 text-white font-semibold tracking-widest px-5 py-3 hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer */}
 
     </form>
-    
+   </div> 
     </motion.div>
 
 
