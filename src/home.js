@@ -177,7 +177,7 @@ return (
   <div  className="relative min-h-screen font-sans bg-cover bg-center"> {/**gray background making the div atleast as tall as fullscreen and uses font sans */}
     {/*header section relative means any child element with abs or fixed positioning will use this container as a refrence instead of whole page*/}
 <header className={`fixed top-0 w-full flex items-center justify-between px-4 sm:px-8 py-4 z-50 transition-all duration-300 ease-in-out 
-  ${!isHomeInView ? 'bg-black/90 backdrop-blur-md border-b border-white/10 shadow-md' : 'bg-transparent'}
+  ${(!isHomeInView  || menuOpen) ? 'bg-black/90 backdrop-blur-md border-b border-white/10 shadow-md' : 'bg-transparent'}
 `}>
 
 
@@ -348,7 +348,7 @@ return (
   transition={{duration: 0.8, ease: "easeOut"}}> I am also a member of Dr. Greiner's lab, helping out in  projects focused on AI-driven survival and disease prediction. Outside of academics and research, I volunteer with the ColorStack club at the University of Alberta. In my free time, I enjoy going to the gym, reading books and manga, and playing basketball. </p>
 
 
-<a href ="/TemiOtunresume-12.pdf" 
+<a href ="/TemiOtunresumewebsite.pdf" 
   className="self-center mt-4 inline-block bg-gray-900 text-white font-semibold tracking-widest px-5 py-3 hover:bg-gray-700 hover:text-blue-400 dark:bg-gray-300 dark:text-black dark:hover:bg-white transition duration-300 hover:scale-105 cursor-pointer"
  download  
 
