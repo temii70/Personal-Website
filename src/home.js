@@ -322,11 +322,11 @@ return (
 > About Me</h2>
 
 
-<div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-12 px-4 sm:px-6">
+<div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-20 px-4 sm:px-6">
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 {/* Left Section */}
-<img src= "/temp.jpg" alt= "Temi Otun" className=" self-start -mt-10 w-60 h-60 sm:w-72 sm:h-72 md:w-[26rem] md:h-[26rem] rounded-full "/>
+<img src= "/temp.jpg" alt= "Temi Otun" className=" self-center -mt-10 w-60 h-60 sm:w-72 sm:h-72 md:w-[26rem] md:h-[26rem] rounded-full "/>
 
 {/* Bio Section */}
 <div className="flex flex-col  md:items-start text-base leading-relaxed px-4 sm:px-6 w-full max-w-3xl"
@@ -562,7 +562,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
   </div>
 
 {/* right */}
-   <div className="w-full md:w-1/2 mb-16 ">
+   <div className="w-full md:w-1/2 mb-24 ">
         <h4 className="text-lg font-bold text-white">University of Alberta</h4>
         <p className="text-sm mb-20 font-semibold">
           Major in Computer Dcience, specializing in Artificial Intelligence.
@@ -717,6 +717,10 @@ onClick={(e)=>e.stopPropagation()}
 
 
 
+
+
+
+
 {/* Activities */}
 
 <section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8" style={{fontFamily:" 'Work Sans',sans-serif"}}>
@@ -756,50 +760,39 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Traveling Section */}
 
-  <div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5">
-  {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
+  <div className="max-w-5xl w-full flex flex-col md:flex-row items-start md:gap-5">
 
-<img src= "/traveling.png" alt= "Temi Otun" className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[400px] h-auto object-cover rounded shadow"/>
+    {/* Image Container */}
+    <div className="w-[300px] h-[200px] sm:w-[400px] sm:h-[250px] flex-shrink-0 overflow-hidden rounded shadow bg-black">
+      <img src="/traveling.png" alt="Temi Otun" className="w-full h-full object-cover object-center" />
+    </div>
 
+    <div className="mt-4 md:mt-0">
+      <motion.h3
+        className="font-semibold text-xl mb-5 flex items-center gap-2"
+        style={{ fontFamily: "'Work Sans', sans-serif" }}
+        variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        Traveling <FaPlane className="text-blue-400" />
+      </motion.h3>
 
+      <motion.p
+        className="text-base leading-relaxed text-left"
+        style={{ fontFamily: "'Work Sans', sans-serif" }}
+        variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        I’ve had the opportunity to travel to several countries, including the United States,
+        France, the United Kingdom, Nigeria, Libya, Germany, and the Netherlands. One of the
+        most memorable places I’ve visited is the Grand Canyon in Arizona. I was truly awestruck
+        by its immense size and natural beauty. I hope to continue exploring the world, with East
+        Asia and Latin America next on my list.
+      </motion.p>
+    </div>
 
-
-<div>
-<motion.h3 className= "font-semibold text-xl mb-5 flex items-center gap-2" style={{fontFamily:" 'Work Sans',sans-serif"}}
-
- 
-  variants = {{
-    hidden: {opacity : 0, y:50},
-    visible : {opacity: 1,y:0},
-  }}
-  transition={{duration: 0.8, ease: "easeOut"}}> Traveling  <FaPlane className="text-blue-400"></FaPlane> </motion.h3>
-
-
-<motion.p className= "text-base leading-relaxed text-left" style={{fontFamily:" 'Work Sans',sans-serif"}}
-
- 
-  variants = {{
-    hidden: {opacity : 0, y:50},
-    visible : {opacity: 1,y:0},
-  }}
-  transition={{duration: 0.8, ease: "easeOut"}}> 
-  I’ve had the opportunity to travel to several countries, 
-  including the United States, France, the United Kingdom, Nigeria, Libya,
-   Germany, and the Netherlands. One of the most memorable places I’ve visited is the Grand Canyon in Arizona,
-   I was truly awestruck by its immense size and natural beauty. I hope to continue exploring the world,
-   with East Asia and Latin America next on my list.
-  
-  </motion.p>
-
-</div>
-
-</div>
-
-
-
-
-
-  </motion.div>
+  </div>
+</motion.div>
 
 {/* Basketball Section */}
 
@@ -811,13 +804,14 @@ onClick={(e)=>e.stopPropagation()}
   }}
   transition={{duration: 0.8, ease: "easeOut"}}>
 
-
-
   <div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5">
+
+
+  <div className= "w-[300px] h-[200px] sm:w-[400px] sm:h-[250px] flex-shrink-0 overflow-hidden rounded shadow bg-black">
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
-<img src= "/bball.png" alt= "Temi Otun" className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[400px] h-auto object-cover rounded shadow "/>
-
+<img src= "/bball.png" alt= "Temi Otun" className="w-full h-full object-cover object-center "/>
+</div>
 
 
 <div>
@@ -869,12 +863,14 @@ onClick={(e)=>e.stopPropagation()}
 
 
   <div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5">
+   
+    <div className="w-[300px] h-[200px] sm:w-[400px] sm:h-[250px] flex-shrink-0 overflow-hidden rounded shadow bg-black">
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 
-<img src= "/goodlife.webp" alt= "Temi Otun" className=" w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[400px] h-auto object-cover rounded shadow "/>
+<img src= "/goodlife.webp" alt= "Temi Otun" className=" w-[300px] h-[200px] sm:w-[400px] sm:h-[250px] object-cover rounded shadow"/>
 
-
+</div>
 
 
 <div>
@@ -888,7 +884,7 @@ onClick={(e)=>e.stopPropagation()}
   transition={{duration: 0.8, ease: "easeOut"}}> Fitness Training <FaDumbbell className="text-blue-400"></FaDumbbell></motion.h3>
 
 
-<motion.p className= "text-base leading-relaxed text-left mb-64 " style={{fontFamily:" 'Work Sans',sans-serif"}}
+<motion.p className= "text-base leading-relaxed text-left mb-60 " style={{fontFamily:" 'Work Sans',sans-serif"}}
 
  
   variants = {{
