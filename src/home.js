@@ -244,7 +244,7 @@ return (
      
       {/* Mobile Nav Dropdown */}
       <div
-        className={`absolute top-16 left-0 w-full bg-black z-50 sm:hidden flex flex-col items-center space-y-4 py-6 transition-all duration-300 ease-in-out ${
+        className={`fixed top-16 left-0 w-full bg-black z-50 sm:hidden flex flex-col items-center space-y-4 py-6 transition-all duration-300 ease-in-out ${
           menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
         }`}
       >
