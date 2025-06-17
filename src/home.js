@@ -223,19 +223,41 @@ return (
 
 
    {/* Intro Section */}
-<main ref={homeRef} id="Home" className = " relative h-screen bg-cover bg-center flex flex-col items-center justify-start pt-60 sm:px-12 text-center px-8"  style={{backgroundImage:"url('/vegas.png')"}}>
-  <p className= "text-2xl font-semibold text-white" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>Hi! my name is</p>
-  <h1 className="text-6xl font-bold mb-4 text-white "> Temi Otun</h1>
-  <p className= "text-white text-xl  font-semibold max-w-xl sm:text-xl"  style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}> I am a Student Researcher passionate about ML and software development.</p>
- <Link to="About" smooth={true} duration= {500} offset = {4} className= " absolute bottom-32 mt-20 inline-block bg-white text-black font-semibold tracking-widest px-8 py-2 rounded-full hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer pb-50 animate-bounce sm:text-xl " >  <FaChevronDown className= "text-gray-800 text-xl"></FaChevronDown></Link>
+<main
+  ref={homeRef}
+  id="Home"
+  className="relative h-screen bg-cover bg-center flex flex-col items-center justify-center text-center px-6 sm:px-12"
+  style={{ backgroundImage: "url('/vegas.png')" }}
+>
+  <p className="text-2xl font-semibold text-white" style={{ textShadow: '1px 1px 4px rgba(0,0,0,1)' }}>
+    Hi! my name is
+  </p>
+
+  <h1 className="text-5xl sm:text-6xl font-bold mb-4 text-white">
+    Temi Otun
+  </h1>
+
+  <p className="text-white text-lg sm:text-xl font-semibold max-w-xl" style={{ textShadow: '2px 2px 6px rgba(0,0,0,1)' }}>
+    I am a Student Researcher passionate about ML and software development.
+  </p>
+
+  <Link
+    to="About"
+    smooth
+    duration={500}
+    offset={4}
+    className="absolute bottom-28 sm:bottom-20 bg-white text-black font-semibold tracking-widest px-6 py-2 rounded-full hover:text-blue-400 transition duration-300 cursor-pointer animate-bounce"
+  >
+    <FaChevronDown className="text-gray-800 text-xl" />
+  </Link>
+
   <p
-   className = " absolute bottom-2 text-white text-base font-semibold bottom-4 -mt-40 sm:mt-20" 
-   
-   style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}>Background: Grand Canyon by Temi Otun</p>
-
+    className="absolute bottom-4 text-white text-sm font-semibold"
+    style={{ textShadow: '1px 1px 4px rgba(0,0,0,1)' }}
+  >
+    Background: Grand Canyon by Temi Otun
+  </p>
 </main>
-
-
 
 
 
