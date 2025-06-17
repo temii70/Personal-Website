@@ -1,6 +1,6 @@
 import React from "react";
 import Scrollspy from 'react-scrollspy';
-import { FaGithub,FaLinkedin, FaChevronDown,FaBriefcase, FaGraduationCap, FaPlane,FaBasketballBall,FaDumbbell} from "react-icons/fa"; /**font awesome */
+import { FaGithub,FaLinkedin, FaChevronDown,FaBriefcase, FaGraduationCap, FaPlane,FaBasketballBall,FaDumbbell, FaBars} from "react-icons/fa"; /**font awesome */
 import './index.css';
 import {Link, animateScroll as scroll} from 'react-scroll';
 import {easeInOut, motion,AnimatePresence} from "framer-motion";
@@ -158,6 +158,7 @@ useEffect(() => {
     );
   }
 
+
   return () => {
     if (vantaEffect) vantaEffect.destroy();
   };
@@ -165,6 +166,8 @@ useEffect(() => {
 
 // this is used to see if the main page is active or not
 
+
+const [menuOpen, setMenuOpen] = useState(false);
 
 
 // main website
@@ -192,7 +195,7 @@ return (
   <Scrollspy
     items={['Home','About','Experience','Projects','Activities','Contact']}
     currentClassName="text-blue-400 font-bold"
-    className="hidden sm:flex space-x-8 text-white justify-center space-x-4 sm:space-x-8 text-white"
+    className="hidden sm:flex space-x-8 text-white justify-center sm:space-x-6 text-white"
   >
     <Link to="Home" smooth duration={1000} className="hover:text-blue-400 transition font-bold cursor-pointer">Home</Link>
     <Link to="About" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">About</Link>
@@ -202,6 +205,29 @@ return (
     <Link to="Contact" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">Contact</Link>
   </Scrollspy>
 
+{menuOpen && (
+  <div className="absolute top-full left-0 w-full bg-black flex flex-col items-center py-4 sm:hidden z-50">
+    {['Home','About','Experience','Projects','Activities','Contact'].map((item) => (
+      <Link
+        key={item}
+        to={item}
+        smooth
+        duration={1000}
+        onClick={() => setMenuOpen(false)}
+        className="text-white py-2 hover:text-teal-400 font-bold"
+      >
+        {item}
+      </Link>
+    ))}
+  </div>
+)}
+
+
+
+
+
+
+
   {/* Right: Social Icons */}
   <div className="flex flex-wrap justify-center space-x-4 sm:space-x-8 text-white text-sm sm:text-base">
     <a href="https://github.com/temii70" className="hover:text-teal-400 transition" target="_blank" rel="noopener noreferrer">
@@ -210,7 +236,18 @@ return (
     <a href="https://www.linkedin.com/in/temi-otun-297801250/" className="hover:text-teal-400 transition" target="_blank" rel="noopener noreferrer">
       <FaLinkedin size={20} />
     </a>
+      <button
+className= "sm:hidden text-white"
+onClick= {()=> setMenuOpen(!menuOpen)}
+>
+  
+  <FaBars size={24}></FaBars>
+
+</button>
+
   </div>
+
+
 </header>
 
 
