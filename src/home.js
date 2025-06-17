@@ -176,8 +176,8 @@ return (
 
   <div  className="relative min-h-screen font-sans bg-cover bg-center"> {/**gray background making the div atleast as tall as fullscreen and uses font sans */}
     {/*header section relative means any child element with abs or fixed positioning will use this container as a refrence instead of whole page*/}
-<header className={`fixed top-0 w-full flex items-center justify-between px-4 sm:px-8 py-4 z-50 transition-all duration-300 ease-in-out 
-  ${(!isHomeInView  || menuOpen) ? 'bg-black/90 backdrop-blur-md border-b border-white/10 shadow-md' : 'bg-transparent'}
+<header className={`fixed top-0 w-full flex items-center justify-between px-4 sm:px-8 py-4 z-50  
+  ${(!isHomeInView  || menuOpen) ? 'bg-black/100 backdrop-blur-lg border-b border-white/10 shadow-md' : 'bg-transparent'}
 `}>
 
 
