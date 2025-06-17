@@ -322,14 +322,14 @@ return (
 > About Me</h2>
 
 
-<div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-20 px-4 sm:px-6">
+<div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-6 px-4 sm:px-6">
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 {/* Left Section */}
-<img src= "/temp.jpg" alt= "Temi Otun" className=" self-center -mt-10 w-60 h-60 sm:w-72 sm:h-72 md:w-[26rem] md:h-[26rem] rounded-full "/>
+<img src= "/temp.jpg" alt= "Temi Otun" className=" self-center -mt-10 md:mb-0 w-60 h-60 sm:w-72 sm:h-72 md:w-[26rem] md:h-[26rem] rounded-full "/>
 
 {/* Bio Section */}
-<div className="flex flex-col  md:items-start text-base leading-relaxed px-4 sm:px-6 w-full max-w-3xl"
+<div className="flex flex-col mb-6 md:items-start text-base leading-relaxed px-4 sm:px-6 w-full max-w-3xl"
   
   >
   
