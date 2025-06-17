@@ -16,7 +16,7 @@ import axios from "axios";
 
 export default function Home () {
   const { ref:homeRef, inView: isHomeInView} = useInView({
-threshold:0.1
+threshold:0.01
 
 })
 
@@ -173,7 +173,7 @@ return (
 
   <div  className="relative min-h-screen font-sans bg-cover bg-center"> {/**gray background making the div atleast as tall as fullscreen and uses font sans */}
     {/*header section relative means any child element with abs or fixed positioning will use this container as a refrence instead of whole page*/}
-<header className={`fixed top-0 w-full flex items-center justify-between px-8 py-6 z-50 transition-all duration-300 ease-in-out
+<header className={`fixed top-0 w-full flex items-center justify-between px-8 py-6 z-50 transition-all duration-300 ease-in-out sm:px-8 py-4 z-50 transition-all duration-300 ease-in-out
   ${!isHomeInView ? 'bg-black/90 backdrop-blur-md border-b border-white/10 shadow-md' : 'bg-transparent'}
 `}>
 
@@ -184,7 +184,7 @@ return (
     <img
       src="/logowhite.png"
       alt="temi logo"
-      className="h-14 w-auto object-contain"
+      className="h-10 w-auto object-contain"
     />
   </a>
 
@@ -192,7 +192,7 @@ return (
   <Scrollspy
     items={['Home','About','Experience','Projects','Activities','Contact']}
     currentClassName="text-blue-400 font-bold"
-    className="hidden sm:flex space-x-8 text-white"
+    className="sm:flex space-x-8 text-white"
   >
     <Link to="Home" smooth duration={1000} className="hover:text-blue-400 transition font-bold cursor-pointer">Home</Link>
     <Link to="About" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">About</Link>
@@ -227,7 +227,7 @@ return (
   <p className= "text-2xl font-semibold text-white" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>Hi! my name is</p>
   <h1 className="text-6xl font-bold mb-4 text-white "> Temi Otun</h1>
   <p className= "text-white text-xl  font-semibold max-w-xl sm:text-xl"  style= {{textShadow:'2px 2px 6px rgba(0,0,0,1)'}}> I am a Student Researcher passionate about ML and software development.</p>
- <Link to="About" smooth={true} duration= {1000} offset = {4} className= "mt-60 inline-block bg-gray-100 text-white font-semibold tracking-widest px-8 py-2 rounded-full hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer pb-50 animate-bounce sm:text-xl " >  <FaChevronDown className= "text-gray-800 text-xl"></FaChevronDown></Link>
+ <Link to="About" smooth={true} duration= {500} offset = {4} className= "mt-60 inline-block bg-gray-100 text-white font-semibold tracking-widest px-8 py-2 rounded-full hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer pb-50 animate-bounce sm:text-xl " >  <FaChevronDown className= "text-gray-800 text-xl"></FaChevronDown></Link>
   <p
    className = "text-white text-base font-semibold bottom-4 -mt-40 sm:mt-20" 
    
@@ -470,7 +470,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
 >
   {/* left degree and date */}
-  <div className= " w-full md:w-1/3  text-left md:text-right md:pr-4 mb-32 ">
+  <div className= " w-full md:w-1/3  text-left md:text-right md:pr-4 ">
   <h3 className="text-xl font-bold text-teal-400">
   Bachelor of Science
   </h3>
@@ -481,7 +481,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
 
   {/* center icon */}
-  <div className = "flex justify-center md:flex-col md:items-center mb-4 md:mb-0">
+  <div className = "flex justify-center md:flex-col md:items-center mb-4 md:mb-0 ">
     <div className= "w-10 h-10 bg-gray-700  rounded-full flex items-center justify-center">
     <FaGraduationCap className = "text-white text-xl">
 
@@ -492,7 +492,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
   </div>
 
 {/* right */}
-   <div className="w-full md:w-1/2 ">
+   <div className="w-full md:w-1/2 mb-32 ">
         <h4 className="text-lg font-bold text-white">University of Alberta</h4>
         <p className="text-sm mb-20 font-semibold">
           Major in computer science, specializing in Artificial Intelligence.
@@ -531,7 +531,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
  {/* Projects */}
 
- <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans pb-96  " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+ <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans pb-96 sm:pb-40 md:pb-64 lg:pb-96  " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
 
    <h2  className="text-4xl font-bold text-center mb-12" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
@@ -560,13 +560,13 @@ I focused on optimizing query performance using both the UI and SQL to build adv
     </img>
     <div
     className="absolute inset-0 bg-black bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 flex flex-col justify-center items-center text-center px-4  ">
-    <h3 className= "text-white text-lg font-bold mb-20">
+    <h3 className= "text-white text-lg font-bold mb-14">
       {proj.name}
 
     </h3>
 
     <p
-    className="text-md text font-bold text-white"
+    className="text-md text font-bold text-white "
     > {proj.short_desc}
 
     </p>
@@ -649,7 +649,7 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Activities */}
 
-<section id="Activities" className="min-h-screen font-sans bg-gray dark:text-black flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
     initial = {{opacity:0,y:20}}
