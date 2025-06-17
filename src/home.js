@@ -252,14 +252,14 @@ return (
 > About Me</h2>
 
 
-<div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5">
+<div className= "max-w-5xl w-full flex flex-col md:flex-row items-start md:items-start md:gap-5 px-4 sm:px-6">
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 {/* Left Section */}
-<img src= "/temp.jpg" alt= "Temi Otun" className=" self-start -mt-16 w-[22rem] h-[22rem] sm:w-[24rem] sm:h-[24rem] md:w-[26rem] md:h-[26rem] rounded-full "/>
+<img src= "/temp.jpg" alt= "Temi Otun" className=" self-center -mt-10 w-60 h-60 sm:w-72 sm:h-72 md:w-[26rem] md:h-[26rem] rounded-full "/>
 
 {/* Bio Section */}
-<div className="flex flex-col  md:items-start text-base leading-relaxed"
+<div className="flex flex-col  md:items-start text-base leading-relaxed px-4 sm:px-6 w-full max-w-3xl"
   
   >
   
@@ -330,7 +330,7 @@ return (
     {/* Job Item */}
 
 
-    <motion.div  className="flex flex-col md:flex-row items-start gap-8 w-full"
+    <motion.div  className="flex flex-col md:flex-row items-start gap-8 px-4 sm:px-6 py-6"
  
   variants = {{
     hidden: {opacity : 0, y:50},
@@ -346,7 +346,7 @@ return (
       </div>
 
       {/* Center: Icon + Line */}
-      <div className="flex flex-row md:flex-col items-center justify-center md:justify-start items-center">
+      <div className="flex flex-row md:flex-col justify-center md:justify-start space-x-4 md:space-x-0 md:space-y-4 items-center">
         
         <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
           <FaBriefcase className="text-white text-xl" />
@@ -378,7 +378,7 @@ return (
     {/* second job*/}
     {/* ... */}
      {/* Job Item */}
-     <motion.div  className="flex flex-col md:flex-row items-start gap-8"
+     <motion.div  className="flex flex-col md:flex-row items-start gap-8 px-4 sm:px-6"
   
   variants = {{
     hidden: {opacity : 0, y:50},
@@ -403,7 +403,7 @@ return (
 
       {/* Right: Company & Description */}
       <div className="w-full md:w-1/2">
-        <h4 className="text-lg font-bold text-white-400">University of Alberta</h4>
+        <h4 className="text-lg font-bold text-white">University of Alberta</h4>
         <p className="text-sm mt-2   font-semibold">
 I’m currently involved in projects focused on predictive healthcare modeling. As part of the research lab, I regularly participate in weekly presentations where PhD and Master’s students share insights on topics like survival analysis and heart disease prediction. I also contribute to ongoing research by documenting experiments and assisting with various aspects of the lab’s work.        </p>
       </div>
@@ -411,7 +411,7 @@ I’m currently involved in projects focused on predictive healthcare modeling. 
     {/*  third job */}
      {/* Job Item */}
 
-    <motion.div  className="flex flex-col md:flex-row items-start gap-8"
+    <motion.div  className="flex flex-col md:flex-row items-start gap-8 gap-8 px-4 sm:px-6 py-6"
    
   variants = {{
     hidden: {opacity : 0, y:50},
@@ -461,7 +461,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
     </motion.h2>
 
 
-<motion.div className="flex items-start gap-8"
+<motion.div className="flex flex-col md:flex-row items-start gap-6 px-4 sm:px-6 mb-24 "
    variants = {{
     hidden: {opacity : 0, y:50},
     visible : {opacity: 1,y:0},
@@ -470,7 +470,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
 >
   {/* left degree and date */}
-  <div className= " w-full md:w-1/3  text-left md:text-right md:pr-4 mb-4 md:mb-0">
+  <div className= " w-full md:w-1/3  text-left md:text-right md:pr-4 mb-32 ">
   <h3 className="text-xl font-bold text-teal-400">
   Bachelor of Science
   </h3>
@@ -481,7 +481,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
 
   {/* center icon */}
-  <div className = "flex flex-col items-center">
+  <div className = "flex justify-center md:flex-col md:items-center mb-4 md:mb-0">
     <div className= "w-10 h-10 bg-gray-700  rounded-full flex items-center justify-center">
     <FaGraduationCap className = "text-white text-xl">
 
@@ -492,7 +492,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
   </div>
 
 {/* right */}
-   <div className="w-full md:w-1/2 mb-24">
+   <div className="w-full md:w-1/2 ">
         <h4 className="text-lg font-bold text-white">University of Alberta</h4>
         <p className="text-sm mb-20 font-semibold">
           Major in computer science, specializing in Artificial Intelligence.
@@ -531,7 +531,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
  {/* Projects */}
 
- <section id="Projects" ref={vantaRef} className="min-h-screen bg-gray text-white px-8 pt-40 font-sans" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+ <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans pb-96  " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
 
    <h2  className="text-4xl font-bold text-center mb-12" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
@@ -554,7 +554,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
     <img
     src = {proj.icon}
     alt = {proj.name}
-    className = "w-full h-60 object-cover transform group-hover:scale-105 transition duration-300 "
+    className = "w-full h-60 object-cover  transform group-hover:scale-105 transition duration-300 "
     >
     
     </img>
@@ -914,7 +914,7 @@ onClick={(e)=>e.stopPropagation()}
         Let's Connect!
 
     </h3>
-    <p className="text-sm dark:text-white text-center">
+    <p className="text-sm dark:text-black text-center">
       Please contact me directly at <a href ="mailto:Otun226@gmail.com" class="underline">Otun226@gmail.com</a> or through this form.
     </p>
 
