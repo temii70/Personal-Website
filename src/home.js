@@ -610,7 +610,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
     </h2>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 max-w-6xl mx-auto px-4 sm:px-0 pb-8">
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 max-w-6xl mx-auto px-4 sm:px-0 pb-16">
   {projects.map((proj) => (
     <motion.div
     key = {proj.id}
