@@ -374,7 +374,7 @@ return (
 
 {/* Experience Section */}
 
-<section id="Experience" className="min-h-screen font-sans bg-black text-white flex pt-24 flex-col items-center justify-start px-4"style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Experience" className="min-h-screen font-sans bg-zinc-900 text-white flex pt-24 flex-col items-center justify-start px-4"style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-12"
     initial = {{opacity:0,y:20}}
@@ -601,7 +601,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
  {/* Projects */}
 
- <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 pb-32 font-sans sm:pb-64 mb-32 md:pb-64 lg:pb-96   " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+ <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans sm:pb-64 mb-32 md:pb-64 lg:pb-96   " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
 
    <h2  className="text-4xl font-bold text-center mb-12" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
@@ -723,7 +723,7 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Activities */}
 
-<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8 " style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
     initial = {{opacity:0,y:20}}
@@ -940,7 +940,7 @@ onClick={(e)=>e.stopPropagation()}
 
 
 
-<section id="Contact" className="min-h-screen font-sans bg-neutral-100 dark:text-black flex pt-20 flex-col items-center justify-start" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Contact" className="min-h-screen font-sans bg-neutral-100 dark:text-black flex pt-20 flex-col items-center justify-start pb-32" style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
     initial = {{opacity:0,y:20}}
