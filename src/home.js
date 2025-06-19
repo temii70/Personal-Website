@@ -406,14 +406,15 @@ return (
 >
   {/* Left Column: Title + Date (mobile layout includes icon) */}
   <div className="w-full md:w-1/3 flex flex-col md:items-end md:text-right space-y-2">
+
     {/* Mobile view: title + date + icon side-by-side */}
     <div className="flex items-center md:hidden gap-2">
-      <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
-        <FaBriefcase className="text-white text-sm" />
+      <div className="w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center">
+        <FaBriefcase className="text-white text-[12px]" />
       </div>
       <div>
-        <h3 className="text-base font-bold text-blue-400">Research Assistant</h3>
-        <p className="text-sm text-gray-400 font-semibold">Jan 2025 – Present</p>
+        <h3 className="text-base font-bold text-blue-400 leading-tight">Research Assistant</h3>
+        <p className="text-sm text-gray-400 font-semibold leading-tight">Jan 2025 – Present</p>
       </div>
     </div>
 
@@ -456,13 +457,14 @@ return (
   {/* Left Column: Title + Date (mobile layout includes icon) */}
   <div className="w-full md:w-1/3 flex flex-col md:items-end md:text-right space-y-2">
     {/* Mobile view: title + date + icon side-by-side */}
+
     <div className="flex items-center md:hidden gap-2">
-      <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
-        <FaBriefcase className="text-white text-sm" />
+      <div className="w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center">
+        <FaBriefcase className="text-white text-[12px]" />
       </div>
       <div>
-        <h3 className="text-base font-bold text-blue-400">Research Assistant</h3>
-        <p className="text-sm text-gray-400 font-semibold">Jan 2025 – Present</p>
+        <h3 className="text-base font-bold text-blue-400 leading-tight">Research Assistant</h3>
+        <p className="text-sm text-gray-400 font-semibold leading-tight">Jan 2025 – Present</p>
       </div>
     </div>
 
@@ -504,13 +506,14 @@ return (
   {/* Left Column: Title + Date (mobile layout includes icon) */}
   <div className="w-full md:w-1/3 flex flex-col md:items-end md:text-right space-y-2">
     {/* Mobile view: title + date + icon side-by-side */}
-    <div className="flex items-center md:hidden gap-2">
-      <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
-        <FaBriefcase className="text-white text-sm" />
+    
+     <div className="flex items-center md:hidden gap-2">
+      <div className="w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center">
+        <FaBriefcase className="text-white text-[12px]" />
       </div>
       <div>
-        <h3 className="text-base font-bold text-blue-400">Research Assistant</h3>
-        <p className="text-sm text-gray-400 font-semibold">Jan 2025 – Present</p>
+        <h3 className="text-base font-bold text-blue-400 leading-tight">Research Assistant</h3>
+        <p className="text-sm text-gray-400 font-semibold leading-tight">Jan 2025 – Present</p>
       </div>
     </div>
 
