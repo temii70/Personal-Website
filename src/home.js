@@ -407,15 +407,15 @@ return (
   {/* Left Column: Title + Date (mobile layout includes icon) */}
   <div className="w-full md:w-1/3 flex flex-col md:items-end md:text-right space-y-2">
   
-    {/* Mobile view: title + date + icon side-by-side */}
-   {/* Mobile: icon + title, then date (md:hidden) */}
-
-{/* Mobile View: Icon + Role + Date stacked */}
-<div className="flex items-center gap-2 md:hidden mb-2">
-  <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
+ {/* Mobile View: Icon + Role on same row, then Date aligned with Role */}
+<div className="flex items-start gap-2 md:hidden mb-2">
+  {/* Icon */}
+  <div className="w-9 h-9 bg-gray-700 rounded-full flex items-center justify-center mt-1">
     <FaBriefcase className="text-white text-lg" />
   </div>
-  <div>
+
+  {/* Role Title + Date */}
+  <div className="flex flex-col">
     <h3 className="text-base font-bold text-blue-400">Research Assistant</h3>
     <p className="text-sm text-gray-400 font-semibold">Jan 2025 – Present</p>
   </div>
