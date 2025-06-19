@@ -406,22 +406,17 @@ return (
 >
   {/* Left Column: Title + Date (mobile layout includes icon) */}
   <div className="w-full md:w-1/3 flex flex-col md:items-end md:text-right space-y-2">
-  
- {/* Mobile View: Role + Date aligned left, icon floats beside */}
-<div className="flex md:hidden gap-2 mb-2">
-  {/* Icon */}
-  <div className="flex-shrink-0 pt-1">
-    <div className="w-9 h-9 bg-gray-700 rounded-full flex items-center justify-center">
-      <FaBriefcase className="text-white text-lg" />
-    </div>
-  </div>
 
-  {/* Title + Date stacked, aligned left */}
-  <div className="flex flex-col">
+ <div className="flex items-center gap-2 md:hidden mb-2">
+  <div className="w-9 h-9 bg-gray-700 rounded-full flex items-center justify-center">
+    <FaBriefcase className="text-white text-lg" />
+  </div>
+  <div className="flex flex-col pl-1">  {/* <-- THIS IS THE KEY */}
     <h3 className="text-base font-bold text-blue-400 leading-none">Research Assistant</h3>
-    <p className="text-sm text-gray-400 font-semibold mt-1 leading-none">Jan 2025 – Present</p>
+    <p className="text-sm text-gray-400 font-semibold leading-none">Jan 2025 – Present</p>
   </div>
 </div>
+
 
 
 
