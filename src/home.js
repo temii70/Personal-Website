@@ -326,7 +326,7 @@ return (
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 {/* Left Section */}
-<img src= "/temp.jpg" alt= "Temi Otun" className=" self-center -mt-10 md:mb-0 w-60 h-60 sm:w-72 sm:h-72 md:w-[26rem] md:h-[26rem] rounded-full "/>
+<img src= "/temp.jpg" alt= "Temi Otun" className=" self-center -mt-10 mb-6 md:mb-0 w-60 h-60 sm:w-72 sm:h-72 md:w-[26rem] md:h-[26rem] rounded-full "/>
 
 {/* Bio Section */}
 <div className="flex flex-col mb-6 md:items-start text-base leading-relaxed px-4 sm:px-6 w-full max-w-3xl"
@@ -345,7 +345,7 @@ return (
     hidden: {opacity : 0, y:50},
     visible : {opacity: 1,y:0},
   }}
-  transition={{duration: 0.8, ease: "easeOut"}}> I am also a member of Dr. Greiner's lab, helping out in  projects focused on AI-driven survival and disease prediction. Outside of academics and research, I volunteer with the ColorStack club at the University of Alberta. In my free time, I enjoy going to the gym, reading books and manga, and playing basketball. </p>
+  transition={{duration: 0.8, ease: "easeOut"}}> I am also a member of Dr. Greiner's lab, helping out in  projects focused on AI-driven survival and disease prediction. In my free time, I enjoy going to the gym, reading books and manga, and playing basketball. </p>
 
 
 <a href ="/TemiOtunresumewebsite.pdf" 
@@ -564,8 +564,8 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 {/* right */}
    <div className="w-full md:w-1/2 mb-24 ">
         <h4 className="text-lg font-bold text-white">University of Alberta</h4>
-        <p className="text-sm mb-20 font-semibold">
-          Major in Computer Dcience, specializing in Artificial Intelligence.
+        <p className="text-sm  font-semibold">
+          Major in Computer Science, specializing in Artificial Intelligence.
         </p>
       </div>
 
@@ -601,7 +601,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
  {/* Projects */}
 
- <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans sm:pb-16 md:pb-64 lg:pb-96  " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+ <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans sm:pb-32 md:pb-64 lg:pb-96  " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
 
    <h2  className="text-4xl font-bold text-center mb-12" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
@@ -630,7 +630,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
     </img>
     <div
     className="absolute inset-0 bg-black bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 flex flex-col justify-center items-center text-center px-4  ">
-    <h3 className= "text-white text-lg font-bold mb-14">
+    <h3 className= "text-white text-lg font-bold ">
       {proj.name}
 
     </h3>
@@ -783,8 +783,8 @@ onClick={(e)=>e.stopPropagation()}
         variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        I’ve had the opportunity to travel to several countries, including the United States,
-        France, the United Kingdom, Nigeria, Libya, Germany, and the Netherlands. One of the
+        I’ve had the opportunity to travel to many countries, including the United States,
+        France, the United Kingdom, and Nigeria. One of the
         most memorable places I’ve visited is the Grand Canyon in Arizona. I was truly awestruck
         by its immense size and natural beauty. I hope to continue exploring the world, with East
         Asia and Latin America next on my list.
@@ -1028,13 +1028,13 @@ onClick={(e)=>e.stopPropagation()}
     required
     
     />
-    <div  className="flex justify-center ">
+    <div  className="flex justify-center  ">
     <button
       type= "submit"
-      className="bg-gray-400 dark:text-black px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white -mt-5 "
+      className="bg-gray-400 dark:text-black px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white -mt-2 "
     >
       {status && (
-        <p className="text-center mt-4 text-sm font-semibold dark:text-teal-400  "> {status}</p>
+        <p className="text-center mt-4 text-sm font-semibold dark:text-teal-400   "> {status}</p>
       )}
       Send Message
     </button>
