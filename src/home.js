@@ -376,7 +376,7 @@ return (
 
 <SectionWrapper id="Experience" className="bg-zinc-900 text-white">
 
-   <motion.h2  className="text-4xl font-bold text-center mb-12"
+    <motion.h2  className="text-4xl font-bold text-center mb-12"
     initial = {{opacity:0,y:20}}
     whileInView={{opacity: 1,y: 0}}
     transition= {{duration:0.7 ,ease: "easeOut"}}
@@ -398,214 +398,179 @@ return (
   >
 {/* vertical Line */}
     {/* Job Item */}
-<motion.div
-  className="flex flex-col md:flex-row items-start gap-6 px-4 sm:px-6"
-  variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
->
-  {/* LEFT COLUMN */}
-  <div className="w-full md:w-1/3 flex flex-col items-start md:items-end md:text-right md:pr-2 justify-start">
-    {/* Mobile Icon + Title + Date */}
-    <div className="flex items-center gap-2 md:hidden mb-2">
-      <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
-        <FaBriefcase className="text-white text-base" />
+
+
+    <motion.div  className="flex flex-col md:flex-row items-start gap-8 px-4 sm:px-6 py-6"
+ 
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}
+  >
+
+      {/* Left: Title & Date */}
+      <div className="w-full md:w-1/3 text-left md:text-right md:pr-4 mb-4 md:mb-0">
+        <h3 className="text-xl font-bold text-blue-400">Research Assistant</h3>
+        <p className="text-sm text-gray-400  font-semibold">Jan 2025 – Present</p>
       </div>
-      <div className="flex flex-col pl-1">
-        <h3 className="text-base font-bold text-blue-400 leading-none">
-          Research Assistant
-        </h3>
-        <p className="text-sm text-gray-400 font-semibold leading-none">
-          Jan 2025 – Present
-        </p>
+
+      {/* Center: Icon + Line */}
+      <div className="flex flex-row md:flex-col justify-center md:justify-start space-x-4 md:space-x-0 md:space-y-4 items-center">
+        
+        <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+          <FaBriefcase className="text-white text-xl" />
+        </div>
+        <div className="w-px bg-gray-600 h-full mt-2" />
       </div>
-    </div>
 
-    {/* Desktop Title and Date */}
-    <div className="hidden md:flex flex-col items-end">
-      <h3 className="text-lg font-bold text-blue-400 leading-none">
-        Research Assistant
-      </h3>
-      <p className="text-sm text-gray-400 font-semibold leading-none mt-1">
-        Jan 2025 – Present
-      </p>
-    </div>
-  </div>
+      {/* Right: Company & Description */}
+      <div className="w-full md:w-1/2">
+        <h4 className="text-lg font-bold ">TMIC Wishart Node</h4>
+        <p className="text-sm mt-2 text-white mb-2 font-semibold">
+          At Wishart’s Lab, I’ve been working on meteorological forecasting, applying a broad range of techniques in both data analysis and model development. My work has included exploratory data analysis, time series decomposition, partial and auto-correlation analysis, trend and seasonality extraction, feature imputation, and the use of Fast Fourier Transforms to identify cyclical patterns. 
+          </p >
 
-  {/* CENTER ICON (Desktop Only) */}
-  <div className="hidden md:flex flex-col items-center">
-    <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
-      <FaBriefcase className="text-white text-xl" />
-    </div>
-    <div className="w-px bg-gray-600 h-full" />
-  </div>
+           <p className="text-sm mt-2 text-gray-200 mb-2 font-semibold">
+                 I’ve gained a deep understanding of statistical models like ARIMA and SARIMA, deep learning architectures such as LSTMs, RNNs, and Transformers, and machine learning methods including LightGBM and XGBoost. Across a six-year test set, my models achieved up to 47% lower MAE, with an average improvement of 24.26% compared to previous approaches.
 
-  {/* RIGHT COLUMN */}
-  <div className="w-full md:w-1/2 flex flex-col justify-start">
-    <div className="flex flex-col justify-start">
-      <h4 className="text-lg font-bold text-white leading-none">
-        TMIC Wishart Node
-      </h4>
-      <p className="text-sm text-white font-semibold leading-none mt-1">
-        {/* Empty to balance alignment visually */}
-      </p>
-    </div>
-    <div className="mt-2">
-      <p className="text-sm text-white mb-2 font-semibold leading-snug">
-        At Wishart’s Lab, I’ve been working on meteorological forecasting...
-      </p>
-      <p className="text-sm text-gray-200 font-semibold leading-snug">
-        I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
-      </p>
-    </div>
-  </div>
-</motion.div>
 
+            
+             </p>
+
+   
+        {/* <p className="text-sm mt-2 text-gray-200 mb-2" > 
+        </p> */}
+        {/* add later^ */}
+      </div>
+    </motion.div>
 
     {/* second job*/}
     {/* ... */}
      {/* Job Item */}
-<motion.div
-  className="flex flex-col md:flex-row items-start gap-6 px-4 sm:px-6"
-  variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
->
-  {/* LEFT COLUMN */}
-  <div className="w-full md:w-1/3 flex flex-col items-start md:items-end md:text-right md:pr-2 justify-start">
-    <h3 className="text-lg font-bold text-blue-400 ">
-      Research Assistant
-    </h3>
-    <p className="text-sm text-gray-400 font-semibold">
-      Jan 2025 – Present
-    </p>
-  </div>
+     <motion.div  className="flex flex-col md:flex-row items-start gap-8 px-4 sm:px-6"
+  
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}>
 
-  {/* CENTER ICON (Desktop Only) */}
-  <div className="hidden md:flex flex-col items-center">
-    <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
-      <FaBriefcase className="text-white text-xl" />
-    </div>
-    <div className="w-px bg-gray-600 h-full " />
-  </div>
 
-  {/* RIGHT COLUMN */}
-  <div className="w-full md:w-1/2">
-    <h4 className="text-lg font-bold text-white ">
-      TMIC Wishart Node
-    </h4>
-    <p className="text-sm text-white mb-2 font-semibold leading-snug">
-      At Wishart’s Lab, I’ve been working on meteorological forecasting...
-    </p>
-    <p className="text-sm text-gray-200 font-semibold leading-snug">
-      I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
-    </p>
-  </div>
-</motion.div>
+      {/* Left: Title & Date */}
+      <div className="w-full md:w-1/3 md:text-right md:pr-4 mb-4 md:mb-0">
+        <h3 className="text-xl font-bold text-blue-400">Research Assistant</h3>
+        <p className="text-sm text-gray-400  font-semibold">Sept 2024 – Present</p>
+      </div>
 
+      {/* Center: Icon + Line */}
+      <div className="flex flex-col items-center">
+        <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+          <FaBriefcase className="text-white text-xl" />
+        </div>
+        <div className="w-px bg-gray-600 h-full mt-2" />
+      </div>
+
+      {/* Right: Company & Description */}
+      <div className="w-full md:w-1/2">
+        <h4 className="text-lg font-bold text-white">University of Alberta</h4>
+        <p className="text-sm mt-2   font-semibold">
+I’m currently involved in projects focused on predictive healthcare modeling. As part of the research lab, I regularly participate in weekly presentations where PhD and Master’s students share insights on topics like survival analysis and heart disease prediction. I also contribute to ongoing research by documenting experiments and assisting with various aspects of the lab’s work.        </p>
+      </div>
+    </motion.div>
     {/*  third job */}
      {/* Job Item */}
 
- <motion.div
-  className="flex flex-col md:flex-row items-start gap-6 px-4 sm:px-6"
-  variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
->
-  {/* LEFT COLUMN */}
-  <div className="w-full md:w-1/3 flex flex-col items-start md:items-end md:text-right md:pr-2 justify-start">
-    <h3 className="text-lg font-bold text-blue-400 ">
-      Research Assistant
-    </h3>
-    <p className="text-sm text-gray-400 font-semibold">
-      Jan 2025 – Present
-    </p>
-  </div>
+    <motion.div  className="flex flex-col md:flex-row items-start gap-8 gap-8 px-4 sm:px-6 py-6"
+   
+  variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
+  }}
+  transition={{duration: 0.8, ease: "easeOut"}}>
 
-  {/* CENTER ICON (Desktop Only) */}
-  <div className="hidden md:flex flex-col items-center">
-    <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
-      <FaBriefcase className="text-white text-xl" />
-    </div>
-    <div className="w-px bg-gray-600 h-full " />
-  </div>
 
-  {/* RIGHT COLUMN */}
-  <div className="w-full md:w-1/2">
-    <h4 className="text-lg font-bold text-white ">
-      TMIC Wishart Node
-    </h4>
-    <p className="text-sm text-white mb-2 font-semibold leading-snug">
-      At Wishart’s Lab, I’ve been working on meteorological forecasting...
-    </p>
-    <p className="text-sm text-gray-200 font-semibold leading-snug">
-      I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
-    </p>
-  </div>
+      {/* Left: Title & Date */}
+      <div className="w-full md:w-1/3 text-left md:text-right md:pr-4 mb-4 md:mb-0">
+        <h3 className="text-xl font-bold text-blue-400">Data Management Intern</h3>
+        <p className="text-sm text-gray-400  font-semibold">Feb 2024 - May 2024</p>
+      </div>
+
+      {/* Center: Icon + Line */}
+      <div className="flex flex-col items-center">
+        <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+          <FaBriefcase className="text-white text-xl" />
+        </div>
+        <div className="w-px bg-gray-600 h-full mt-2" />
+      </div>
+
+      {/* Right: Company & Description */}
+      <div className="w-full md:w-1/2">
+        <h4 className="text-lg font-bold ">InfoStrux</h4>
+        <p className="text-sm mt-2  font-semibold">
+I focused on optimizing query performance using both the UI and SQL to build advanced data models. I contributed to the design of data architecture, which gave me a deeper understanding of how data structures are organized and managed in cloud environments. I also created and managed databases and schemas to handle structured, semi-structured, and unstructured data. </p>
+      </div>
+
+
+ 
+
+
+
+
+
 </motion.div>
 
-
-
-
-<motion.h2
-  className="text-4xl font-bold text-center mb-12"
-  variants={{
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
+   <motion.h2 className= "text-4xl font-bold text-center pr-[110px] "
+      variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
   }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
->
-  Education
-</motion.h2>
+  transition={{duration: 0.8, ease: "easeOut"}}
+      > 
+      Education
+    </motion.h2>
 
-<motion.div
-  className="flex flex-col md:flex-row items-start gap-6 px-4 sm:px-6 mb-24"
-  variants={{
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
+
+<motion.div className="flex flex-col md:flex-row items-start gap-6 px-4 sm:px-6 mb-24 "
+   variants = {{
+    hidden: {opacity : 0, y:50},
+    visible : {opacity: 1,y:0},
   }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
+  transition={{duration: 0.8, ease: "easeOut"}}
+
 >
-  {/* Left Column: Degree + Date */}
-  <div className="w-full md:w-1/3 space-y-2 md:text-right md:pr-4">
-    {/* Mobile layout: Icon + Title + Date inline */}
-    <div className="flex items-center gap-2 md:hidden">
-      <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
-        <FaGraduationCap className="text-white text-sm" />
-      </div>
-      <div>
-        <h3 className="text-base font-bold text-teal-400 leading-none">
-          Bachelor of Science
-        </h3>
-        <p className="text-sm text-white font-semibold leading-none">
-          2022–2027
+  {/* left degree and date */}
+  <div className= " w-full md:w-1/3  text-left md:text-right md:pr-4 ">
+  <h3 className="text-xl font-bold text-teal-400">
+  Bachelor of Science
+  </h3>
+  <p className="text-sm text-white  font-semibold"> 2022-2027</p>
+
+
+  </div>
+
+
+  {/* center icon */}
+  <div className = "flex justify-center md:flex-col md:items-center mb-4 md:mb-0 ">
+    <div className= "w-10 h-10 bg-gray-700  rounded-full flex items-center justify-center">
+    <FaGraduationCap className = "text-white text-xl">
+
+    </FaGraduationCap>
+
+    </div>
+
+  </div>
+
+{/* right */}
+   <div className="w-full md:w-1/2 mb-24 ">
+        <h4 className="text-lg font-bold text-white">University of Alberta</h4>
+        <p className="text-sm  font-semibold">
+          Major in Computer Science, specializing in Artificial Intelligence.
         </p>
       </div>
-    </div>
 
-    {/* Desktop layout */}
-    <div className="hidden md:block">
-      <h3 className="text-xl font-bold text-teal-400">Bachelor of Science</h3>
-      <p className="text-sm text-white font-semibold">2022–2027</p>
-    </div>
-  </div>
 
-  {/* Center Column: Icon (desktop only) */}
-  <div className="hidden md:flex flex-col items-center">
-    <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
-      <FaGraduationCap className="text-white text-xl" />
-    </div>
-    <div className="w-px bg-gray-600 h-full mt-2" />
-  </div>
-
-  {/* Right Column: University Details (with left padding on mobile) */}
-  <div className="w-full md:w-1/2 pl-11 md:pl-0">
-    <h4 className="text-lg font-bold text-white">University of Alberta</h4>
-    <p className="text-sm font-semibold">
-      Major in Computer Science, specializing in Artificial Intelligence.
-    </p>
-  </div>
 </motion.div>
-
-
-
 
 
 
