@@ -221,7 +221,7 @@ return (
     </a>
     {/* hamburger */}
 
-      <button className="sm:hidden text-white" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+      <button className="sm:hidden text-white hover:text-teal-400" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
             {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
 
@@ -244,7 +244,7 @@ return (
      
       {/* Mobile Nav Dropdown */}
       <div
-        className={`fixed top-16 left-0 w-full bg-black z-50 sm:hidden flex flex-col items-center space-y-4 py-6 transition-all duration-300 ease-in-out ${
+        className={`fixed top-16 left-0 w-full bg-black z-50 sm:hidden flex flex-col items-center space-y-4 py-6 transition-all duration-300 ease-in-out hover:${
           menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
         }`}
       >
@@ -333,7 +333,7 @@ return (
   
   >
   
-<p className= "text-base leading-relaxed text-left mb-4" style={{fontFamily:" 'Work Sans',sans-serif"}}
+<p className= "text-base leading-relaxed text-left " style={{fontFamily:" 'Work Sans',sans-serif"}}
 
  
  
@@ -601,7 +601,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
  {/* Projects */}
 
- <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans sm:pb-32 md:pb-64 lg:pb-96  " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+ <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans sm:pb-64 md:pb-64 lg:pb-96  " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
 
    <h2  className="text-4xl font-bold text-center mb-12" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
@@ -723,7 +723,7 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Activities */}
 
-<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8 mt-32" style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
     initial = {{opacity:0,y:20}}
@@ -884,7 +884,7 @@ onClick={(e)=>e.stopPropagation()}
   transition={{duration: 0.8, ease: "easeOut"}}> Fitness Training <FaDumbbell className="text-blue-400"></FaDumbbell></motion.h3>
 
 
-<motion.p className= "text-base leading-relaxed text-left mb-60 " style={{fontFamily:" 'Work Sans',sans-serif"}}
+<motion.p className= "text-base leading-relaxed text-left mb-44 " style={{fontFamily:" 'Work Sans',sans-serif"}}
 
  
   variants = {{
@@ -1031,7 +1031,7 @@ onClick={(e)=>e.stopPropagation()}
     <div  className="flex justify-center  ">
     <button
       type= "submit"
-      className="bg-gray-400 dark:text-black px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white -mt-2 "
+      className="bg-gray-400 dark:text-black px-6 py-3 rounded font-bold hover:text-blue-400 transition duration-300 shadow-lg hover:bg-white -mt-3 "
     >
       {status && (
         <p className="text-center mt-4 text-sm font-semibold dark:text-teal-400   "> {status}</p>
