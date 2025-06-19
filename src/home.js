@@ -726,7 +726,7 @@ onClick={(e)=>e.stopPropagation()}
 
 <section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8 " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
-   <motion.h2  className="text-4xl font-bold text-center pb-32"
+   <motion.h2  className="text-4xl font-bold text-center pb-14"
     initial = {{opacity:0,y:20}}
     whileInView={{opacity: 1,y: 0}}
     transition= {{duration:0.7 ,ease: "easeOut"}}
@@ -943,7 +943,7 @@ onClick={(e)=>e.stopPropagation()}
 
 <SectionWrapper id="Contact" className="bg-neutral-100 dark:text-black">
 
-   <motion.h2  className="text-4xl font-bold text-center mb-20 -mt-6"
+   <motion.h2  className="text-4xl font-bold text-center mb-8 -mt-6"
     initial = {{opacity:0,y:20}}
     whileInView={{opacity: 1,y: 0}}
     transition= {{duration:0.7 ,ease: "easeOut"}}
