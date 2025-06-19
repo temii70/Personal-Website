@@ -562,7 +562,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
   </div>
 
 {/* right */}
-   <div className="w-full md:w-1/2 mb-24 ">
+   <div className="w-full md:w-1/2  ">
         <h4 className="text-lg font-bold text-white">University of Alberta</h4>
         <p className="text-sm  font-semibold">
           Major in Computer Science, specializing in Artificial Intelligence.
