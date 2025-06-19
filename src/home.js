@@ -437,15 +437,16 @@ return (
   </div>
 
   {/* Right Column: Company + Description */}
-  <div className="w-full md:w-1/2">
-    <h4 className="text-lg font-bold">TMIC Wishart Node</h4>
-    <p className="text-sm mt-2 text-white mb-2 font-semibold">
-      At Wishart’s Lab, I’ve been working on meteorological forecasting...
-    </p>
-    <p className="text-sm text-gray-200 font-semibold">
-      I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
-    </p>
-  </div>
+<div className="w-full md:w-1/2 pl-11 md:pl-0">
+  <h4 className="text-lg font-bold">TMIC Wishart Node</h4>
+  <p className="text-sm mt-2 text-white mb-2 font-semibold">
+    At Wishart’s Lab, I’ve been working on meteorological forecasting...
+  </p>
+  <p className="text-sm text-gray-200 font-semibold">
+    I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
+  </p>
+</div>
+
 </motion.div>
 
 
