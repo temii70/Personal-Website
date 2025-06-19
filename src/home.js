@@ -197,12 +197,12 @@ return (
     currentClassName="text-blue-400 font-bold"
     className="hidden sm:flex space-x-8 text-white justify-center sm:space-x-6 text-white"
   >
-    <Link to="Home" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer text-white">Home</Link>
-    <Link to="About" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">About</Link>
-    <Link to="Experience" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">Experience</Link>
-    <Link to="Projects" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">Projects</Link>
-    <Link to="Activities" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">Activities</Link>
-    <Link to="Contact" smooth duration={1000} className="hover:text-teal-400 transition font-bold cursor-pointer">Contact</Link>
+    <Link to="Home" smooth duration={500} className="hover:text-teal-400 transition font-bold cursor-pointer text-white">Home</Link>
+    <Link to="About" smooth duration={500} className="hover:text-teal-400 transition font-bold cursor-pointer">About</Link>
+    <Link to="Experience" smooth duration={500} className="hover:text-teal-400 transition font-bold cursor-pointer">Experience</Link>
+    <Link to="Projects" smooth duration={500} className="hover:text-teal-400 transition font-bold cursor-pointer">Projects</Link>
+    <Link to="Activities" smooth duration={500} className="hover:text-teal-400 transition font-bold cursor-pointer">Activities</Link>
+    <Link to="Contact" smooth duration={500} className="hover:text-teal-400 transition font-bold cursor-pointer">Contact</Link>
   </Scrollspy>
 
 
