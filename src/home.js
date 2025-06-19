@@ -541,54 +541,67 @@ return (
   </div>
 </motion.div>
 
-   <motion.h2 className= "text-4xl font-bold text-center pr-[110px] "
-      variants = {{
-    hidden: {opacity : 0, y:50},
-    visible : {opacity: 1,y:0},
+
+
+
+
+
+
+   <motion.h2
+  className="text-4xl font-bold text-center mb-12"
+  variants={{
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
   }}
-  transition={{duration: 0.8, ease: "easeOut"}}
-      > 
-      Education
-    </motion.h2>
-
-
-<motion.div className="flex flex-col md:flex-row items-start gap-6 px-4 sm:px-6  "
-   variants = {{
-    hidden: {opacity : 0, y:50},
-    visible : {opacity: 1,y:0},
-  }}
-  transition={{duration: 0.8, ease: "easeOut"}}
-
+  transition={{ duration: 0.8, ease: "easeOut" }}
 >
-  {/* left degree and date */}
-  <div className= " w-full md:w-1/3  text-left md:text-right md:pr-4 ">
-  <h3 className="text-xl font-bold text-teal-400">
-  Bachelor of Science
-  </h3>
-  <p className="text-sm text-white  font-semibold"> 2022-2027</p>
+  Education
+</motion.h2>
 
-
-  </div>
-
-
-  {/* center icon */}
-  <div className = "flex justify-center md:flex-col md:items-center mb-4 md:mb-0 ">
-    <div className= "w-10 h-10 bg-gray-700  rounded-full flex items-center justify-center">
-    <FaGraduationCap className = "text-white text-xl">
-
-    </FaGraduationCap>
-
+<motion.div
+  className="flex flex-col md:flex-row items-start gap-6 px-4 sm:px-6 mb-24"
+  variants={{
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+>
+  {/* Left Column: Degree + Date */}
+  <div className="w-full md:w-1/3 space-y-2 md:text-right md:pr-4">
+    {/* Mobile layout with icon inline */}
+    <div className="flex items-center gap-2 md:hidden">
+      <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
+        <FaGraduationCap className="text-white text-sm" />
+      </div>
+      <div>
+        <h3 className="text-base font-bold text-teal-400">Bachelor of Science</h3>
+        <p className="text-sm text-white font-semibold">2022–2027</p>
+      </div>
     </div>
 
+    {/* Desktop layout */}
+    <div className="hidden md:block">
+      <h3 className="text-xl font-bold text-teal-400">Bachelor of Science</h3>
+      <p className="text-sm text-white font-semibold">2022–2027</p>
+    </div>
   </div>
 
-{/* right */}
-   <div className="w-full md:w-1/2 mb-24 ">
-        <h4 className="text-lg font-bold text-white">University of Alberta</h4>
-        <p className="text-sm  font-semibold">
-          Major in Computer Science, specializing in Artificial Intelligence.
-        </p>
-      </div>
+  {/* Center Column: Icon (desktop only) */}
+  <div className="hidden md:flex flex-col items-center">
+    <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+      <FaGraduationCap className="text-white text-xl" />
+    </div>
+    <div className="w-px bg-gray-600 h-full mt-2" />
+  </div>
+
+  {/* Right Column: University Details */}
+  <div className="w-full md:w-1/2">
+    <h4 className="text-lg font-bold text-white">University of Alberta</h4>
+    <p className="text-sm font-semibold">
+      Major in Computer Science, specializing in Artificial Intelligence.
+    </p>
+  </div>
+
 
 
 </motion.div>
