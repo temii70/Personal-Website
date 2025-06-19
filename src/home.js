@@ -604,7 +604,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
  <section id="Projects" ref={vantaRef} className="min-h-screen relative text-white px-8 pt-40 font-sans sm:pb-64 md:pb-64 lg:pb-96   " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
 
-   <h2  className="text-4xl font-bold text-center mb-32" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
+   <h2  className="text-4xl font-bold text-center mb-16" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
    
       Projects
 
