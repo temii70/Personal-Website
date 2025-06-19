@@ -404,49 +404,36 @@ return (
   variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
   transition={{ duration: 0.8, ease: "easeOut" }}
 >
-  {/* Left Column: Title + Date (mobile layout includes icon) */}
-  <div className="w-full md:w-1/3 flex flex-col md:items-end md:text-right space-y-2">
-
- <div className="flex items-center gap-2 md:hidden mb-2">
-  <div className="w-9 h-9 bg-gray-700 rounded-full flex items-center justify-center">
-    <FaBriefcase className="text-white text-lg" />
-  </div>
-  <div className="flex flex-col pl-1">  {/* <-- THIS IS THE KEY */}
-    <h3 className="text-base font-bold text-blue-400 leading-none">Research Assistant</h3>
-    <p className="text-sm text-gray-400 font-semibold leading-none">Jan 2025 – Present</p>
-  </div>
-</div>
-
-
-
-
-
-    {/* Desktop view: title + date stacked (icon shown separately in center column) */}
-    <div className="hidden md:block">
-      <h3 className="text-base font-bold text-blue-400">Research Assistant</h3>
-      <p className="text-sm text-gray-400 font-semibold">Jan 2025 – Present</p>
-    </div>
+  {/* LEFT COLUMN */}
+  <div className="w-full md:w-1/3 flex flex-col items-start md:items-end md:text-right md:pr-2 justify-start">
+    <h3 className="text-lg font-bold text-blue-400 ">
+      Research Assistant
+    </h3>
+    <p className="text-sm text-gray-400 font-semibold">
+      Jan 2025 – Present
+    </p>
   </div>
 
-  {/* Center Column: ICON (only desktop) */}
+  {/* CENTER ICON (Desktop Only) */}
   <div className="hidden md:flex flex-col items-center">
     <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
       <FaBriefcase className="text-white text-xl" />
     </div>
-    <div className="w-px bg-gray-600 h-full mt-2" />
+    <div className="w-px bg-gray-600 h-full " />
   </div>
 
-  {/* Right Column: Company + Description */}
-<div className="w-full md:w-1/2 pl-11 md:pl-0">
-  <h4 className="text-lg font-bold">TMIC Wishart Node</h4>
-  <p className="text-sm mt-2 text-white mb-2 font-semibold">
-    At Wishart’s Lab, I’ve been working on meteorological forecasting...
-  </p>
-  <p className="text-sm text-gray-200 font-semibold">
-    I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
-  </p>
-</div>
-
+  {/* RIGHT COLUMN */}
+  <div className="w-full md:w-1/2">
+    <h4 className="text-lg font-bold text-white ">
+      TMIC Wishart Node
+    </h4>
+    <p className="text-sm text-white mb-2 font-semibold leading-snug">
+      At Wishart’s Lab, I’ve been working on meteorological forecasting...
+    </p>
+    <p className="text-sm text-gray-200 font-semibold leading-snug">
+      I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
+    </p>
+  </div>
 </motion.div>
 
 
@@ -458,105 +445,77 @@ return (
   variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
   transition={{ duration: 0.8, ease: "easeOut" }}
 >
-  {/* Left Column: Title + Date (mobile layout includes icon) */}
-  <div className="w-full md:w-1/3 flex flex-col md:items-end md:text-right space-y-2">
-
- <div className="flex items-center gap-2 md:hidden mb-2">
-  <div className="w-9 h-9 bg-gray-700 rounded-full flex items-center justify-center">
-    <FaBriefcase className="text-white text-lg" />
-  </div>
-  <div className="flex flex-col pl-1">  {/* <-- THIS IS THE KEY */}
-    <h3 className="text-base font-bold text-blue-400 leading-none">Research Assistant</h3>
-    <p className="text-sm text-gray-400 font-semibold leading-none">Jan 2025 – Present</p>
-  </div>
-</div>
-
-
-
-
-
-    {/* Desktop view: title + date stacked (icon shown separately in center column) */}
-    <div className="hidden md:block">
-      <h3 className="text-base font-bold text-blue-400">Research Assistant</h3>
-      <p className="text-sm text-gray-400 font-semibold">Jan 2025 – Present</p>
-    </div>
+  {/* LEFT COLUMN */}
+  <div className="w-full md:w-1/3 flex flex-col items-start md:items-end md:text-right md:pr-2 justify-start">
+    <h3 className="text-lg font-bold text-blue-400 ">
+      Research Assistant
+    </h3>
+    <p className="text-sm text-gray-400 font-semibold">
+      Jan 2025 – Present
+    </p>
   </div>
 
-  {/* Center Column: ICON (only desktop) */}
+  {/* CENTER ICON (Desktop Only) */}
   <div className="hidden md:flex flex-col items-center">
     <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
       <FaBriefcase className="text-white text-xl" />
     </div>
-    <div className="w-px bg-gray-600 h-full mt-2" />
+    <div className="w-px bg-gray-600 h-full " />
   </div>
 
-  {/* Right Column: Company + Description */}
-<div className="w-full md:w-1/2 pl-11 md:pl-0">
-  <h4 className="text-lg font-bold">TMIC Wishart Node</h4>
-  <p className="text-sm mt-2 text-white mb-2 font-semibold">
-    At Wishart’s Lab, I’ve been working on meteorological forecasting...
-  </p>
-  <p className="text-sm text-gray-200 font-semibold">
-    I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
-  </p>
-</div>
-
+  {/* RIGHT COLUMN */}
+  <div className="w-full md:w-1/2">
+    <h4 className="text-lg font-bold text-white ">
+      TMIC Wishart Node
+    </h4>
+    <p className="text-sm text-white mb-2 font-semibold leading-snug">
+      At Wishart’s Lab, I’ve been working on meteorological forecasting...
+    </p>
+    <p className="text-sm text-gray-200 font-semibold leading-snug">
+      I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
+    </p>
+  </div>
 </motion.div>
 
     {/*  third job */}
      {/* Job Item */}
 
-  <motion.div
+ <motion.div
   className="flex flex-col md:flex-row items-start gap-6 px-4 sm:px-6"
   variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
   transition={{ duration: 0.8, ease: "easeOut" }}
 >
-  {/* Left Column: Title + Date (mobile layout includes icon) */}
-  <div className="w-full md:w-1/3 flex flex-col md:items-end md:text-right space-y-2">
-
- <div className="flex items-center gap-2 md:hidden mb-2">
-  <div className="w-9 h-9 bg-gray-700 rounded-full flex items-center justify-center">
-    <FaBriefcase className="text-white text-lg" />
-  </div>
-  <div className="flex flex-col pl-1">  {/* <-- THIS IS THE KEY */}
-    <h3 className="text-base font-bold text-blue-400 leading-none">Research Assistant</h3>
-    <p className="text-sm text-gray-400 font-semibold leading-none">Jan 2025 – Present</p>
-  </div>
-</div>
-
-
-
-
-
-    {/* Desktop view: title + date stacked (icon shown separately in center column) */}
-    <div className="hidden md:block">
-      <h3 className="text-base font-bold text-blue-400">Research Assistant</h3>
-      <p className="text-sm text-gray-400 font-semibold">Jan 2025 – Present</p>
-    </div>
+  {/* LEFT COLUMN */}
+  <div className="w-full md:w-1/3 flex flex-col items-start md:items-end md:text-right md:pr-2 justify-start">
+    <h3 className="text-lg font-bold text-blue-400 ">
+      Research Assistant
+    </h3>
+    <p className="text-sm text-gray-400 font-semibold">
+      Jan 2025 – Present
+    </p>
   </div>
 
-  {/* Center Column: ICON (only desktop) */}
+  {/* CENTER ICON (Desktop Only) */}
   <div className="hidden md:flex flex-col items-center">
     <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
       <FaBriefcase className="text-white text-xl" />
     </div>
-    <div className="w-px bg-gray-600 h-full mt-2" />
+    <div className="w-px bg-gray-600 h-full " />
   </div>
 
-  {/* Right Column: Company + Description */}
-<div className="w-full md:w-1/2 pl-11 md:pl-0">
-  <h4 className="text-lg font-bold">TMIC Wishart Node</h4>
-  <p className="text-sm mt-2 text-white mb-2 font-semibold">
-    At Wishart’s Lab, I’ve been working on meteorological forecasting...
-  </p>
-  <p className="text-sm text-gray-200 font-semibold">
-    I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
-  </p>
-</div>
-
+  {/* RIGHT COLUMN */}
+  <div className="w-full md:w-1/2">
+    <h4 className="text-lg font-bold text-white ">
+      TMIC Wishart Node
+    </h4>
+    <p className="text-sm text-white mb-2 font-semibold leading-snug">
+      At Wishart’s Lab, I’ve been working on meteorological forecasting...
+    </p>
+    <p className="text-sm text-gray-200 font-semibold leading-snug">
+      I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
+    </p>
+  </div>
 </motion.div>
-
-
 
 
 
@@ -580,13 +539,13 @@ return (
   transition={{ duration: 0.8, ease: "easeOut" }}
 >
   {/* Left Column: Degree + Date */}
-  <div className="w-full md:w-1/3 space-y-2 md:text-right md:pr-4">
+  <div className="w-full md:w-1/3 flex flex-col items-start md:items-end md:text-right md:pr-2 justify-start">
     {/* Mobile layout: Icon + Title + Date inline */}
-    <div className="flex items-center gap-2 md:hidden">
+    <div className="flex items-center gap-2 md:hidden mb-2">
       <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
         <FaGraduationCap className="text-white text-sm" />
       </div>
-      <div>
+      <div className="flex flex-col pl-1">
         <h3 className="text-base font-bold text-teal-400 leading-none">
           Bachelor of Science
         </h3>
@@ -598,8 +557,12 @@ return (
 
     {/* Desktop layout */}
     <div className="hidden md:block">
-      <h3 className="text-xl font-bold text-teal-400">Bachelor of Science</h3>
-      <p className="text-sm text-white font-semibold">2022–2027</p>
+      <h3 className="text-lg font-bold text-teal-400">
+        Bachelor of Science
+      </h3>
+      <p className="text-sm text-white font-semibold">
+        2022–2027
+      </p>
     </div>
   </div>
 
@@ -608,18 +571,19 @@ return (
     <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
       <FaGraduationCap className="text-white text-xl" />
     </div>
-    <div className="w-px bg-gray-600 h-full mt-2" />
+    <div className="w-px bg-gray-600 h-full" />
   </div>
 
-  {/* Right Column: University Details (with left padding on mobile) */}
-  <div className="w-full md:w-1/2 pl-11 md:pl-0">
-    <h4 className="text-lg font-bold text-white">University of Alberta</h4>
+  {/* Right Column: University Info */}
+  <div className="w-full md:w-1/2">
+    <h4 className="text-lg font-bold text-white">
+      University of Alberta
+    </h4>
     <p className="text-sm font-semibold">
       Major in Computer Science, specializing in Artificial Intelligence.
     </p>
   </div>
 </motion.div>
-
 
 
 
