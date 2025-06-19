@@ -601,7 +601,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
  {/* Projects */}
 
- <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans sm:pb-64 mb-32 md:pb-64 lg:pb-96   " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+ <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans sm:pb-64 mb-64 md:pb-64 lg:pb-96   " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
 
    <h2  className="text-4xl font-bold text-center mb-12" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
@@ -723,7 +723,8 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Activities */}
 
-  <SectionWrapper id="Activities" className="bg-white dark:text-black">
+<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8 " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+
    <motion.h2  className="text-4xl font-bold text-center"
     initial = {{opacity:0,y:20}}
     whileInView={{opacity: 1,y: 0}}
@@ -908,7 +909,7 @@ onClick={(e)=>e.stopPropagation()}
   </motion.div>
 
 
-</SectionWrapper>
+</section>
 
 
 
