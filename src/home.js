@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import NET from "vanta/dist/vanta.net.min";
 import axios from "axios";
-
+import SectionWrapper from "./SectionWrapper";
 // infinte scroll for projects or circular gallery rolling gallery
 //add circular text as title
 {/**add a logo to  show the website, make it scroll and animate when it moves to the about section make it go DOWN like scroll down and add animations? when ur on a certain page it should glow  not as important */}
@@ -316,7 +316,7 @@ return (
 
 
 {/* About Me */}
-<section id="About" className= "min-h-screen font-sans dark: bg-neutral-100  dark:text-black flex pt-40 flex-col items-center justify-start pb-32">
+<SectionWrapper id="About" className= "dark:bg-neutral-100 dark:text-black">
 <h2 className="text-4xl font-bold mb-40" 
 
 > About Me</h2>
@@ -358,7 +358,7 @@ return (
 
 </div>
 
-</section>
+</SectionWrapper>
 
 
 
@@ -374,8 +374,8 @@ return (
 
 {/* Experience Section */}
 
-<section id="Experience" className="min-h-screen font-sans bg-zinc-900 text-white flex pt-24 flex-col items-center justify-start px-4"style={{fontFamily:" 'Work Sans',sans-serif"}}>
-  
+<SectionWrapper id="Experience" className="bg-zinc-900 text-white">
+
    <motion.h2  className="text-4xl font-bold text-center mb-12"
     initial = {{opacity:0,y:20}}
     whileInView={{opacity: 1,y: 0}}
@@ -581,7 +581,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
     </motion.div>
 
   
-</section>
+</SectionWrapper>
 
 
 
@@ -723,9 +723,8 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Activities */}
 
-<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8 " style={{fontFamily:" 'Work Sans',sans-serif"}}>
-  
-   <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
+  <SectionWrapper id="Activities" className="bg-white dark:text-black">
+   <motion.h2  className="text-4xl font-bold text-center"
     initial = {{opacity:0,y:20}}
     whileInView={{opacity: 1,y: 0}}
     transition= {{duration:0.7 ,ease: "easeOut"}}
@@ -909,7 +908,7 @@ onClick={(e)=>e.stopPropagation()}
   </motion.div>
 
 
-</section>
+</SectionWrapper>
 
 
 
@@ -940,8 +939,8 @@ onClick={(e)=>e.stopPropagation()}
 
 
 
-<section id="Contact" className="min-h-screen font-sans bg-neutral-100 dark:text-black flex pt-20 flex-col items-center justify-start pb-32" style={{fontFamily:" 'Work Sans',sans-serif"}}>
-  
+<SectionWrapper id="Contact" className="bg-neutral-100 dark:text-black">
+
    <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
     initial = {{opacity:0,y:20}}
     whileInView={{opacity: 1,y: 0}}
@@ -1050,7 +1049,7 @@ onClick={(e)=>e.stopPropagation()}
 
 
 
-</section>
+</SectionWrapper>
 
 
 <motion.footer 
