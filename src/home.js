@@ -601,7 +601,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
  {/* Projects */}
 
- <section id="Projects" ref={vantaRef} className=" bg-gray text-white px-8 pt-40 font-sans sm:pb-64 md:pb-64 lg:pb-96   " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+ <section id="Projects" ref={vantaRef} className="min-h-screen relative text-white px-8 pt-40 font-sans sm:pb-64 md:pb-64 lg:pb-96   " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
 
    <h2  className="text-4xl font-bold text-center mb-12" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
@@ -636,7 +636,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
     </h3>
 
     <p
-    className="text-md text font-bold text-white "
+    className="text-md text font-bold text-white  "
     > {proj.short_desc}
 
     </p>
@@ -650,7 +650,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
 <AnimatePresence>
 {selected && ( <motion.div
- className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
+ className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 "
  initial = {{opacity:0}}
  animate = {{opacity:1}}
  exit = {{opacity:0}}
@@ -702,6 +702,7 @@ onClick={(e)=>e.stopPropagation()}
 )}
 
 </AnimatePresence>
+{/* <div className="absolute bottom-0 left-0 w-full h-64 bg-gray pointer-events-none z-[-1]" /> */}
  </section>
 
   
@@ -723,7 +724,7 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Activities */}
 
-<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-40 pb-32 flex-col items-center justify-start px-4 sm:px-8 " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8 " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
    <motion.h2  className="text-4xl font-bold text-center pb-32"
     initial = {{opacity:0,y:20}}
