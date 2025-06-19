@@ -481,7 +481,7 @@ I’m currently involved in projects focused on predictive healthcare modeling. 
     {/*  third job */}
      {/* Job Item */}
 
-    <motion.div  className="flex flex-col md:flex-row items-start gap-8 gap-8 px-4 sm:px-6 py-6"
+    <motion.div  className="flex flex-col md:flex-row items-start gap-8 gap-8 px-4 sm:px-6 py-6 "
    
   variants = {{
     hidden: {opacity : 0, y:50},
@@ -505,9 +505,9 @@ I’m currently involved in projects focused on predictive healthcare modeling. 
       </div>
 
       {/* Right: Company & Description */}
-      <div className="w-full md:w-1/2">
+      <div className="w-full md:w-1/2 ">
         <h4 className="text-lg font-bold ">InfoStrux</h4>
-        <p className="text-sm mt-2  font-semibold">
+        <p className="text-sm mt-2  font-semibold ">
 I focused on optimizing query performance using both the UI and SQL to build advanced data models. I contributed to the design of data architecture, which gave me a deeper understanding of how data structures are organized and managed in cloud environments. I also created and managed databases and schemas to handle structured, semi-structured, and unstructured data. </p>
       </div>
 
@@ -600,8 +600,8 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
 
  {/* Projects */}
-
- <section id="Projects" ref={vantaRef} className="min-h-screen relative text-white px-8 pt-40 font-sans sm:pb-64 md:pb-64 lg:pb-96   " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<div ref = {vantaRef} className="relative">
+ <section id="Projects" className="min-h-screen  text-white px-8 pt-40 font-sans sm:pb-64 md:pb-64 lg:pb-96   " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
 
    <h2  className="text-4xl font-bold text-center mb-12" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
@@ -705,7 +705,7 @@ onClick={(e)=>e.stopPropagation()}
 {/* <div className="absolute bottom-0 left-0 w-full h-64 bg-gray pointer-events-none z-[-1]" /> */}
  </section>
 
-  
+  </div>
  
 
 
