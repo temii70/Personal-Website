@@ -610,7 +610,7 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
     </h2>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 max-w-6xl mx-auto px-4 sm:px-0">
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 max-w-6xl mx-auto px-4 sm:px-0 pb-32">
   {projects.map((proj) => (
     <motion.div
     key = {proj.id}
@@ -702,7 +702,7 @@ onClick={(e)=>e.stopPropagation()}
 )}
 
 </AnimatePresence>
-<div className="h-32 sm:h-48 lg:h-64" />
+{/* <div className="h-32 sm:h-48 lg:h-64" /> */}
  </section>
 
   
