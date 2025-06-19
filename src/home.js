@@ -244,7 +244,7 @@ return (
      
       {/* Mobile Nav Dropdown */}
       <div
-        className={`fixed top-16 left-0 w-full bg-black z-50 sm:hidden flex flex-col items-center space-y-4 py-6 transition-all duration-300 ease-in-out hover:${
+        className={`fixed top-16 left-0 w-full bg-black z-50 sm:hidden flex flex-col items-center space-y-4 py-6 transition-all duration-300 ease-in-out hover:text-teal-400 ${
           menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
         }`}
       >
@@ -723,7 +723,7 @@ onClick={(e)=>e.stopPropagation()}
 
 {/* Activities */}
 
-<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8 mt-32" style={{fontFamily:" 'Work Sans',sans-serif"}}>
+<section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8 " style={{fontFamily:" 'Work Sans',sans-serif"}}>
   
    <motion.h2  className="text-4xl font-bold text-center mb-20 mt-20"
     initial = {{opacity:0,y:20}}
