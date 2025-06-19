@@ -398,7 +398,6 @@ return (
   >
 {/* vertical Line */}
     {/* Job Item */}
-
 <motion.div
   className="flex flex-col md:flex-row items-start gap-6 px-4 sm:px-6"
   variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
@@ -406,8 +405,7 @@ return (
 >
   {/* LEFT COLUMN */}
   <div className="w-full md:w-1/3 flex flex-col items-start md:items-end md:text-right md:pr-2 justify-start">
-
-    {/* ✅ Mobile View */}
+    {/* Mobile Icon + Title + Date */}
     <div className="flex items-center gap-2 md:hidden mb-2">
       <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
         <FaBriefcase className="text-white text-base" />
@@ -422,12 +420,12 @@ return (
       </div>
     </div>
 
-    {/* ✅ Desktop View */}
-    <div className="hidden md:block">
-      <h3 className="text-lg font-bold text-blue-400">
+    {/* Desktop Title and Date */}
+    <div className="hidden md:flex flex-col items-end">
+      <h3 className="text-lg font-bold text-blue-400 leading-none">
         Research Assistant
       </h3>
-      <p className="text-sm text-gray-400 font-semibold">
+      <p className="text-sm text-gray-400 font-semibold leading-none mt-1">
         Jan 2025 – Present
       </p>
     </div>
@@ -442,19 +440,25 @@ return (
   </div>
 
   {/* RIGHT COLUMN */}
-  <div className="w-full md:w-1/2">
-    <h4 className="text-lg font-bold text-white">
-      TMIC Wishart Node
-    </h4>
-    <p className="text-sm text-white mb-2 font-semibold leading-snug">
-      At Wishart’s Lab, I’ve been working on meteorological forecasting...
-    </p>
-    <p className="text-sm text-gray-200 font-semibold leading-snug">
-      I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
-    </p>
+  <div className="w-full md:w-1/2 flex flex-col justify-start">
+    <div className="flex flex-col justify-start">
+      <h4 className="text-lg font-bold text-white leading-none">
+        TMIC Wishart Node
+      </h4>
+      <p className="text-sm text-white font-semibold leading-none mt-1">
+        {/* Empty to balance alignment visually */}
+      </p>
+    </div>
+    <div className="mt-2">
+      <p className="text-sm text-white mb-2 font-semibold leading-snug">
+        At Wishart’s Lab, I’ve been working on meteorological forecasting...
+      </p>
+      <p className="text-sm text-gray-200 font-semibold leading-snug">
+        I’ve gained a deep understanding of ARIMA, SARIMA, LSTMs, and more...
+      </p>
+    </div>
   </div>
 </motion.div>
-
 
 
     {/* second job*/}
