@@ -409,15 +409,19 @@ return (
   
     {/* Mobile view: title + date + icon side-by-side */}
    {/* Mobile: icon + title, then date (md:hidden) */}
-<div className="flex items-center gap-2 md:hidden mb-1">
+
+{/* Mobile View: Icon + Role + Date stacked */}
+<div className="flex items-center gap-2 md:hidden mb-2">
   <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
     <FaBriefcase className="text-white text-lg" />
   </div>
-  <h3 className="text-base font-bold text-blue-400">Research Assistant</h3>
+  <div>
+    <h3 className="text-base font-bold text-blue-400">Research Assistant</h3>
+    <p className="text-sm text-gray-400 font-semibold">Jan 2025 – Present</p>
+  </div>
 </div>
-<p className="text-sm text-gray-400 font-semibold md:hidden mb-4">
-  Jan 2025 – Present
-</p>
+
+
 
     {/* Desktop view: title + date stacked (icon shown separately in center column) */}
     <div className="hidden md:block">
