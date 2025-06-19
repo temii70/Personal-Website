@@ -317,7 +317,7 @@ return (
 
 {/* About Me */}
 <SectionWrapper id="About" className= "dark:bg-neutral-100 dark:text-black">
-<h2 className="text-4xl font-bold mb-40" 
+<h2 className="text-4xl font-bold mb-24" 
 
 > About Me</h2>
 
@@ -726,7 +726,7 @@ onClick={(e)=>e.stopPropagation()}
 
 <section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8 " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
-   <motion.h2  className="text-4xl font-bold text-center pb-14"
+   <motion.h2  className="text-4xl font-bold text-center pb-24"
     initial = {{opacity:0,y:20}}
     whileInView={{opacity: 1,y: 0}}
     transition= {{duration:0.7 ,ease: "easeOut"}}
