@@ -600,8 +600,8 @@ I focused on optimizing query performance using both the UI and SQL to build adv
 
 
  {/* Projects */}
-<div ref = {vantaRef} className="relative">
- <section id="Projects" className="min-h-screen  text-white px-8 pt-40 font-sans sm:pb-64 md:pb-64 lg:pb-96   " style={{fontFamily:" 'Work Sans',sans-serif"}}>
+
+ <section id="Projects" ref={vantaRef} className="min-h-screen relative text-white px-8 pt-40 font-sans sm:pb-64 md:pb-64 lg:pb-96   " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
 
    <h2  className="text-4xl font-bold text-center mb-12" style={{textShadow:'1px 1px 4px rgba(0,0,0,1)'}}>
@@ -702,10 +702,10 @@ onClick={(e)=>e.stopPropagation()}
 )}
 
 </AnimatePresence>
-{/* <div className="absolute bottom-0 left-0 w-full h-64 bg-gray pointer-events-none z-[-1]" /> */}
+<div className="h-32 sm:h-48 lg:h-64" />
  </section>
 
-  </div>
+  
  
 
 
