@@ -725,7 +725,7 @@ onClick={(e)=>e.stopPropagation()}
 
 <section id="Activities" className="min-h-screen font-sans bg-white dark:text-black flex pt-20 flex-col items-center justify-start px-4 sm:px-8 " style={{fontFamily:" 'Work Sans',sans-serif"}}>
 
-   <motion.h2  className="text-4xl font-bold text-center"
+   <motion.h2  className="text-4xl font-bold text-center pb-32"
     initial = {{opacity:0,y:20}}
     whileInView={{opacity: 1,y: 0}}
     transition= {{duration:0.7 ,ease: "easeOut"}}
@@ -736,7 +736,7 @@ onClick={(e)=>e.stopPropagation()}
   <motion.div className= "relative w-full max-w-6xl flex flex-col space-y-12"
     initial="hidden"
   whileInView="visible"
-  viewport={{ once: false, amount: 0.1 }}
+  viewport={{ once: true, amount: 0.1 }}
   variants={{
     hidden: {},
     visible: {
