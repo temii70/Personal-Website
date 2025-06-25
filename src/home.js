@@ -10,10 +10,6 @@ import * as THREE from "three";
 import NET from "vanta/dist/vanta.net.min";
 import axios from "axios";
 import SectionWrapper from "./SectionWrapper";
-// infinte scroll for projects or circular gallery rolling gallery
-//add circular text as title
-{/**add a logo to  show the website, make it scroll and animate when it moves to the about section make it go DOWN like scroll down and add animations? when ur on a certain page it should glow  not as important */}
-
 export default function Home () {
   const { ref:homeRef, inView: isHomeInView} = useInView({
 threshold:0.01
@@ -63,7 +59,8 @@ short_desc : "Research",
 icon:"/ecg.png",
 description : "I’m currently conducting research on multimodal deep learning models that integrate physiological signals, text, and image data for various downstream applications.",
 
-tags : ["Research","Deep Learning"] //might update and use this later
+ //might update and use this later
+// tags : ["Research","Deep Learning"]
 },
 
 {id:2,
@@ -73,7 +70,7 @@ icon:"/website.png",
 
 description : "I built this personal website using JavaScript, React, and Tailwind CSS to showcase my resume.",
 
-tags : ["React","HTML", "TailWind", "CSS"]
+// tags : ["React","HTML", "TailWind", "CSS"]
 },
 
 
@@ -83,7 +80,7 @@ name: "Lung Cancer Detection",
 short_desc : "Project",
 description : "I evaluated and tested seven machine learning algorithms on a Lung Cancer dataset. The best-performing model was the Support Vector Machine, achieving a Recall of 99%, Accuracy of 94%, Precision of 95%, and a F1 Score of 97%.",
 icon:"/lungcancer.jpg",
-tags : ["Machine Learning", "Data Analysis"],
+// tags : ["Machine Learning", "Data Analysis"],
 link: "https://colab.research.google.com/gist/temii70/b300e9ca79168cc0b1c82c9110a06e56/models.ipynb"
 
 },
@@ -94,7 +91,7 @@ name: "Alzheimer's Speech Research",
 short_desc : "Research",
 description : "I conducted research using an audio dataset to perform classification and regression tasks for the early detection of dementia and mild cognitive impairment (MCI). As part of the ICASSP 2025 SPGC challenge, I developed a random forest model to classify patients into three categories with corresponding scores. To improve prediction performance, I explored self-supervised learning techniques and utilized pre-trained models from previous research, to enhance metrics such as F1 score, recall, precision, and RMSE.",
 icon:"/brain.jpg",
-tags : ["Machine Learning", "Research"]
+// tags : ["Machine Learning", "Research"]
 
 
 
@@ -110,7 +107,7 @@ name: "Emotion Detection",
 short_desc : "Project",
 description : "I built a Convolutional Neural Network using TensorFlow and integrated it with OpenCV for real-time emotion detection.",
 icon:"/emotion.png",
-tags : ["Machine Learning", "Data Analysis","Deep Learning"]
+// tags : ["Machine Learning", "Data Analysis","Deep Learning"]
 
 
 },
@@ -120,7 +117,7 @@ name: "App",
 short_desc : "Project",
 description : "I developed a Basketball Chatbot using Python, pulling data from a Kaggle SQL database with over 4,800 NBA players and 30 teams using Swift, SQL, and Python.",
 icon:"/basketball.png",
-tags : ["Swift", "IOS", "SQL"],
+// tags : ["Swift", "IOS", "SQL"],
 link: "https://github.com/temii70/NBAChatbot"
 
 
@@ -131,7 +128,6 @@ link: "https://github.com/temii70/NBAChatbot"
 // for projects background
 const [selected, setSelected] = useState(null);
 
-// so messy
 const vantaRef = useRef(null);
 // pass to a div
 const [vantaEffect, setVantaEffect] = useState(null);
@@ -1040,7 +1036,6 @@ onClick={(e)=>e.stopPropagation()}
       Send Message
     </button>
     </div>
-   {/* bg-gray-400 text-white font-semibold tracking-widest px-5 py-3 hover:bg-white hover:text-blue-400 transition duration-300 cursor-pointer */}
 
     </form>
    </div> 
