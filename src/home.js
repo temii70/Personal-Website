@@ -316,8 +316,8 @@ return (
 
 
 {/* About Me */}
-<SectionWrapper id="About" className= "dark:bg-neutral-100 dark:text-black">
-<h2 className="text-4xl font-bold mb-24" 
+<SectionWrapper id="About" className= "dark:bg-neutral-100 dark:text-black -mb-24">
+<h2 className="text-4xl font-bold mb-14" 
 
 > About Me</h2>
 
@@ -326,8 +326,7 @@ return (
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 {/* Left Section */}
-<img src= "/headshot.jpg" alt= "Temi Otun" className=" self-center -mt-10 mb-6 md:mb-0 w-60 h-60 sm:w-72 sm:h-72 md:w-[26rem] md:h-[26rem] rounded-full "/>
-
+<img src= "/headshot.jpg" alt= "Temi Otun" className=" self-center -mt-10 mb-6 md:mb-0 w-60 h-60 sm:w-96 sm:h-96 md:w-[26rem] md:h-[26rem] object-cover object-center "/>
 {/* Bio Section */}
 <div className="flex flex-col mb-6 md:items-start text-base leading-relaxed px-4 sm:px-6 w-full max-w-3xl"
   
