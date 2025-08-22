@@ -346,10 +346,9 @@ return (
 
 <a href ="/TemiOtunresumewebsite.pdf" 
   className="self-center mt-6 inline-block bg-gray-900 text-white font-semibold tracking-widest px-5 py-3 hover:bg-gray-700 hover:text-blue-400 dark:bg-gray-300 dark:text-black dark:hover:bg-white transition duration-300 hover:scale-105 cursor-pointer"
- download  
-
-  
-  transition={{duration: 0.8, ease: "easeOut"}}> Download Resume</a>
+  target = "_blank"
+  rel = "noopener noreferrer"
+  transition={{duration: 0.8, ease: "easeOut"}}> View Resume</a>
   </div>
 
 </div>
