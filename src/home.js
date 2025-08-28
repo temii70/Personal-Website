@@ -333,7 +333,7 @@ return (
 
  
  
-  transition={{duration: 0.8, ease: "easeOut"}}> I am a Computer Science student specializing in Artificial Intelligence at the University of Alberta. I have programming experience in C, Python, and SQL. Currently, I am completing a work semester at Dr. Wishart's Lab, where I apply machine learning and deep learning techniques alongside data analysis in the field of meteorology.</p>
+  transition={{duration: 0.8, ease: "easeOut"}}> I’m a Computer Science student specializing in Artificial Intelligence at the University of Alberta. I work with C, Python, and SQL, and I have experience applying machine learning and deep learning to real-world challenges. At the Metabolomics Innovation Centre, I focused on meteorology-driven forecasting.</p>
  <p className= "mt-4 text-base leading-relaxed text-left" style={{fontFamily:" 'Work Sans',sans-serif"}} 
  
   
