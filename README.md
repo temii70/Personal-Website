@@ -1,70 +1,235 @@
-# Getting Started with Create React App
+# Temi Otun - Personal Portfolio Website 🚀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive personal portfolio website showcasing my research in deep learning, machine learning projects, and technical expertise. Built with React.js, featuring smooth animations, interactive 3D backgrounds, and a clean, professional design.
 
-## Available Scripts
+![Portfolio Preview](public/website.png)
 
-In the project directory, you can run:
+## 🌟 Live Demo
 
-### `npm start`
+Visit the live website: [Portfolio Website](https://portfolio-te9i.onrender.com)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📋 Table of Contents
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [About](#about)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Projects Showcase](#projects-showcase)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Deployment](#deployment)
+- [Contact](#contact)
 
-### `npm test`
+## 🎯 About
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This portfolio website serves as a comprehensive showcase of my journey as a researcher and developer, specializing in:
 
-### `npm run build`
+- **Deep Learning Research**: Multimodal deep learning models integrating physiological signals, text, and image data
+- **Machine Learning Projects**: Healthcare applications, emotion detection, and predictive modeling
+- **Web Development**: Modern React applications with responsive design
+- **Data Analysis**: Working with large datasets and implementing various ML algorithms
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ✨ Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Responsive Design**: Optimized for all devices and screen sizes
+- **Interactive 3D Background**: Powered by Three.js and Vanta.js for stunning visual effects
+- **Smooth Animations**: Framer Motion animations for enhanced user experience
+- **Scroll Spy Navigation**: Dynamic navigation highlighting current section
+- **Contact Form**: Functional contact form with backend integration
+- **Project Showcase**: Detailed presentation of research and development projects
+- **Resume Integration**: Direct access to downloadable resume
+- **Social Media Links**: Quick access to GitHub and LinkedIn profiles
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Tech Stack
 
-### `npm run eject`
+### Frontend
+- **React.js** - Component-based UI framework
+- **JavaScript (ES6+)** - Core programming language
+- **CSS3** - Styling and responsive design
+- **Framer Motion** - Animation library
+- **React Icons** - Icon components
+- **React Scroll** - Smooth scrolling functionality
+- **React Scrollspy** - Navigation highlighting
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Backend & APIs
+- **Node.js** - Runtime environment
+- **Express.js** - Web application framework
+- **Nodemailer** - Email functionality
+- **Axios** - HTTP client for API calls
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3D Graphics & Animation
+- **Three.js** - 3D graphics library
+- **Vanta.js** - Animated backgrounds
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Development Tools
+- **Create React App** - Development environment
+- **npm** - Package management
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🔬 Projects Showcase
 
-## Learn More
+### 1. ECG Research
+**Multimodal Deep Learning for Healthcare**
+- Research on integrating physiological signals, text, and image data
+- Applications in various downstream healthcare tasks
+- Cutting-edge deep learning methodologies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 2. Alzheimer's Speech Research
+**Early Detection of Cognitive Impairment**
+- Audio dataset analysis for dementia and MCI classification
+- Part of ICASSP 2025 SPGC challenge
+- Self-supervised learning and pre-trained model integration
+- Achieved significant improvements in F1 score, recall, and RMSE
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 3. Lung Cancer Detection
+**Machine Learning for Medical Diagnosis**
+- Evaluated 7 ML algorithms on lung cancer dataset
+- Best performance: Support Vector Machine
+- **Results**: 99% Recall, 94% Accuracy, 95% Precision, 97% F1 Score
+- [View Project](https://colab.research.google.com/gist/temii70/b300e9ca79168cc0b1c82c9110a06e56/models.ipynb)
 
-### Code Splitting
+### 4. Emotion Detection System
+**Real-time Computer Vision**
+- Convolutional Neural Network built with TensorFlow
+- OpenCV integration for real-time emotion recognition
+- Live camera feed processing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 5. NBA Chatbot
+**Data-Driven Sports Analytics**
+- Python-based basketball information system
+- Kaggle SQL database integration (4,800+ NBA players, 30 teams)
+- Technologies: Swift, SQL, Python
+- [View on GitHub](https://github.com/temii70/NBAChatbot)
 
-### Analyzing the Bundle Size
+## 🚀 Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Prerequisites
 
-### Making a Progressive Web App
+- Node.js (v14 or higher)
+- npm or yarn package manager
+- Git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Installation
 
-### Advanced Configuration
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/temii70/portfolio.git
+   cd portfolio
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### Deployment
+3. **Install backend dependencies**
+   ```bash
+   cd backend
+   npm install
+   cd ..
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+4. **Set up environment variables**
+   
+   Create a `.env` file in the `src` directory and add your configuration:
+   ```env
+   REACT_APP_API_URL=your_backend_url
+   EMAIL_USER=your_email
+   EMAIL_PASS=your_email_password
+   ```
 
-### `npm run build` fails to minify
+## 💻 Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Development Mode
+
+Start the development server:
+```bash
+npm start
+```
+
+The application will open at [http://localhost:3000](http://localhost:3000)
+
+### Backend Server
+
+Start the backend server:
+```bash
+cd backend
+node server.js
+```
+
+The backend will run on the configured port (default: 5000)
+
+### Build for Production
+
+Create an optimized production build:
+```bash
+npm run build
+```
+
+### Testing
+
+Run the test suite:
+```bash
+npm test
+```
+
+## 🌐 Deployment
+
+The website is deployed on **Render** with automatic deployments from the main branch.
+
+### Deploy to Render
+
+1. Connect your GitHub repository to Render
+2. Configure build settings:
+   - Build Command: `npm run build`
+   - Start Command: `npm start`
+3. Set environment variables in Render dashboard
+4. Deploy!
+
+### Alternative Deployment Options
+
+- **Vercel**: Excellent for React applications
+- **Netlify**: Simple deployment with continuous integration
+- **Heroku**: Full-stack deployment with backend support
+
+## 📱 Responsive Design
+
+The portfolio is fully responsive and optimized for:
+- 📱 Mobile devices (320px and up)
+- 📊 Tablets (768px and up)
+- 💻 Laptops (1024px and up)
+- 🖥️ Desktop (1200px and up)
+
+## 🎨 Customization
+
+### Styling
+- Edit `src/index.css` for global styles
+- Component-specific styles are included inline with Tailwind CSS classes
+- 3D background effects can be customized in the Three.js configuration
+
+### Content
+- Update project information in `src/home.js`
+- Replace images in the `public` folder
+- Modify contact information and social links
+
+## 📧 Contact
+
+Feel free to reach out for collaborations, opportunities, or just to connect!
+
+- **Email**: [Otun226@gmail.com](mailto:Otun226@gmail.com)
+- **LinkedIn**: [Temi Otun](https://www.linkedin.com/in/temi-otun-297801250/)
+- **GitHub**: [temii70](https://github.com/temii70)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- **Create React App** for the initial project setup
+- **Three.js & Vanta.js** for stunning 3D graphics
+- **Framer Motion** for smooth animations
+- **React community** for excellent libraries and resources
+
+---
+
+⭐ If you found this project helpful, please consider giving it a star on GitHub!
