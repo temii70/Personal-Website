@@ -6,19 +6,7 @@ A modern, responsive personal portfolio website showcasing my research in deep l
 
 ## 🌟 Live Demo
 
-Visit the live website: [Portfolio Website](https://portfolio-te9i.onrender.com)
-
-## 📋 Table of Contents
-
-- [About](#about)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Projects Showcase](#projects-showcase)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Deployment](#deployment)
-- [Contact](#contact)
+Visit the live website: [Portfolio Website](https://temiotun.com)
 
 ## 🎯 About
 
@@ -64,41 +52,6 @@ This portfolio website serves as a comprehensive showcase of my journey as a res
 ### Development Tools
 - **Create React App** - Development environment
 - **npm** - Package management
-
-## 🔬 Projects Showcase
-
-### 1. ECG Research
-**Multimodal Deep Learning for Healthcare**
-- Research on integrating physiological signals, text, and image data
-- Applications in various downstream healthcare tasks
-- Cutting-edge deep learning methodologies
-
-### 2. Alzheimer's Speech Research
-**Early Detection of Cognitive Impairment**
-- Audio dataset analysis for dementia and MCI classification
-- Part of ICASSP 2025 SPGC challenge
-- Self-supervised learning and pre-trained model integration
-- Achieved significant improvements in F1 score, recall, and RMSE
-
-### 3. Lung Cancer Detection
-**Machine Learning for Medical Diagnosis**
-- Evaluated 7 ML algorithms on lung cancer dataset
-- Best performance: Support Vector Machine
-- **Results**: 99% Recall, 94% Accuracy, 95% Precision, 97% F1 Score
-- [View Project](https://colab.research.google.com/gist/temii70/b300e9ca79168cc0b1c82c9110a06e56/models.ipynb)
-
-### 4. Emotion Detection System
-**Real-time Computer Vision**
-- Convolutional Neural Network built with TensorFlow
-- OpenCV integration for real-time emotion recognition
-- Live camera feed processing
-
-### 5. NBA Chatbot
-**Data-Driven Sports Analytics**
-- Python-based basketball information system
-- Kaggle SQL database integration (4,800+ NBA players, 30 teams)
-- Technologies: Swift, SQL, Python
-- [View on GitHub](https://github.com/temii70/NBAChatbot)
 
 ## 🚀 Getting Started
 
@@ -185,12 +138,6 @@ The website is deployed on **Render** with automatic deployments from the main b
 3. Set environment variables in Render dashboard
 4. Deploy!
 
-### Alternative Deployment Options
-
-- **Vercel**: Excellent for React applications
-- **Netlify**: Simple deployment with continuous integration
-- **Heroku**: Full-stack deployment with backend support
-
 ## 📱 Responsive Design
 
 The portfolio is fully responsive and optimized for:
@@ -221,15 +168,4 @@ Feel free to reach out for collaborations, opportunities, or just to connect!
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🙏 Acknowledgments
-
-- **Create React App** for the initial project setup
-- **Three.js & Vanta.js** for stunning 3D graphics
-- **Framer Motion** for smooth animations
-- **React community** for excellent libraries and resources
-
----
-
-⭐ If you found this project helpful, please consider giving it a star on GitHub!
+This project is open source and available under the [Apache License](LICENSE).
