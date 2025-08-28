@@ -333,7 +333,7 @@ return (
 
  
  
-  transition={{duration: 0.8, ease: "easeOut"}}> I’m a Computer Science student specializing in Artificial Intelligence at the University of Alberta. I work with C, Python, and SQL, and I have experience applying machine learning and deep learning to real-world challenges. At the Metabolomics Innovation Centre, I focused on meteorology-driven forecasting.</p>
+  transition={{duration: 0.8, ease: "easeOut"}}> I’m a Computer Science student specializing in Artificial Intelligence at the University of Alberta. I work with C, Python, and SQL, and I have experience applying machine learning and deep learning to real-world challenges. At the Metabolomics Innovation Centre, I focused on meteorology-driven forecasting using machine learning and data analysis.</p>
  <p className= "mt-4 text-base leading-relaxed text-left" style={{fontFamily:" 'Work Sans',sans-serif"}} 
  
   
@@ -423,18 +423,16 @@ return (
       <div className="w-full md:w-1/2">
         <h4 className="text-lg font-bold ">TMIC Wishart Node</h4>
         <p className="text-sm mt-2 text-white mb-2 font-semibold">
-          At Wishart’s Lab, I’ve been working on meteorological forecasting, applying a broad range of techniques in both data analysis and model development. My work has included exploratory data analysis, time series decomposition, partial and auto-correlation analysis, trend and seasonality extraction, feature imputation, and the use of Fast Fourier Transforms to identify cyclical patterns. 
+          At the Metabolomics Innovation Centre (Wishart’s Lab), I worked on meteorological forecasting, applying a range of techniques in data analysis and model development. This included exploratory data analysis, time series decomposition, trend and seasonality extraction, feature imputation, and Fast Fourier Transforms for identifying cyclical patterns.
           </p >
 
            <p className="text-sm mt-2 text-gray-200 mb-2 font-semibold">
-                 I’ve gained a deep understanding of statistical models like ARIMA and SARIMA, deep learning architectures such as LSTMs, RNNs, and Transformers, and machine learning methods including LightGBM and XGBoost. Across a six-year test set, my models achieved up to 47% lower MAE, with an average improvement of 24.26% compared to previous approaches.
+            Through this work, I gained experience with statistical models such as ARIMA and SARIMA, deep learning architectures including LSTMs, RNNs, and Transformers, and machine learning methods like LightGBM and XGBoost. Across a six-year test set, my models achieved up to 47% lower MAE, with an average improvement of 24% compared to previous approaches.
 
 
-            
-             </p>
+            </p>
 
-   
-        {/* <p className="text-sm mt-2 text-gray-200 mb-2" > 
+        {/* <p className="text-sm mt-2 text-gray-200 mb-2" >
         </p> */}
         {/* add later^ */}
       </div>
@@ -470,7 +468,8 @@ return (
       <div className="w-full md:w-1/2">
         <h4 className="text-lg font-bold text-white">University of Alberta</h4>
         <p className="text-sm mt-2   font-semibold">
-I’m currently involved in projects focused on predictive healthcare modeling. As part of the research lab, I regularly participate in weekly presentations where PhD and Master’s students share insights on topics like survival analysis and heart disease prediction. I also contribute to ongoing research by documenting experiments and assisting with various aspects of the lab’s work.        </p>
+          I’m involved in projects focused on predictive healthcare modeling, including survival analysis and disease prediction. As part of the research group, I contribute by documenting and analyzing experiments, supporting model development, and collaborating with graduate researchers on advancing methodologies. I also engage in weekly research seminars, gaining exposure to cutting-edge work in areas such as survival analysis and cardiovascular disease prediction.
+          </p>
       </div>
     </motion.div>
     {/*  third job */}
@@ -503,7 +502,8 @@ I’m currently involved in projects focused on predictive healthcare modeling. 
       <div className="w-full md:w-1/2">
         <h4 className="text-lg font-bold ">InfoStrux</h4>
         <p className="text-sm mt-2  font-semibold">
-I focused on optimizing query performance using both the UI and SQL to build advanced data models. I contributed to the design of data architecture, which gave me a deeper understanding of how data structures are organized and managed in cloud environments. I also created and managed databases and schemas to handle structured, semi-structured, and unstructured data. </p>
+          I optimized query performance using both SQL and UI tools to build advanced data models, improving efficiency and scalability. I contributed to designing cloud-based data architectures and managed databases and schemas to support structured, semi-structured, and unstructured data.
+          </p>
       </div>
 
 
