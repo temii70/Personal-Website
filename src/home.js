@@ -406,8 +406,8 @@ return (
 
       {/* Left: Title & Date */}
       <div className="w-full md:w-1/3 text-left md:text-right md:pr-4 mb-4 md:mb-0">
-        <h3 className="text-xl font-bold text-blue-400">Research Assistant</h3>
-        <p className="text-sm text-gray-400  font-semibold">Jan 2025 – Present</p>
+        <h3 className="text-xl font-bold text-blue-400">Machine Learning Intern</h3>
+        <p className="text-sm text-gray-400  font-semibold">Jan 2025 – Aug 2025</p>
       </div>
 
       {/* Center: Icon + Line */}
@@ -421,7 +421,7 @@ return (
 
       {/* Right: Company & Description */}
       <div className="w-full md:w-1/2">
-        <h4 className="text-lg font-bold ">TMIC Wishart Node</h4>
+        <h4 className="text-lg font-bold ">The Metabolomics Innovation Centre</h4>
         <p className="text-sm mt-2 text-white mb-2 font-semibold">
           At the Metabolomics Innovation Centre (Wishart’s Lab), I worked on meteorological forecasting, applying a range of techniques in data analysis and model development. This included exploratory data analysis, time series decomposition, trend and seasonality extraction, feature imputation, and Fast Fourier Transforms for identifying cyclical patterns.
           </p >
