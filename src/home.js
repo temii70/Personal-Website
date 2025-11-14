@@ -344,7 +344,7 @@ return (
   transition={{duration: 0.8, ease: "easeOut"}}> I am also a member of Dr. Greiner's lab, helping out in  projects focused on AI-driven survival and disease prediction. In my free time, I enjoy going to the gym, reading books and manga, and playing basketball. </p>
 
 
-<a href ="/TemiOtunresumewebsite.pdf" 
+<a href ="/TemiOtunresumeapplications.pdf" 
   className="self-center mt-6 inline-block bg-gray-900 text-white font-semibold tracking-widest px-5 py-3 hover:bg-gray-700 hover:text-blue-400 dark:bg-gray-300 dark:text-black dark:hover:bg-white transition duration-300 hover:scale-105 cursor-pointer"
   target = "_blank"
   rel = "noopener noreferrer"
