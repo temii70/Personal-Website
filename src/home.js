@@ -333,7 +333,7 @@ return (
 
  
  
-  transition={{duration: 0.8, ease: "easeOut"}}> I’m a Computer Science student specializing in Artificial Intelligence at the University of Alberta. I work with C, Python, and SQL, and I have experience applying machine learning and deep learning to real-world challenges. At the Metabolomics Innovation Centre, I focused on meteorology-driven forecasting using machine learning and data analysis.</p>
+  transition={{duration: 0.8, ease: "easeOut"}}> I’m a Computer Science student specializing in Artificial Intelligence at the University of Alberta. I work with C, Python, and SQL, and I have experience applying machine learning and deep learning to real-world challenges.</p>
  <p className= "mt-4 text-base leading-relaxed text-left" style={{fontFamily:" 'Work Sans',sans-serif"}} 
  
   
@@ -341,7 +341,7 @@ return (
     hidden: {opacity : 0, y:50},
     visible : {opacity: 1,y:0},
   }}
-  transition={{duration: 0.8, ease: "easeOut"}}> In my free time, I enjoy going to the gym, reading books and manga, and playing basketball. </p>
+  transition={{duration: 0.8, ease: "easeOut"}}>  At the Metabolomics Innovation Centre, I focused on meteorology-driven forecasting using machine learning and data analysis.In my free time, I enjoy going to the gym, reading books and manga, and playing basketball. </p>
 
 
 <a href ="/TemiOtunresumeapplications.pdf" 
