@@ -341,7 +341,7 @@ return (
     hidden: {opacity : 0, y:50},
     visible : {opacity: 1,y:0},
   }}
-  transition={{duration: 0.8, ease: "easeOut"}}> I am also a member of Dr. Greiner's lab, helping out in  projects focused on AI-driven survival and disease prediction. In my free time, I enjoy going to the gym, reading books and manga, and playing basketball. </p>
+  transition={{duration: 0.8, ease: "easeOut"}}> In my free time, I enjoy going to the gym, reading books and manga, and playing basketball. </p>
 
 
 <a href ="/TemiOtunresumeapplications.pdf" 
@@ -375,7 +375,7 @@ return (
     initial = {{opacity:0,y:20}}
     whileInView={{opacity: 1,y: 0}}
     transition= {{duration:0.7 ,ease: "easeOut"}}
-    viewport= {{once:true}}>Work Experience 
+    viewport= {{once:true}}> Experience 
     </motion.h2>
 
   <motion.div className= "relative w-full max-w-6xl flex flex-col space-y-12"
