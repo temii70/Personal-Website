@@ -282,7 +282,7 @@ return (
   </h1>
 
   <p className="text-white text-lg sm:text-xl font-semibold max-w-xl" style={{ textShadow: '2px 2px 6px rgba(0,0,0,1)' }}>
-    I am a Student Researcher passionate about ML and software development.
+       " I am a computer science student passionate about machine learning and software development."
   </p>
 
   <Link
