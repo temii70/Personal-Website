@@ -2,7 +2,7 @@
 
 A modern, responsive personal portfolio website showcasing my research in deep learning, machine learning projects, and technical expertise. Built with React.js, featuring smooth animations, interactive 3D backgrounds, and a clean, professional design.
 
-![Portfolio Preview](public/website.png)
+![Portfolio Preview](public/website.webp)
 
 ## 🌟 Live Demo
 
