@@ -106,7 +106,7 @@ id:5,
 name: "Emotion Detection",
 short_desc : "Project",
 description : "I built a Convolutional Neural Network using TensorFlow and integrated it with OpenCV for real-time emotion detection.",
-icon:"/emotion.png",
+icon:"/emotion.webp",
 // tags : ["Machine Learning", "Data Analysis","Deep Learning"]
 
 
@@ -760,7 +760,7 @@ onClick={(e)=>e.stopPropagation()}
 
     {/* Image Container */}
     <div className="w-[300px] h-[200px] sm:w-[400px] sm:h-[250px] flex-shrink-0 overflow-hidden rounded shadow bg-black">
-      <img src="/traveling.png" alt="Temi Otun" className="w-full h-full object-cover object-center" />
+      <img src="/traveling.webp" alt="Temi Otun" className="w-full h-full object-cover object-center" />
     </div>
 
     <div className="mt-4 md:mt-0">
