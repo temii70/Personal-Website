@@ -271,7 +271,7 @@ return (
   ref={homeRef}
   id="Home"
   className="relative h-screen bg-cover bg-center flex flex-col items-center justify-center text-center px-6 sm:px-12"
-  style={{ backgroundImage: "url('/vegas.png')" }}
+  style={{ backgroundImage: "url('/vegas')" }}
 >
   <p className="text-2xl font-semibold text-white" style={{ textShadow: '1px 1px 4px rgba(0,0,0,1)' }}>
     Hi! my name is
