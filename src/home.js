@@ -322,7 +322,7 @@ return (
   {/* wfull means take up full width of parent grid means turn to css grind grid-cols-1 is use 1 for small screens grid-cols-2 means switch to medium on big screens and gap 12 adds spaces horziontally and vertically */}
 
 {/* Left Section */}
-<img src= "/headshot2.jpg" alt= "Temi Otun" className=" self-center -mt-10 mb-6 md:mb-0 w-60 h-60 sm:w-96 sm:h-96 md:w-[26rem] md:h-[26rem] object-cover object-center "/>
+<img src= "/headshot2" alt= "Temi Otun" className=" self-center -mt-10 mb-6 md:mb-0 w-60 h-60 sm:w-96 sm:h-96 md:w-[26rem] md:h-[26rem] object-cover object-center "/>
 
 {/* Bio Section */}
 <div className="flex flex-col mb-6 md:items-start text-base leading-relaxed px-4 sm:px-6 w-full max-w-3xl"
