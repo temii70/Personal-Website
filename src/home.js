@@ -66,7 +66,7 @@ description : "I’m currently conducting research on multimodal deep learning m
 {id:2,
 name: "Personal Website",
 short_desc : "Web Development",
-icon:"/website.png",
+icon:"/website.webp",
 
 description : "I built this personal website using JavaScript, React, and Tailwind CSS to showcase my resume.",
 
