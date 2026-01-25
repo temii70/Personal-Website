@@ -2,8 +2,8 @@ import React from "react";
 import Scrollspy from 'react-scrollspy';
 import { FaGithub,FaLinkedin, FaChevronDown,FaBriefcase, FaGraduationCap, FaPlane,FaBasketballBall,FaDumbbell, FaTimes, FaBars} from "react-icons/fa"; /**font awesome */
 import './index.css';
-import {Link, animateScroll as scroll} from 'react-scroll';
-import {easeInOut, motion,AnimatePresence} from "framer-motion";
+import {Link } from 'react-scroll';
+import { motion,AnimatePresence} from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
