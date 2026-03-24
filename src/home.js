@@ -344,7 +344,7 @@ return (
   transition={{duration: 0.8, ease: "easeOut"}}>  At the Metabolomics Innovation Centre, I focused on meteorology-driven forecasting using machine learning and data analysis. In my free time, I enjoy going to the gym, reading books and manga, and playing basketball. </p>
 
 
-<a href ="/TemiOtunresumeapplications.pdf" 
+<a href ="/TemiOtunresumeapplication.pdf" 
   className="self-center mt-6 inline-block bg-gray-900 text-white font-semibold tracking-widest px-5 py-3 hover:bg-gray-700 hover:text-blue-400 dark:bg-gray-300 dark:text-black dark:hover:bg-white transition duration-300 hover:scale-105 cursor-pointer"
   target = "_blank"
   rel = "noopener noreferrer"
