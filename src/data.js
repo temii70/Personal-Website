@@ -21,6 +21,8 @@ export const experience = [
     company: "Royal Bank of Canada · Amplify",
     location: "Vancouver, BC",
     dates: "summer 2026",
+    start: "2026-05",
+    short: "rbc",
     points: [
       "Developed a patent-pending fraud detection system combining ML classification with LLM analysis: ==94% recall==, 85% F1, projected to stop ==$18M== in annual fraud losses.",
       "Engineered a cascaded NLP pipeline over 23M+ unstructured text records a year using semantic embeddings, cutting operational costs by ==65%==.",
@@ -33,6 +35,8 @@ export const experience = [
     company: "The Metabolomics Innovation Centre",
     location: "Edmonton, AB",
     dates: "jan – aug 2025",
+    start: "2025-01",
+    short: "tmic",
     points: [
       "Improved a long-range temperature forecasting system: up to ==47% lower MAE==, 24.3% better on average across a six-year test set.",
       "Built multivariate pipelines over 100+ meteorological features with temporal validation and ensemble ML, beating baselines in ==73% of test years==.",
@@ -45,6 +49,8 @@ export const experience = [
     company: "University of Alberta",
     location: "Edmonton, AB",
     dates: "sep 2024 – apr 2026",
+    start: "2024-09",
+    short: "u of a",
     points: [
       "Built a 3-class dementia / MCI detection system from Whisper speech embeddings and ensemble classifiers, contributing to research presented at ==ICASSP 2025==.",
       "Built survival-analysis and clinical prediction pipelines on MIMIC-IV: ==59M+ patient events== across 239K+ patients.",
@@ -57,6 +63,8 @@ export const experience = [
     company: "InfoStrux",
     location: "Vancouver, BC",
     dates: "jan – may 2024",
+    start: "2024-01",
+    short: "infostrux",
     points: [
       "Optimized 25+ Snowflake SQL queries, cutting execution time by up to ==60%== for BI dashboards.",
       "Designed staging and curated layers for 3 datasets with a senior data engineer, cutting time-to-insight by ==40%==.",

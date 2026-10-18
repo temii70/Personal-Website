@@ -7,28 +7,25 @@ import Projects from "./components/Projects";
 import Interests from "./components/Interests";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import { KernelProvider } from "./notebook/Kernel";
-import Trace from "./notebook/Trace";
+import SignalLine from "./art/SignalLine";
 
-// The whole site is one Jupyter notebook: markdown cells for prose, code cells whose
-// outputs are the art. Cells execute as you scroll to them.
+// "signal": one line runs the whole page and changes shape chapter by chapter —
+// noise, a heartbeat, a career forecast, a flock, a clothesline, a basketball arc, a flat line.
 export default function Home() {
   return (
-    <KernelProvider>
-      <div className="min-h-screen bg-paper font-serif text-ink antialiased selection:bg-marker">
-        <Nav />
-        <main className="relative mx-auto max-w-5xl px-5 sm:px-8">
-          <Trace />
-          <Hero />
-          <About />
-          <Experience />
-          <Interlude />
-          <Projects />
-          <Interests />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </KernelProvider>
+    <div className="relative overflow-x-clip bg-paper font-serif text-ink antialiased selection:bg-yellow/60">
+      <Nav />
+      <SignalLine />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Interlude />
+        <Projects />
+        <Interests />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
   );
 }

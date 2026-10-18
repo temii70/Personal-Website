@@ -1,6 +1,6 @@
 html {
   scroll-behavior: smooth;
-  background: #f7f3ea;
+  background: #f6f3ec;
   color-scheme: light;
 }
 
@@ -12,7 +12,7 @@ html {
 
 /* Highlighter: uneven ends, slightly lower than the text like a real swipe. */
 .marker {
-  background: linear-gradient(100deg, transparent 0.4em, #f3dd8a 0.5em, #f3dd8a calc(100% - 0.5em), transparent calc(100% - 0.35em));
+  background: linear-gradient(100deg, transparent 0.4em, #ffd86b 0.5em, #ffd86b calc(100% - 0.5em), transparent calc(100% - 0.35em));
   background-size: 100% 70%;
   background-position: 0 75%;
   background-repeat: no-repeat;

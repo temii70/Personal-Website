@@ -1,56 +1,65 @@
 import Reveal from "./ui/Reveal";
-import { CodeCell, MarkdownCell, H2 } from "../notebook/Cell";
-import { Marked } from "../notebook/outputs";
+import { ChapterTitle } from "./ui/Chapter";
+import Forecast from "../art/Forecast";
 import { experience, profile } from "../data";
 
+// Marker-highlight ==key numbers== in a sentence.
+function Marked({ text }) {
+  return text.split(/(==[^=]+==)/g).map((part, i) =>
+    part.startsWith("==") ? (
+      <mark key={i} className="marker text-ink">
+        {part.slice(2, -2)}
+      </mark>
+    ) : (
+      part
+    )
+  );
+}
+
+// Chapter 3 · forecast. The line becomes a career curve with a forecast for what's next.
 export default function Experience() {
   return (
-    <section id="Experience" className="scroll-mt-20 space-y-10 pt-28">
-      <MarkdownCell>
-        <Reveal>
-          <H2>Experience</H2>
-          <p className="mt-3 text-lg text-ink-soft">Where I've worked, newest first.</p>
-        </Reveal>
-      </MarkdownCell>
+    <section id="Experience" className="relative scroll-mt-16 py-24 sm:py-32">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-10">
+        <ChapterTitle caption="four jobs, one trend line">Experience</ChapterTitle>
 
-      <CodeCell
-        code={`for job in temi.experience:
-    job.summary()`}
-      >
-        <div className="divide-y divide-dashed divide-line">
-          {experience.map((job) => (
-            <article key={job.company + job.role} className="py-7 first:pt-0 last:pb-0">
-              <p className="font-mono text-xs text-ink-soft">
-                {job.dates} · {job.location}
-              </p>
-              <h3 className="mt-1.5 font-display text-2xl text-ink">{job.role}</h3>
-              <p className="italic text-pen">{job.company}</p>
-              <ul className="mt-4 max-w-2xl space-y-2 leading-relaxed text-ink-soft">
-                {job.points.map((p) => (
-                  <li key={p} className="flex gap-3">
-                    <span className="select-none text-orange">–</span>
-                    <span>
-                      <Marked text={p} />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-3 font-mono text-xs text-ink-soft">tags = [{job.tags.map((t) => `'${t}'`).join(", ")}]</p>
-            </article>
+        <Forecast jobs={experience} />
+
+        <div className="mt-20 grid gap-x-12 gap-y-14 md:grid-cols-2">
+          {experience.map((job, i) => (
+            <Reveal key={job.company + job.role} delay={(i % 2) * 0.08}>
+              <article>
+                <p className="font-mono text-xs lowercase text-ink-soft">
+                  <span className="text-pink">{job.short}</span> · {job.dates} · {job.location}
+                </p>
+                <h3 className="mt-2 font-display text-3xl leading-tight text-ink">{job.role}</h3>
+                <p className="italic text-blue">{job.company}</p>
+                <ul className="mt-4 space-y-2 leading-relaxed text-ink-soft">
+                  {job.points.map((p) => (
+                    <li key={p} className="flex gap-3">
+                      <span className="select-none font-mono text-pink">~</span>
+                      <span>
+                        <Marked text={p} />
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </Reveal>
           ))}
         </div>
-      </CodeCell>
 
-      <MarkdownCell>
-        <a
-          href={profile.resume}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-mono text-[13px] text-ink underline decoration-orange underline-offset-4 hover:text-orange"
-        >
-          → the full resume, if you like PDFs
-        </a>
-      </MarkdownCell>
+        <Reveal className="mt-14">
+          <a
+            href={profile.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-sm lowercase text-ink underline decoration-pink decoration-2 underline-offset-4 hover:text-blue"
+          >
+            the full resume, if you like pdfs ↗
+          </a>
+        </Reveal>
+      </div>
     </section>
   );
 }

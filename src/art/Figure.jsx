@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { rng } from "./random";
 import { palette } from "../theme";
 
-// Tiny notebook figures, one per project, each sketching the idea behind it.
+// Tiny sketches, one per project, each sketching the idea behind it.
 // Lines draw themselves in; points fade in after.
 
 const f = (v) => +v.toFixed(1);

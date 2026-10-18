@@ -19,7 +19,8 @@ function drawSignal(ctx, width, height, canvas) {
   const rand = rng("signal");
   const gauss = () => Math.sqrt(-2 * Math.log(rand() || 1e-9)) * Math.cos(2 * Math.PI * rand());
 
-  const period = Math.min(260, Math.max(150, width / 4));
+  // a whole number of beats, so the trace starts and ends on the baseline where the page line meets it
+  const period = width / Math.max(2, Math.round(width / 210));
   const mid = height * 0.66;
   const amp = height * 0.55;
   const n = Math.round(width / 3);
@@ -51,20 +52,24 @@ function drawSignal(ctx, width, height, canvas) {
     }
     ctx.globalAlpha = 1;
 
-    // ink the trace wherever neighbouring dots have settled
-    ctx.strokeStyle = palette.signal;
-    ctx.lineWidth = 1.4;
+    // ink the trace wherever neighbouring dots have settled: a pink misprint pass, then blue
+    ctx.lineWidth = 1.6;
     ctx.lineJoin = "round";
-    ctx.beginPath();
-    for (let i = 1; i < n; i++) {
-      const a = dots[i - 1];
-      const b = dots[i];
-      if (a.s < 0.06 && b.s < 0.06) {
-        ctx.moveTo(a.x, a.y);
-        ctx.lineTo(b.x, b.y);
+    for (const [color, off, alpha] of [[palette.pink, 1.6, 0.55], [palette.blue, 0, 1]]) {
+      ctx.strokeStyle = color;
+      ctx.globalAlpha = alpha;
+      ctx.beginPath();
+      for (let i = 1; i < n; i++) {
+        const a = dots[i - 1];
+        const b = dots[i];
+        if (a.s < 0.06 && b.s < 0.06) {
+          ctx.moveTo(a.x + off, a.y + off);
+          ctx.lineTo(b.x + off, b.y + off);
+        }
       }
+      ctx.stroke();
     }
-    ctx.stroke();
+    ctx.globalAlpha = 1;
 
     // a monitor sweep running along the finished trace
     if (scheduled === 0) {
