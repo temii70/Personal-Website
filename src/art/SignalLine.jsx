@@ -66,11 +66,21 @@ function flourish(a, vias, b, seed) {
   for (let k = 1; k < pts.length - 2; k++) {
     const [p0, p1, p2, p3] = [pts[k - 1], pts[k], pts[k + 1], pts[k + 2]];
     const steps = Math.max(8, Math.round(Math.hypot(p2[0] - p1[0], p2[1] - p1[1]) / 5));
+    // Catmull-Rom tangents, capped so a far-off neighbour (say, the last chapter's anchor a
+    // screen away) can't fling the curve past the points it's meant to pass through
+    const seg = Math.hypot(p2[0] - p1[0], p2[1] - p1[1]);
+    const tangent = (from, to) => {
+      const m = [(to[0] - from[0]) / 2, (to[1] - from[1]) / 2];
+      const scale = Math.min(1, (seg * 1.5) / (Math.hypot(m[0], m[1]) || 1));
+      return [m[0] * scale, m[1] * scale];
+    };
+    const m1 = tangent(p0, p2);
+    const m2 = tangent(p1, p3);
     for (let i = k === 1 ? 0 : 1; i <= steps; i++) {
       const t = i / steps;
       const t2 = t * t;
       const t3 = t2 * t;
-      const at = (j) => 0.5 * (2 * p1[j] + (-p0[j] + p2[j]) * t + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * t2 + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * t3);
+      const at = (j) => (2 * t3 - 3 * t2 + 1) * p1[j] + (t3 - 2 * t2 + t) * m1[j] + (-2 * t3 + 3 * t2) * p2[j] + (t3 - t2) * m2[j];
       out.push([at(0), at(1)]);
     }
   }

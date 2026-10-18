@@ -56,7 +56,15 @@ export default function Experience() {
       <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-10">
         <ChapterTitle caption="four jobs, one trend line">Experience</ChapterTitle>
 
+        {/* phones: down the left margin past the heading, then into the top of the chart */}
+        <div className="relative">
+          <Vias points={[["-3%", "-90px"], ["-2%", "-30px"], ["16%", "-4px"]]} className="md:hidden" />
+        </div>
         <Forecast jobs={experience} />
+        {/* phones: out of the chart and over to the right margin, clear of the job text */}
+        <div className="relative">
+          <Vias points={[["104%", "40px"]]} className="md:hidden" />
+        </div>
 
         <div className="mt-20 grid gap-x-12 gap-y-14 md:grid-cols-2">
           {experience.map((job, i) => (
