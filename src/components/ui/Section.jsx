@@ -1,19 +1,18 @@
 import Reveal from "./Reveal";
-import { TornEdge } from "./Paper";
-import { palette } from "../../theme";
 
-const BG = { paper: "bg-paper", blush: "bg-blush", sage: "bg-sage" };
+const PAPER = { graph: "paper-graph", dots: "paper-dots", ruled: "paper-ruled", plain: "bg-paper" };
 
-// A sheet of paper: colored background, optional torn top edge, handwritten title.
-export default function Section({ id, title, aside, bg = "paper", torn = true, className = "", children }) {
+// One page of the notebook: a paper pattern, a page number, and a title.
+export default function Section({ id, page, label, title, paper = "plain", className = "", children }) {
   return (
-    <section id={id} className={`relative scroll-mt-16 py-24 sm:py-32 ${BG[bg]} ${className}`}>
-      {torn && <TornEdge color={palette[bg]} seed={id || title} />}
+    <section id={id} className={`relative scroll-mt-16 border-t border-ink/10 py-24 sm:py-32 ${PAPER[paper]} ${className}`}>
       <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-12">
         {title && (
           <Reveal className="mb-14">
-            <h2 className="font-hand text-4xl text-ink sm:text-5xl">{title}</h2>
-            {aside && <p className="mt-1 font-hand text-lg text-ink-soft">{aside}</p>}
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-signal">
+              p.{page} — {label}
+            </p>
+            <h2 className="mt-3 font-display text-4xl italic text-ink sm:text-5xl">{title}</h2>
           </Reveal>
         )}
         {children}

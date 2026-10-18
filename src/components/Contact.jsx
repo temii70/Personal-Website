@@ -3,19 +3,18 @@ import axios from "axios";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import Section from "./ui/Section";
 import Reveal from "./ui/Reveal";
-import { PaperNote } from "./ui/Paper";
+import { IndexCard } from "./ui/Notebook";
 import { profile } from "../data";
 
 const EMPTY = { name: "", email: "", subject: "", message: "" };
 
-// Lined-paper field: handwritten label, ink underline.
 const Field = ({ label, as: Tag = "input", ...props }) => (
   <label className="block">
-    <span className="font-hand text-lg text-ink-soft">{label}</span>
+    <span className="font-mono text-[11px] uppercase tracking-wider text-ink-soft">{label}</span>
     <Tag
       {...props}
       required
-      className="mt-1 block w-full resize-none border-0 border-b border-ink/25 bg-transparent px-0 py-1.5 text-ink outline-none transition-colors focus:border-rust"
+      className="mt-1 block w-full resize-none border-0 border-b border-ink/30 bg-transparent px-0 py-1.5 font-hand text-lg text-pen outline-none transition-colors focus:border-signal"
     />
   </label>
 );
@@ -40,16 +39,16 @@ export default function Contact() {
   };
 
   return (
-    <Section id="Contact" title="say hi" aside="leave a note, i read every one">
+    <Section id="Contact" page="06" label="contact" title="Say hi" paper="ruled">
       <div className="grid gap-14 md:grid-cols-[1fr_1.4fr]">
         <Reveal className="space-y-5 text-lg leading-relaxed text-ink-soft">
           <p>Looking for ML, data or software roles, research collaborations, or just someone to argue about the Lakers with.</p>
           <p>
-            Email me at{" "}
-            <a href={`mailto:${profile.email}`} className="text-ink underline decoration-thread decoration-wavy underline-offset-4 hover:text-rust">
+            Email{" "}
+            <a href={`mailto:${profile.email}`} className="text-ink underline decoration-signal underline-offset-4 hover:text-signal">
               {profile.email}
             </a>
-            , or write on the note.
+            , or fill in the card.
           </p>
           <div className="flex gap-5 pt-2 text-ink-soft">
             <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-ink">
@@ -62,26 +61,30 @@ export default function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <PaperNote seed="letter" rotate={0.8} innerClassName="p-7 sm:p-9">
-            <form onSubmit={onSubmit} className="space-y-6">
+          <IndexCard rotate={0.6}>
+            <form onSubmit={onSubmit} className="space-y-6 px-7 pb-8 pt-5 sm:px-9">
               <div className="grid gap-6 sm:grid-cols-2">
-                <Field label="your name" name="name" value={form.name} onChange={onChange} />
-                <Field label="your email" name="email" type="email" value={form.email} onChange={onChange} />
+                <Field label="name" name="name" value={form.name} onChange={onChange} />
+                <Field label="email" name="email" type="email" value={form.email} onChange={onChange} />
               </div>
-              <Field label="what's it about" name="subject" value={form.subject} onChange={onChange} />
+              <Field label="subject" name="subject" value={form.subject} onChange={onChange} />
               <Field label="message" as="textarea" name="message" rows={4} value={form.message} onChange={onChange} />
 
-              <div className="flex flex-wrap items-center gap-4 pt-2 font-hand text-xl">
-                <button type="submit" disabled={status === "sending"} className="sketch bg-ink px-6 py-1.5 text-paper transition hover:bg-rust disabled:opacity-60">
-                  {status === "sending" ? "sending…" : "send it →"}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="bg-ink px-6 py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition hover:bg-signal disabled:opacity-60"
+                >
+                  {status === "sending" ? "sending…" : "send →"}
                 </button>
-                <p aria-live="polite">
-                  {status === "sent" && <span className="text-moss">got it, thank you! i'll write back soon.</span>}
-                  {status === "error" && <span className="text-rust">hm, that didn't go through. try email instead?</span>}
+                <p aria-live="polite" className="font-hand text-lg">
+                  {status === "sent" && <span className="text-pen">got it, thank you! i'll write back soon.</span>}
+                  {status === "error" && <span className="text-signal">that didn't go through. try email instead?</span>}
                 </p>
               </div>
             </form>
-          </PaperNote>
+          </IndexCard>
         </Reveal>
       </div>
     </Section>

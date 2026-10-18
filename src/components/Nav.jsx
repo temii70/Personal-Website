@@ -4,9 +4,9 @@ import { profile } from "../data";
 
 const LINKS = [
   { id: "About", label: "about" },
-  { id: "Experience", label: "field notes" },
+  { id: "Experience", label: "notes" },
   { id: "Projects", label: "projects" },
-  { id: "Contact", label: "say hi" },
+  { id: "Contact", label: "contact" },
 ];
 
 export default function Nav() {
@@ -35,30 +35,34 @@ export default function Nav() {
     };
   }, []);
 
-  const link = (isActive) =>
-    `underline-offset-[6px] decoration-thread decoration-wavy transition-colors hover:text-ink hover:underline ${
-      isActive ? "text-ink underline" : "text-ink-soft"
-    }`;
-
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 font-hand text-xl transition-colors duration-300 ${
-        scrolled || open ? "bg-paper/90 shadow-[0_1px_0_rgba(58,52,46,0.08)] backdrop-blur" : ""
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled || open ? "border-b border-ink/10 bg-paper/90 backdrop-blur" : "border-b border-transparent"
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6 sm:px-12">
-        <a href="#top" className="text-2xl text-ink">
-          temi otun
+        <a href="#top" className="font-display text-xl italic text-ink">
+          Temi Otun
         </a>
 
-        <div className="hidden items-center gap-7 sm:flex">
+        <div className="hidden items-center gap-7 font-mono text-xs uppercase tracking-[0.15em] sm:flex">
           {LINKS.map(({ id, label }) => (
-            <a key={id} href={`#${id}`} className={link(active === id)}>
+            <a
+              key={id}
+              href={`#${id}`}
+              className={`border-b pb-0.5 transition-colors hover:text-ink ${active === id ? "border-signal text-ink" : "border-transparent text-ink-soft"}`}
+            >
               {label}
             </a>
           ))}
-          <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="sketch px-4 py-0.5 text-ink transition-colors hover:bg-ink hover:text-paper">
-            resume
+          <a
+            href={profile.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-ink px-3 py-1.5 text-ink transition-colors hover:bg-ink hover:text-paper"
+          >
+            resume ↗
           </a>
         </div>
 
@@ -68,15 +72,15 @@ export default function Nav() {
       </nav>
 
       {open && (
-        <div className="px-6 pb-6 sm:hidden">
-          {[...LINKS, { id: "resume", label: "resume", href: profile.resume }].map(({ id, label, href }) => (
+        <div className="px-6 pb-6 font-mono text-sm uppercase tracking-[0.15em] sm:hidden">
+          {[...LINKS, { id: "resume", label: "resume ↗", href: profile.resume }].map(({ id, label, href }) => (
             <a
               key={id}
               href={href || `#${id}`}
               target={href ? "_blank" : undefined}
               rel={href ? "noopener noreferrer" : undefined}
               onClick={() => setOpen(false)}
-              className="block py-2 text-2xl text-ink"
+              className="block py-3 text-ink"
             >
               {label}
             </a>

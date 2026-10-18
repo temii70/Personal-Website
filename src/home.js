@@ -7,13 +7,13 @@ import Projects from "./components/Projects";
 import Interests from "./components/Interests";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Thread from "./art/Thread";
+import Recorder from "./art/Recorder";
 
 export default function Home() {
   return (
-    <div className="relative bg-paper font-serif text-ink antialiased selection:bg-thread/30">
+    <div className="relative bg-paper font-serif text-ink antialiased selection:bg-marker">
       <Nav />
-      <Thread />
+      <Recorder />
       <main>
         <Hero />
         <About />

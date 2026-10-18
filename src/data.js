@@ -22,9 +22,9 @@ export const experience = [
     location: "Vancouver, BC",
     dates: "summer 2026",
     points: [
-      "Developed a patent-pending fraud detection system combining ML classification with LLM analysis: 94% recall, 85% F1, projected to stop $18M in annual fraud losses.",
-      "Engineered a cascaded NLP pipeline over 23M+ unstructured text records a year using semantic embeddings, cutting operational costs by 65%.",
-      "Led experiments across 6+ architectures and tuned ensemble thresholds, lifting precision from 49% to 77%.",
+      "Developed a patent-pending fraud detection system combining ML classification with LLM analysis: ==94% recall==, 85% F1, projected to stop ==$18M== in annual fraud losses.",
+      "Engineered a cascaded NLP pipeline over 23M+ unstructured text records a year using semantic embeddings, cutting operational costs by ==65%==.",
+      "Led experiments across 6+ architectures and tuned ensemble thresholds, lifting precision from ==49% to 77%==.",
     ],
     tags: ["llms", "nlp", "embeddings", "ensembles"],
   },
@@ -34,8 +34,8 @@ export const experience = [
     location: "Edmonton, AB",
     dates: "jan – aug 2025",
     points: [
-      "Improved a long-range temperature forecasting system: up to 47% lower MAE, 24.3% better on average across a six-year test set.",
-      "Built multivariate pipelines over 100+ meteorological features with temporal validation and ensemble ML, beating baselines in 73% of test years.",
+      "Improved a long-range temperature forecasting system: up to ==47% lower MAE==, 24.3% better on average across a six-year test set.",
+      "Built multivariate pipelines over 100+ meteorological features with temporal validation and ensemble ML, beating baselines in ==73% of test years==.",
       "Benchmarked 20+ models, from ARIMA and SARIMA to LSTMs, Transformers, LightGBM and XGBoost.",
     ],
     tags: ["time series", "forecasting", "gradient boosting"],
@@ -46,8 +46,8 @@ export const experience = [
     location: "Edmonton, AB",
     dates: "sep 2024 – apr 2026",
     points: [
-      "Built a 3-class dementia / MCI detection system from Whisper speech embeddings and ensemble classifiers, contributing to research presented at ICASSP 2025.",
-      "Built survival-analysis and clinical prediction pipelines on MIMIC-IV: 59M+ patient events across 239K+ patients.",
+      "Built a 3-class dementia / MCI detection system from Whisper speech embeddings and ensemble classifiers, contributing to research presented at ==ICASSP 2025==.",
+      "Built survival-analysis and clinical prediction pipelines on MIMIC-IV: ==59M+ patient events== across 239K+ patients.",
       "Ran 15+ experiments across speech, ECG and clinical-record data.",
     ],
     tags: ["healthcare", "survival analysis", "speech", "ecg"],
@@ -58,21 +58,21 @@ export const experience = [
     location: "Vancouver, BC",
     dates: "jan – may 2024",
     points: [
-      "Optimized 25+ Snowflake SQL queries, cutting execution time by up to 60% for BI dashboards.",
-      "Designed staging and curated layers for 3 datasets with a senior data engineer, cutting time-to-insight by 40%.",
+      "Optimized 25+ Snowflake SQL queries, cutting execution time by up to ==60%== for BI dashboards.",
+      "Designed staging and curated layers for 3 datasets with a senior data engineer, cutting time-to-insight by ==40%==.",
     ],
     tags: ["snowflake", "sql", "data modeling"],
   },
 ];
 
-// doodle: maze | spiral | constellation | wave | orbit (see src/art/Doodle.jsx)
+// figure: knn | lottery | kernel | svm | arc (see src/art/Figure.jsx)
 export const projects = [
   {
     name: "Local LLM Agent System",
     description:
       "A fully local RAG pipeline (Qwen, Ollama, Docling) with hybrid retrieval and BGE reranking that took top-5 recall from 64% to 86% over 100+ lecture docs. The same model runs an MCP Gmail agent that sent 200+ outreach emails for my student club.",
     tags: ["rag", "agents", "mcp", "ollama"],
-    doodle: "constellation",
+    figure: "knn",
     featured: true,
   },
   {
@@ -80,27 +80,27 @@ export const projects = [
     description:
       "An Android app built by a seven-person team: waitlists, random draws, QR sign-up, geolocation, and a Gemini pipeline that sorts event tags into 21 categories.",
     tags: ["kotlin", "java", "firebase", "gemini"],
-    doodle: "maze",
+    figure: "lottery",
     featured: true,
   },
   {
     name: "Real-time Emotion Detection",
     description: "A TensorFlow CNN hooked up to OpenCV that reads facial expressions from a live webcam.",
     tags: ["tensorflow", "cnn", "opencv"],
-    doodle: "spiral",
+    figure: "kernel",
   },
   {
     name: "Lung Cancer Detection",
     description: "Seven ML algorithms tested on a lung cancer dataset. An SVM won, with 99% recall and 94% accuracy.",
     tags: ["scikit-learn", "svm"],
-    doodle: "wave",
+    figure: "svm",
     link: "https://colab.research.google.com/gist/temii70/b300e9ca79168cc0b1c82c9110a06e56/models.ipynb",
   },
   {
     name: "NBA Chatbot",
     description: "An iOS chatbot you can ask about basketball, backed by a SQL database of 4,800+ players and all 30 teams.",
     tags: ["swift", "sql", "python"],
-    doodle: "orbit",
+    figure: "arc",
     link: "https://github.com/temii70/NBAChatbot",
   },
 ];

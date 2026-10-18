@@ -1,30 +1,34 @@
 import Section from "./ui/Section";
 import Reveal from "./ui/Reveal";
-import { PaperNote } from "./ui/Paper";
-import Doodle from "../art/Doodle";
+import { IndexCard } from "./ui/Notebook";
+import Figure from "../art/Figure";
 import { projects } from "../data";
 
-const TILT = [-1.4, 1.1, -0.6, 1.6, -1.2];
+const TILT = [-1, 0.8, -0.5, 1.2, -0.9];
 
-function ProjectNote({ project, index }) {
-  const body = (
-    <PaperNote seed={project.name} rotate={TILT[index % TILT.length]} className="h-full" innerClassName="flex h-full flex-col p-6 sm:p-7">
-      <Doodle kind={project.doodle} seed={project.name} className={project.featured ? "h-24 w-24" : "h-16 w-16"} />
-      <h3 className={`mt-4 font-serif text-ink ${project.featured ? "text-2xl" : "text-xl"}`}>{project.name}</h3>
-      <p className="mt-2 flex-1 leading-relaxed text-ink-soft">{project.description}</p>
-      <div className="mt-5 flex items-end justify-between gap-4 font-hand text-lg">
-        <span className="text-moss">{project.tags.map((t) => `#${t.replace(/ /g, "")}`).join("  ")}</span>
-        {project.link && <span className="shrink-0 text-rust group-hover:underline">have a look ↗</span>}
+function ProjectCard({ project, index }) {
+  const card = (
+    <IndexCard rotate={TILT[index % TILT.length]} className="h-full">
+      <div className="flex h-full flex-col px-6 pb-6 pt-4 sm:px-7">
+        <div className="flex items-start justify-between gap-4">
+          <h3 className={`font-display leading-tight text-ink ${project.featured ? "text-2xl" : "text-xl"}`}>{project.name}</h3>
+          <Figure kind={project.figure} seed={project.name} className={`shrink-0 ${project.featured ? "h-24 w-24" : "h-16 w-16"}`} />
+        </div>
+        <p className="mt-3 flex-1 leading-[32px] text-ink-soft">{project.description}</p>
+        <div className="mt-4 flex items-end justify-between gap-4 font-mono text-[11px] uppercase tracking-wider">
+          <span className="text-ink-soft">{project.tags.join(" / ")}</span>
+          {project.link && <span className="shrink-0 text-signal group-hover:underline">open ↗</span>}
+        </div>
       </div>
-    </PaperNote>
+    </IndexCard>
   );
 
   return project.link ? (
     <a href={project.link} target="_blank" rel="noopener noreferrer" className="group block h-full">
-      {body}
+      {card}
     </a>
   ) : (
-    body
+    card
   );
 }
 
@@ -33,18 +37,18 @@ export default function Projects() {
   const rest = projects.filter((p) => !p.featured);
 
   return (
-    <Section id="Projects" title="things i've made" aside="pinned up so i don't lose them" bg="sage" torn={false} className="pt-8 sm:pt-12">
-      <div className="grid gap-10 md:grid-cols-2">
+    <Section id="Projects" page="04" label="projects" title="Things I've built" paper="graph">
+      <div className="grid gap-12 md:grid-cols-2">
         {featured.map((p, i) => (
           <Reveal key={p.name} delay={i * 0.08}>
-            <ProjectNote project={p} index={i} />
+            <ProjectCard project={p} index={i} />
           </Reveal>
         ))}
       </div>
-      <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
         {rest.map((p, i) => (
           <Reveal key={p.name} delay={i * 0.08}>
-            <ProjectNote project={p} index={i + featured.length} />
+            <ProjectCard project={p} index={i + featured.length} />
           </Reveal>
         ))}
       </div>

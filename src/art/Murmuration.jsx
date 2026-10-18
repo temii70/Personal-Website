@@ -4,49 +4,8 @@ import { rng, prefersReducedMotion } from "./random";
 // Boids: every bird only follows three local rules (don't crowd, match heading, stay close),
 // yet the whole flock moves as one. Birds scatter away from the cursor.
 
-function makeGrass(width, height, dpr) {
-  const rand = rng("grass");
-  const layer = document.createElement("canvas");
-  layer.width = width * dpr;
-  layer.height = height * dpr;
-  const g = layer.getContext("2d");
-  g.scale(dpr, dpr);
-  g.lineCap = "round";
-
-  for (let x = -10; x < width + 10; x += 2 + rand() * 3) {
-    const h = 22 + rand() * 48;
-    const lean = (rand() - 0.5) * 26;
-    g.strokeStyle = `rgba(${80 + rand() * 30}, ${110 + rand() * 30}, ${70 + rand() * 20}, ${0.45 + rand() * 0.4})`;
-    g.lineWidth = 0.6 + rand() * 0.6;
-    g.beginPath();
-    g.moveTo(x, height);
-    g.quadraticCurveTo(x + lean * 0.2, height - h * 0.6, x + lean, height - h);
-    g.stroke();
-  }
-
-  // a few tall seed heads
-  for (let x = 60; x < width; x += 140 + rand() * 260) {
-    const h = 70 + rand() * 40;
-    const top = height - h;
-    g.strokeStyle = "rgba(90, 112, 78, 0.85)";
-    g.lineWidth = 0.9;
-    g.beginPath();
-    g.moveTo(x, height);
-    g.lineTo(x + 2, top);
-    for (let i = 0; i < 6; i++) {
-      const a = -Math.PI / 2 + (i - 2.5) * 0.35;
-      g.moveTo(x + 2, top);
-      g.lineTo(x + 2 + Math.cos(a) * 9, top + Math.sin(a) * 9);
-    }
-    g.stroke();
-  }
-  return layer;
-}
-
 function drawFlock(ctx, width, height, canvas) {
   const rand = rng("flock");
-  const dpr = ctx.getTransform().a;
-  const grass = makeGrass(width, height, dpr);
   const n = width < 640 ? 170 : 380;
   const birds = Array.from({ length: n }, () => ({
     x: width * (0.1 + rand() * 0.3),
@@ -109,8 +68,7 @@ function drawFlock(ctx, width, height, canvas) {
 
   const render = () => {
     ctx.clearRect(0, 0, width, height);
-    ctx.drawImage(grass, 0, 0, width, height);
-    ctx.strokeStyle = "rgba(58, 52, 46, 0.72)";
+    ctx.strokeStyle = "rgba(29, 34, 48, 0.72)";
     ctx.lineWidth = 0.9;
     ctx.lineCap = "round";
     ctx.beginPath();
