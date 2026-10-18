@@ -1,171 +1,93 @@
-# Temi Otun - Personal Portfolio Website 🚀
+# Temi Otun · portfolio
 
-A modern, responsive personal portfolio website showcasing my research in deep learning, machine learning projects, and technical expertise. Built with React.js, featuring smooth animations, interactive 3D backgrounds, and a clean, professional design.
+My personal site: [temiotun.com](https://temiotun.com)
 
-![Portfolio Preview](public/website.webp)
+![The opening of the site: the name, a loop of pencil line, a row of decision trees, and a speech waveform with its transcript](public/preview.jpg)
 
-## 🌟 Live Demo
+I'm a computing science student at the University of Alberta who builds machine learning and data systems. This site is meant to feel like a sketchbook rather than a template: soft pencil on warm paper, hand-lettered captions, and generative drawings that are all small ML ideas.
 
-Visit the live website: [Portfolio Website](https://temiotun.com)
+## The idea: one line, one idea per scene
 
-## 🎯 About
+A single hand-drawn line runs the full length of the page. It starts at the top right, loops over the name, and then turns into each chapter's artwork in turn before moving on:
 
-This portfolio website serves as a comprehensive showcase of my journey as a researcher and developer, specializing in:
+| Chapter | What the line becomes | The ML idea behind it |
+| --- | --- | --- |
+| Hero | Loops over the name, then crosses a row of trees | **A random forest**: binary decision trees grow in, and each leaf is a coloured "vote" |
+| About | A speech waveform with a handwritten transcript | **Denoising + speech-to-text**: dots start as noise, settle into one burst per word, and a playhead "listens" and writes the words. Move through it (or tap on a phone) and the transcript garbles |
+| Experience | A career curve with a forecast band | **Time-series forecasting**: one point per job, then a widening uncertainty band ("wide band, open to offers"). On phones it turns vertical so time runs down the page |
+| Sampler | Underlines the heading, then frames a grid | **Eight tiny models**: k-means, a linear boundary, the kernel trick, gradient descent, attention, a trend line, embeddings, dropout |
+| Flock | Flies into a murmuration | **Ensembles**: boids follow three local rules, yet move as one ("many small models, one decision"). They scatter from your cursor |
+| Projects | A clothesline with cards pegged on it | Each card has a small sketch of the idea behind the project |
+| Night court | A basketball shot arcing into a hoop | Off the clock: travel, basketball, the gym |
+| Say hi | Settles into a flat line | Beats once when a message is sent |
 
-- **Deep Learning Research**: Multimodal deep learning models integrating physiological signals, text, and image data
-- **Machine Learning Projects**: Healthcare applications, emotion detection, and predictive modeling
-- **Web Development**: Modern React applications with responsive design
-- **Data Analysis**: Working with large datasets and implementing various ML algorithms
+Every drawing is seeded, so it looks the same on every visit. Everything respects `prefers-reduced-motion`: with motion turned off, each piece is drawn in its finished state.
 
-## ✨ Features
+## How the line works
 
-- **Responsive Design**: Optimized for all devices and screen sizes
-- **Interactive 3D Background**: Powered by Three.js and Vanta.js for stunning visual effects
-- **Smooth Animations**: Framer Motion animations for enhanced user experience
-- **Scroll Spy Navigation**: Dynamic navigation highlighting current section
-- **Contact Form**: Functional contact form with backend integration
-- **Project Showcase**: Detailed presentation of research and development projects
-- **Resume Integration**: Direct access to downloadable resume
-- **Social Media Links**: Quick access to GitHub and LinkedIn profiles
+Each chapter marks where the line enters and leaves its artwork with an `<Anchor>`, and can add `<Vias>` (hand-placed waypoints) for loops and swashes. [`SignalLine.jsx`](src/art/SignalLine.jsx) measures those anchors, draws the stretches between them as a page-wide SVG with a slight pencil wobble, and inks them in as you scroll. Desktop and phone layouts have their own waypoints, so on a phone the line still goes through the sampler and around the chart without crossing text.
 
-## 🛠️ Tech Stack
+To reroute the line, edit the point lists in the chapter components (for example `FLOURISH` in `Hero.jsx`, `GAP` and `PHOTO` in `About.jsx`, `THREAD` in `Models.jsx`).
 
-### Frontend
-- **React.js** - Component-based UI framework
-- **JavaScript (ES6+)** - Core programming language
-- **CSS3** - Styling and responsive design
-- **Framer Motion** - Animation library
-- **React Icons** - Icon components
-- **React Scroll** - Smooth scrolling functionality
-- **React Scrollspy** - Navigation highlighting
+## Project layout
 
-### Backend & APIs
-- **Node.js** - Runtime environment
-- **Express.js** - Web application framework
-- **Nodemailer** - Email functionality
-- **Axios** - HTTP client for API calls
-
-### 3D Graphics & Animation
-- **Three.js** - 3D graphics library
-- **Vanta.js** - Animated backgrounds
-
-### Development Tools
-- **Create React App** - Development environment
-- **npm** - Package management
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn package manager
-- Git
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/temii70/portfolio.git
-   cd portfolio
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Install backend dependencies**
-   ```bash
-   cd backend
-   npm install
-   cd ..
-   ```
-
-4. **Set up environment variables**
-   
-   Create a `.env` file in the `src` directory and add your configuration:
-   ```env
-   REACT_APP_API_URL=your_backend_url
-   EMAIL_USER=your_email
-   EMAIL_PASS=your_email_password
-   ```
-
-## 💻 Usage
-
-### Development Mode
-
-Start the development server:
-```bash
-npm start
+```
+src/
+  home.js            page composition: nav, the line, then each chapter in order
+  data.js            all the content: experience, projects, skills, links
+  theme.js           the pencil palette (kept in sync with the Tailwind config)
+  components/        one file per chapter, plus ui/ helpers (captions, reveal, link arrow)
+  art/               the generative pieces
+    SignalLine.jsx     the page-long line, anchors and waypoints
+    RandomForest.jsx   hero trees (canvas)
+    Voice.jsx          waveform + transcript (canvas)
+    Forecast.jsx       career curve, wide and tall layouts (SVG)
+    Sampler.jsx        the eight-tile model sampler (SVG)
+    Murmuration.jsx    boids (canvas)
+    Figure.jsx         project sketches (SVG)
+    random.js          seeded randomness
+    useCanvas.js       sizes a canvas to its box, crisp on retina
+backend/
+  server.js          Express + Nodemailer endpoint for the contact form
+public/
+  index.html         Tailwind config, fonts, favicon
 ```
 
-The application will open at [http://localhost:3000](http://localhost:3000)
+To change what the site says, edit [`src/data.js`](src/data.js). The components only handle layout and drawing.
 
-### Backend Server
+## Stack
 
-Start the backend server:
+- **React 19** (Create React App)
+- **Tailwind CSS**, loaded from the CDN, with the palette and fonts configured in `public/index.html`
+- **Framer Motion** for reveals and line draw-ins
+- **Canvas and SVG** for all the generative art, with no graphics libraries
+- **Fonts**: Fraunces (name), Patrick Hand (captions), Newsreader (body), Instrument Serif (job and project titles), Courier Prime (labels)
+- **Contact form**: Axios posts to a small Express + Nodemailer server deployed on Render
+
+## Running it locally
+
+```bash
+npm install
+npm start          # http://localhost:3000
+npm run build      # production build in build/
+```
+
+The contact form posts to the deployed backend. To run the backend yourself:
+
 ```bash
 cd backend
-node server.js
+npm install
+SMTP_USER=you@gmail.com SMTP_PASS=your-app-password node server.js   # port 5000
 ```
 
-The backend will run on the configured port (default: 5000)
+and point the URL in `src/components/Contact.jsx` at `http://localhost:5000/send-email`.
 
-### Build for Production
+## Contact
 
-Create an optimized production build:
-```bash
-npm run build
-```
+- Email: [Otun226@gmail.com](mailto:Otun226@gmail.com)
+- LinkedIn: [Temi Otun](https://www.linkedin.com/in/temi-otun-297801250/)
+- GitHub: [temii70](https://github.com/temii70)
 
-### Testing
+## License
 
-Run the test suite:
-```bash
-npm test
-```
-
-## 🌐 Deployment
-
-The website is deployed on **Render** with automatic deployments from the main branch.
-
-### Deploy to Render
-
-1. Connect your GitHub repository to Render
-2. Configure build settings:
-   - Build Command: `npm run build`
-   - Start Command: `npm start`
-3. Set environment variables in Render dashboard
-4. Deploy!
-
-## 📱 Responsive Design
-
-The portfolio is fully responsive and optimized for:
-- 📱 Mobile devices (320px and up)
-- 📊 Tablets (768px and up)
-- 💻 Laptops (1024px and up)
-- 🖥️ Desktop (1200px and up)
-
-## 🎨 Customization
-
-### Styling
-- Edit `src/index.css` for global styles
-- Component-specific styles are included inline with Tailwind CSS classes
-- 3D background effects can be customized in the Three.js configuration
-
-### Content
-- Update project information in `src/home.js`
-- Replace images in the `public` folder
-- Modify contact information and social links
-
-## 📧 Contact
-
-Feel free to reach out for collaborations, opportunities, or just to connect!
-
-- **Email**: [Otun226@gmail.com](mailto:Otun226@gmail.com)
-- **LinkedIn**: [Temi Otun](https://www.linkedin.com/in/temi-otun-297801250/)
-- **GitHub**: [temii70](https://github.com/temii70)
-
-## 📄 License
-
-This project is open source and available under the [Apache License](LICENSE).
+[Apache 2.0](LICENSE)
