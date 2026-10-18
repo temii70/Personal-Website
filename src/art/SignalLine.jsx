@@ -14,6 +14,19 @@ export function Anchor({ kind, dir = "down", x = "0%", y = "0%" }) {
   return <span aria-hidden data-signal={kind} data-dir={dir} className="pointer-events-none absolute h-0 w-0" style={{ left: x, top: y }} />;
 }
 
+// A run of `via` points the line passes through on its way to the next `end`. Each point is
+// [x, y] in any CSS length, relative to the nearest positioned parent. Desktop only by
+// default: on phones the line keeps to the margins.
+export function Vias({ points, className = "hidden md:block" }) {
+  return (
+    <div aria-hidden className={`pointer-events-none absolute inset-0 ${className}`}>
+      {points.map(([x, y]) => (
+        <Anchor key={x + y} kind="via" x={x} y={y} />
+      ))}
+    </div>
+  );
+}
+
 function stretch(a, b, seed, pageWidth) {
   const rand = rng(seed);
   const [ax, ay] = DIRS[a.dir] || DIRS.down;

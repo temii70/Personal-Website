@@ -1,6 +1,7 @@
 import Reveal from "./ui/Reveal";
 import { ChapterTitle } from "./ui/Chapter";
 import Forecast from "../art/Forecast";
+import { Vias } from "../art/SignalLine";
 import { experience, profile } from "../data";
 
 // Marker-highlight ==key numbers== in a sentence.
@@ -15,6 +16,15 @@ function Marked({ text }) {
     )
   );
 }
+
+// After the forecast the line runs down the right margin past the jobs, then sweeps left
+// through the open space below the resume link, toward the sampler. Relative to that link's row.
+const AFTER = [
+  ["104%", "-110px"],
+  ["82%", "-6px"],
+  ["52%", "92px"],
+  ["12%", "170px"],
+];
 
 // Chapter 3 · forecast. The line becomes a career curve with a forecast for what's next.
 export default function Experience() {
@@ -49,6 +59,9 @@ export default function Experience() {
           ))}
         </div>
 
+        <div className="relative">
+          <Vias points={AFTER} />
+        </div>
         <Reveal className="mt-14">
           <a
             href={profile.resume}
