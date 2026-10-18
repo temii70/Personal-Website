@@ -68,7 +68,7 @@ export default function About() {
                 <Vias points={PHOTO} />
                 <img src="/headshot2.webp" alt="Temi Otun" className="aspect-[4/5] w-full object-cover" />
               </div>
-              <figcaption className="mt-3 font-mono text-xs lowercase text-ink-soft">me, mid-thought</figcaption>
+              <figcaption className="mt-3 font-mono text-xs lowercase text-ink-soft">a photo of me</figcaption>
             </figure>
           </Reveal>
         </div>

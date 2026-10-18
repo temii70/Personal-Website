@@ -26,9 +26,9 @@ export const experience = [
     start: "2026-05",
     short: "rbc",
     points: [
-      "Developed a patent-pending fraud detection system combining ML classification with LLM analysis: ==94% recall==, 85% F1, projected to stop ==$18M== in annual fraud losses.",
-      "Engineered a cascaded NLP pipeline over 23M+ unstructured text records a year using semantic embeddings, cutting operational costs by ==65%== ($1.5M a year).",
-      "Built FastAPI services with PostgreSQL-backed async job tracking, load-tested to ==1,000 requests per second== and secured with OAuth2/OIDC, Keycloak and JWT roles.",
+      "Developed a patent-pending fraud detection system combining ML classification with LLM analysis: 94% recall, 85% F1, projected to stop ==$18M== in annual fraud losses.",
+      "Engineered a cascaded NLP pipeline over 23M+ unstructured text records a year using semantic embeddings, cutting operational costs by 65% ($1.5M a year).",
+      "Built FastAPI services with PostgreSQL-backed async job tracking, load-tested to 1,000 requests per second and secured with OAuth2/OIDC, Keycloak and JWT roles.",
     ],
     tags: ["llms", "nlp", "fastapi", "postgresql"],
   },
@@ -43,7 +43,7 @@ export const experience = [
     points: [
       "Built Python and MySQL pipelines joining local weather observations with global climate indices across 82 Alberta counties and 63 years of data.",
       "Developed CatBoost models for 3 county clusters and 12 forecast horizons, using 132 lagged features to capture seasonal and regional patterns.",
-      "Reached ==75.4% temperature-category accuracy==, 42.1 points above climatology, across 259,776 predictions spanning 22 test years.",
+      "Reached ==75.4%== temperature-category accuracy, 42.1 points above climatology, across 259,776 predictions spanning 22 test years.",
     ],
     tags: ["time series", "catboost", "forecasting"],
   },
@@ -70,7 +70,7 @@ export const experience = [
     short: "infostrux",
     points: [
       "Optimized 25+ Snowflake SQL queries, cutting execution time by up to ==60%== for BI dashboards.",
-      "Designed staging and curated layers for 3 datasets with a senior data engineer, cutting time-to-insight by ==40%==.",
+      "Designed staging and curated layers for 3 datasets with a senior data engineer, cutting time-to-insight by 40%.",
     ],
     tags: ["snowflake", "sql", "data modeling"],
   },
