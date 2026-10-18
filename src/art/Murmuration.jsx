@@ -68,7 +68,7 @@ function drawFlock(ctx, width, height, canvas) {
 
   const render = () => {
     ctx.clearRect(0, 0, width, height);
-    ctx.strokeStyle = "rgba(29, 34, 48, 0.72)";
+    ctx.strokeStyle = "rgba(43, 38, 32, 0.72)";
     ctx.lineWidth = 0.9;
     ctx.lineCap = "round";
     ctx.beginPath();

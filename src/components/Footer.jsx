@@ -1,7 +1,10 @@
+import { useKernel } from "../notebook/Kernel";
+
 export default function Footer() {
+  const { count, busy } = useKernel();
   return (
-    <footer className="relative z-10 border-t border-ink/10 bg-paper py-10 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
-      end of notebook · © {new Date().getFullYear()} Temi Otun
+    <footer className="mx-auto mt-28 max-w-5xl border-t border-line px-5 py-10 font-mono text-xs text-ink-soft sm:px-8">
+      kernel {busy ? "busy" : "idle"} · {count} cells executed · © {new Date().getFullYear()} Temi Otun
     </footer>
   );
 }

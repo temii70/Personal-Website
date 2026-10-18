@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
+import { useKernel } from "../notebook/Kernel";
 import { profile } from "../data";
 
 const LINKS = [
   { id: "About", label: "about" },
-  { id: "Experience", label: "notes" },
+  { id: "Experience", label: "experience" },
   { id: "Projects", label: "projects" },
   { id: "Contact", label: "contact" },
 ];
 
+// Notebook toolbar: file name, section links, kernel status.
 export default function Nav() {
+  const { busy } = useKernel();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-
     // highlight whichever section crosses the middle of the screen
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
@@ -28,59 +26,58 @@ export default function Nav() {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open ? "border-b border-ink/10 bg-paper/90 backdrop-blur" : "border-b border-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6 sm:px-12">
-        <a href="#top" className="font-display text-xl italic text-ink">
-          Temi Otun
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
+      <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-5 font-mono text-[13px] sm:px-8">
+        <a href="#top" className="flex items-center gap-2 text-ink">
+          <img src="/favicon.svg" alt="" className="h-5 w-5" />
+          temi_otun.ipynb
         </a>
 
-        <div className="hidden items-center gap-7 font-mono text-xs uppercase tracking-[0.15em] sm:flex">
+        <div className="hidden items-center gap-6 text-ink-soft sm:flex">
           {LINKS.map(({ id, label }) => (
             <a
               key={id}
               href={`#${id}`}
-              className={`border-b pb-0.5 transition-colors hover:text-ink ${active === id ? "border-signal text-ink" : "border-transparent text-ink-soft"}`}
+              className={`border-b pb-0.5 transition-colors hover:text-ink ${active === id ? "border-orange text-ink" : "border-transparent"}`}
             >
               {label}
             </a>
           ))}
+        </div>
+
+        <div className="flex items-center gap-4">
+          <span className="hidden items-center gap-2 text-xs text-ink-soft lg:flex" title={busy ? "kernel busy" : "kernel idle"}>
+            Python 3 (curiosity)
+            <span className={`h-2.5 w-2.5 rounded-full border-2 border-ink-soft transition-colors ${busy ? "animate-pulse border-orange bg-orange" : ""}`} />
+          </span>
           <a
             href={profile.resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-ink px-3 py-1.5 text-ink transition-colors hover:bg-ink hover:text-paper"
+            className="hidden rounded-sm border border-ink px-3 py-1 text-ink transition-colors hover:bg-ink hover:text-paper sm:block"
           >
-            resume ↗
+            resume.pdf ↗
           </a>
+          <button className="text-ink sm:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>
+            {open ? <FaXmark size={20} /> : <FaBars size={18} />}
+          </button>
         </div>
-
-        <button className="text-ink sm:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>
-          {open ? <FaXmark size={22} /> : <FaBars size={20} />}
-        </button>
       </nav>
 
       {open && (
-        <div className="px-6 pb-6 font-mono text-sm uppercase tracking-[0.15em] sm:hidden">
-          {[...LINKS, { id: "resume", label: "resume ↗", href: profile.resume }].map(({ id, label, href }) => (
+        <div className="border-t border-line px-5 pb-5 pt-2 font-mono text-sm sm:hidden">
+          {[...LINKS, { id: "resume", label: "resume.pdf ↗", href: profile.resume }].map(({ id, label, href }) => (
             <a
               key={id}
               href={href || `#${id}`}
               target={href ? "_blank" : undefined}
               rel={href ? "noopener noreferrer" : undefined}
               onClick={() => setOpen(false)}
-              className="block py-3 text-ink"
+              className="block py-2.5 text-ink"
             >
               {label}
             </a>

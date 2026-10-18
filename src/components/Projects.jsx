@@ -1,26 +1,21 @@
-import Section from "./ui/Section";
 import Reveal from "./ui/Reveal";
-import { IndexCard } from "./ui/Notebook";
+import { CodeCell, MarkdownCell, H2 } from "../notebook/Cell";
 import Figure from "../art/Figure";
 import { projects } from "../data";
 
-const TILT = [-1, 0.8, -0.5, 1.2, -0.9];
-
-function ProjectCard({ project, index }) {
+function ProjectCard({ project }) {
   const card = (
-    <IndexCard rotate={TILT[index % TILT.length]} className="h-full">
-      <div className="flex h-full flex-col px-6 pb-6 pt-4 sm:px-7">
-        <div className="flex items-start justify-between gap-4">
-          <h3 className={`font-display leading-tight text-ink ${project.featured ? "text-2xl" : "text-xl"}`}>{project.name}</h3>
-          <Figure kind={project.figure} seed={project.name} className={`shrink-0 ${project.featured ? "h-24 w-24" : "h-16 w-16"}`} />
-        </div>
-        <p className="mt-3 flex-1 leading-[32px] text-ink-soft">{project.description}</p>
-        <div className="mt-4 flex items-end justify-between gap-4 font-mono text-[11px] uppercase tracking-wider">
-          <span className="text-ink-soft">{project.tags.join(" / ")}</span>
-          {project.link && <span className="shrink-0 text-signal group-hover:underline">open ↗</span>}
-        </div>
+    <article className="flex h-full flex-col rounded-md border border-line bg-[#fbf8f1] p-5 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_8px_20px_rgba(43,38,32,0.10)] sm:p-6">
+      <div className="flex items-start justify-between gap-4">
+        <h3 className={`font-display leading-tight text-ink ${project.featured ? "text-2xl" : "text-xl"}`}>{project.name}</h3>
+        <Figure kind={project.figure} seed={project.name} className={`shrink-0 ${project.featured ? "h-24 w-24" : "h-16 w-16"}`} />
       </div>
-    </IndexCard>
+      <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{project.description}</p>
+      <div className="mt-5 flex items-end justify-between gap-4 font-mono text-xs">
+        <span className="text-ink-soft">[{project.tags.map((t) => `'${t}'`).join(", ")}]</span>
+        {project.link && <span className="shrink-0 text-orange group-hover:underline">open ↗</span>}
+      </div>
+    </article>
   );
 
   return project.link ? (
@@ -28,7 +23,7 @@ function ProjectCard({ project, index }) {
       {card}
     </a>
   ) : (
-    card
+    <div className="group h-full">{card}</div>
   );
 }
 
@@ -37,21 +32,26 @@ export default function Projects() {
   const rest = projects.filter((p) => !p.featured);
 
   return (
-    <Section id="Projects" page="04" label="projects" title="Things I've built" paper="graph">
-      <div className="grid gap-12 md:grid-cols-2">
-        {featured.map((p, i) => (
-          <Reveal key={p.name} delay={i * 0.08}>
-            <ProjectCard project={p} index={i} />
-          </Reveal>
-        ))}
-      </div>
-      <div className="mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-        {rest.map((p, i) => (
-          <Reveal key={p.name} delay={i * 0.08}>
-            <ProjectCard project={p} index={i + featured.length} />
-          </Reveal>
-        ))}
-      </div>
-    </Section>
+    <section id="Projects" className="scroll-mt-20 space-y-10 pt-28">
+      <MarkdownCell>
+        <Reveal>
+          <H2>Projects</H2>
+          <p className="mt-3 text-lg text-ink-soft">Things I've built, each with a little sketch of the idea behind it.</p>
+        </Reveal>
+      </MarkdownCell>
+
+      <CodeCell code={`temi.projects.show(sort_by="favourite")`}>
+        <div className="grid gap-5 md:grid-cols-2">
+          {featured.map((p) => (
+            <ProjectCard key={p.name} project={p} />
+          ))}
+        </div>
+        <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {rest.map((p) => (
+            <ProjectCard key={p.name} project={p} />
+          ))}
+        </div>
+      </CodeCell>
+    </section>
   );
 }
