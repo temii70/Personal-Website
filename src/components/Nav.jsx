@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import { profile } from "../data";
+import Out from "./ui/Out";
 
 const LINKS = [
   { id: "About", label: "voice" },
@@ -49,7 +50,8 @@ export default function Nav() {
             </a>
           ))}
           <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="text-ink underline decoration-pink decoration-2 underline-offset-4 hover:text-blue">
-            resume ↗
+            resume
+            <Out />
           </a>
         </div>
 
@@ -60,7 +62,7 @@ export default function Nav() {
 
       {open && (
         <div className="px-6 pb-6 font-mono lowercase sm:hidden">
-          {[...LINKS, { id: "resume", label: "resume ↗", href: profile.resume }].map(({ id, label, href }) => (
+          {[...LINKS, { id: "resume", label: "resume", href: profile.resume }].map(({ id, label, href }) => (
             <a
               key={id}
               href={href || `#${id}`}

@@ -8,7 +8,7 @@ import { palette } from "../theme";
 // through the dots adds noise back, and the words under that bit stop making sense.
 
 const LONG = "hi, i'm temi. i listen for the pattern in the noise".split(" ");
-const SHORT = "hi, i'm temi. i listen".split(" ");
+const SHORT = "hi, i'm temi, nice to meet you".split(" "); // a full sentence that fits a phone
 const DENOISE_MS = 2600;
 const LISTEN_PX_PER_MS = 0.22;
 const SPACING = 2.5;
@@ -152,14 +152,33 @@ function drawVoice(ctx, width, height, canvas) {
   const onLeave = () => {
     pointer.x = pointer.y = -1e4;
   };
+  // phones: a drag is taken by page scrolling, so a tap talks over the waveform instead,
+  // scattering the dots around the finger for a moment
+  let lift;
+  const onDown = (e) => {
+    if (e.pointerType === "mouse") return;
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    for (const d of dots) {
+      const dist = Math.abs(d.tx - x);
+      if (dist < 110) d.local = Math.max(d.local, 0.9 * (1 - dist / 110));
+    }
+    clearTimeout(lift);
+    lift = setTimeout(onLeave, 250);
+  };
   canvas.addEventListener("pointermove", onMove);
   canvas.addEventListener("pointerleave", onLeave);
+  canvas.addEventListener("pointerdown", onDown);
+  canvas.addEventListener("pointercancel", onLeave);
 
   return () => {
     observer.disconnect();
     cancelAnimationFrame(raf);
     canvas.removeEventListener("pointermove", onMove);
     canvas.removeEventListener("pointerleave", onLeave);
+    canvas.removeEventListener("pointerdown", onDown);
+    canvas.removeEventListener("pointercancel", onLeave);
+    clearTimeout(lift);
   };
 }
 

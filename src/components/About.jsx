@@ -46,7 +46,10 @@ export default function About() {
           <Anchor kind="start" dir="left" x="0%" y="42%" />
           <Voice className="block h-52 w-full touch-pan-y sm:h-60" />
         </div>
-        <Caption className="mt-2">talk over it (move your cursor through) and the transcript falls apart</Caption>
+        <Caption className="mt-2">
+          <span className="sm:hidden">tap it to talk over it, and the transcript falls apart</span>
+          <span className="hidden sm:inline">talk over it (move your cursor through) and the transcript falls apart</span>
+        </Caption>
 
         <div className="relative mt-20 grid gap-14 md:grid-cols-[1.3fr_1fr]">
           <Vias points={GAP} />

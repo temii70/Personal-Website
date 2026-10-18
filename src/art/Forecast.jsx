@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { rng } from "./random";
 import { Anchor } from "./SignalLine";
@@ -8,11 +8,13 @@ import { palette } from "../theme";
 // each job a point on it, then a forecast with a widening uncertainty band for what's next.
 
 const W = 1000;
-const H = 340;
 const X0 = 40;
 const X1 = 960;
-const YTOP = 56;
-const YBOT = 280;
+// phones squeeze the 1000-wide drawing to ~340px, so they get a taller frame and bigger type
+const LAYOUTS = {
+  wide: { H: 340, YTOP: 56, YBOT: 280, k: 1 },
+  narrow: { H: 680, YTOP: 190, YBOT: 540, k: 2.4 },
+};
 const START = 2024;
 const NOW = 33; // Oct 2026, in months since Jan 2024
 const END = 43; // Aug 2027
@@ -20,7 +22,7 @@ const END = 43; // Aug 2027
 const monthIndex = (ym) => (Number(ym.slice(0, 4)) - START) * 12 + Number(ym.slice(5, 7)) - 1;
 const X = (i) => X0 + (i / END) * (X1 - X0);
 
-function build(jobs) {
+function build(jobs, { YTOP, YBOT }) {
   const rand = rng("career");
   const starts = new Set(jobs.map((j) => monthIndex(j.start)));
   const values = [];
@@ -57,9 +59,47 @@ function build(jobs) {
 
 const pct = (v, of) => `${((v / of) * 100).toFixed(2)}%`;
 
+function useNarrow() {
+  const query = "(max-width: 639px)";
+  const [narrow, setNarrow] = useState(() => typeof window !== "undefined" && window.matchMedia(query).matches);
+  useEffect(() => {
+    const mq = window.matchMedia(query);
+    const onChange = () => setNarrow(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return narrow;
+}
+
 export default function Forecast({ jobs, className = "" }) {
   const still = useReducedMotion();
-  const c = useMemo(() => build(jobs), [jobs]);
+  const layout = LAYOUTS[useNarrow() ? "narrow" : "wide"];
+  const { H, YTOP, YBOT, k } = layout;
+  const c = useMemo(() => build(jobs, layout), [jobs, layout]);
+
+  // job labels sit above their point. On phones the leftmost is left-aligned and lifted on a
+  // short leader so it stays on the page, and any other label that would bump into the one
+  // before it drops below the line.
+  const labels = useMemo(() => {
+    const charW = 14 * k * 0.6;
+    const out = c.points.map(() => ({ below: false, lifted: false, anchor: "middle" }));
+    let lastRight = -Infinity;
+    [...c.points.keys()]
+      .sort((i, j) => c.points[i].x - c.points[j].x)
+      .forEach((i, rank) => {
+        const p = c.points[i];
+        const w = p.short.length * charW;
+        if (k > 1 && rank === 0) {
+          Object.assign(out[i], { anchor: "start", lifted: true });
+          lastRight = p.x + w;
+          return;
+        }
+        if (k > 1 && p.x - w / 2 < lastRight + 10) out[i].below = true;
+        else lastRight = p.x + w / 2;
+      });
+    return out;
+  }, [c, k]);
+  const labelY = (p, l) => (l.below ? p.y + 26 * k : p.y - 12 - 8 * k - (l.lifted ? 40 * k : 0));
   const draw = {
     hidden: { pathLength: 0 },
     visible: { pathLength: 1, transition: { duration: 2.2, ease: "easeInOut" } },
@@ -81,11 +121,11 @@ export default function Forecast({ jobs, className = "" }) {
         aria-label="A career curve from 2024 to now, one point per job, then a widening forecast band for what's next."
       >
         {/* years */}
-        <g className="fill-ink-soft font-mono" fontSize="14">
+        <g className="fill-ink-soft font-mono" fontSize={14 * k}>
           {[2024, 2025, 2026, 2027].map((year) => (
             <g key={year}>
-              <line x1={X((year - START) * 12)} x2={X((year - START) * 12)} y1={YBOT + 10} y2={YBOT + 18} stroke={palette.inkSoft} />
-              <text x={X((year - START) * 12)} y={YBOT + 40} textAnchor="middle">
+              <line x1={X((year - START) * 12)} x2={X((year - START) * 12)} y1={YBOT + 10} y2={YBOT + 10 + 8 * k} stroke={palette.inkSoft} />
+              <text x={X((year - START) * 12)} y={YBOT + 18 + 22 * k} textAnchor="middle">
                 {year}
               </text>
             </g>
@@ -94,32 +134,39 @@ export default function Forecast({ jobs, className = "" }) {
 
         {/* now */}
         <line x1={X(NOW)} x2={X(NOW)} y1={YTOP - 30} y2={YBOT + 10} stroke={palette.inkSoft} strokeDasharray="2 5" />
-        <text x={X(NOW) + 8} y={YTOP - 18} className="fill-ink-soft font-mono" fontSize="14">
+        <text x={X(NOW) + 8} y={YTOP - 18} className="fill-ink-soft font-mono" fontSize={14 * k}>
           now
         </text>
 
         {/* the forecast */}
         <motion.g variants={after(1.9)}>
           <polygon points={c.band} fill={palette.yellow} fillOpacity="0.3" />
-          <path d={c.median} fill="none" stroke={palette.pink} strokeWidth="1.6" strokeDasharray="5 6" />
-          <text x={X1} y={c.bandTop - 26} textAnchor="end" className="fill-ink font-mono" fontSize="15">
+          <path d={c.median} fill="none" stroke={palette.pink} strokeWidth={1.6 * k} strokeDasharray={`${5 * k} ${6 * k}`} />
+          <text x={X1} y={k > 1 ? YTOP - 18 - 36 * k : c.bandTop - 8 - 18 * k} textAnchor="end" className="fill-ink font-mono" fontSize={15 * k}>
             next: ?
           </text>
-          <text x={X1} y={c.bandTop - 8} textAnchor="end" className="fill-ink-soft font-mono" fontSize="12">
+          <text x={X1} y={k > 1 ? YTOP - 18 - 18 * k : c.bandTop - 8} textAnchor="end" className="fill-ink-soft font-mono" fontSize={12 * k}>
             (wide band, open to offers)
           </text>
         </motion.g>
 
         {/* the line itself, riso misprint underneath */}
         <motion.path d={c.line} transform="translate(2 2)" fill="none" stroke={palette.misprint} strokeOpacity="0.55" strokeWidth="1.6" strokeLinejoin="round" variants={draw} />
-        <motion.path d={c.line} fill="none" stroke={palette.blue} strokeWidth="1.6" strokeLinejoin="round" variants={draw} />
+        <motion.path d={c.line} fill="none" stroke={palette.blue} strokeWidth={1.6 * k} strokeLinejoin="round" variants={draw} />
 
         {/* jobs */}
         {c.points.map((p, i) => (
           <motion.g key={p.short} variants={after(0.6 + i * 0.25)}>
-            <circle cx={p.x} cy={p.y} r="6.5" fill={palette.paper} stroke={palette.blue} strokeWidth="2" />
-            <circle cx={p.x + 1.5} cy={p.y + 1.5} r="2.5" fill={palette.pink} />
-            <text x={p.x} y={p.y - 18} textAnchor="middle" className="fill-ink font-mono" fontSize="14">
+            {labels[i].lifted && <line x1={p.x} x2={p.x} y1={p.y - 8 * k} y2={labelY(p, labels[i]) + 6 * k} stroke={palette.inkSoft} strokeWidth={k} />}
+            <circle cx={p.x} cy={p.y} r={6.5 * k} fill={palette.paper} stroke={palette.blue} strokeWidth={2 * k} />
+            <circle cx={p.x} cy={p.y} r={2.5 * k} fill={palette.pink} />
+            <text
+              x={p.x}
+              y={labelY(p, labels[i])}
+              textAnchor={labels[i].anchor}
+              className="fill-ink font-mono"
+              fontSize={14 * k}
+            >
               {p.short}
             </text>
           </motion.g>

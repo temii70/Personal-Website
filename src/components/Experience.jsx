@@ -3,6 +3,7 @@ import { ChapterTitle } from "./ui/Chapter";
 import Forecast from "../art/Forecast";
 import { Vias } from "../art/SignalLine";
 import { experience, profile } from "../data";
+import Out from "./ui/Out";
 
 // Marker-highlight ==key numbers== in a sentence.
 function Marked({ text }) {
@@ -29,7 +30,8 @@ function Company({ job }) {
           rel="noopener noreferrer"
           className="underline decoration-blue/40 decoration-1 underline-offset-4 transition hover:text-pink hover:decoration-pink"
         >
-          {part} ↗
+          {part}
+          <Out />
         </a>
       ) : (
         part
@@ -92,7 +94,8 @@ export default function Experience() {
             rel="noopener noreferrer"
             className="font-mono text-sm lowercase text-ink underline decoration-pink decoration-2 underline-offset-4 hover:text-blue"
           >
-            the full resume, if you like pdfs ↗
+            the full resume, if you like pdfs
+            <Out />
           </a>
         </Reveal>
       </div>

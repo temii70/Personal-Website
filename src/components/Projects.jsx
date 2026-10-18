@@ -4,6 +4,7 @@ import Figure from "../art/Figure";
 import { Anchor } from "../art/SignalLine";
 import { palette } from "../theme";
 import { projects } from "../data";
+import Out from "./ui/Out";
 
 // Chapter 5 · the line. The signal becomes a clothesline and the projects hang from it.
 
@@ -26,7 +27,9 @@ function Card({ project, index }) {
         <p className="mt-2 leading-relaxed text-ink-soft">{project.description}</p>
         <div className="mt-4 flex items-end justify-between gap-3 font-mono text-xs lowercase">
           <span className="text-ink-soft">{project.tags.join(" · ")}</span>
-          {project.link && <span className="shrink-0 text-blue group-hover:underline">have a look ↗</span>}
+          {project.link && <span className="shrink-0 text-blue group-hover:underline">have a look
+            <Out />
+          </span>}
         </div>
       </div>
     </article>
