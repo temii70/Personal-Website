@@ -17,6 +17,27 @@ function Marked({ text }) {
   );
 }
 
+// The company line, with any part that has a link (e.g. "Amplify") linked out.
+function Company({ job }) {
+  return job.company.split(" · ").map((part, i) => (
+    <span key={part}>
+      {i > 0 && " · "}
+      {job.links?.[part] ? (
+        <a
+          href={job.links[part]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline decoration-blue/40 decoration-1 underline-offset-4 transition hover:text-pink hover:decoration-pink"
+        >
+          {part} ↗
+        </a>
+      ) : (
+        part
+      )}
+    </span>
+  ));
+}
+
 // After the forecast the line runs down the right margin past the jobs, then sweeps left
 // through the open space below the resume link, toward the sampler. Relative to that link's row.
 const AFTER = [
@@ -43,7 +64,9 @@ export default function Experience() {
                   <span className="text-pink">{job.short}</span> · {job.dates} · {job.location}
                 </p>
                 <h3 className="mt-2 font-display text-3xl leading-tight text-ink">{job.role}</h3>
-                <p className="italic text-blue">{job.company}</p>
+                <p className="italic text-blue">
+                  <Company job={job} />
+                </p>
                 <ul className="mt-4 space-y-2 leading-relaxed text-ink-soft">
                   {job.points.map((p) => (
                     <li key={p} className="flex gap-3">

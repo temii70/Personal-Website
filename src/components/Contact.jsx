@@ -101,7 +101,7 @@ export default function Contact() {
 
         <div className="mt-14 grid gap-14 md:grid-cols-[1fr_1.3fr]">
           <Reveal className="space-y-5 text-lg leading-relaxed text-ink-soft">
-            <p>Looking for ML, data or software roles, research collaborations, or just someone to argue about the Lakers with.</p>
+            <p>Looking for ML, data or software roles, research collaborations, or just someone to argue about the Spur's with.</p>
             <p>
               Email{" "}
               <a href={`mailto:${profile.email}`} className="text-ink underline decoration-pink decoration-2 underline-offset-4 hover:text-blue">

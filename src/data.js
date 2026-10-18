@@ -19,6 +19,8 @@ export const experience = [
   {
     role: "ML Data Engineering Intern",
     company: "Royal Bank of Canada · Amplify",
+    // the part of `company` that links out, as on the resume
+    links: { Amplify: "https://jobs.rbc.com/ca/en/amplify" },
     location: "Vancouver, BC",
     dates: "summer 2026",
     start: "2026-05",
@@ -33,6 +35,7 @@ export const experience = [
   {
     role: "Machine Learning Research Intern",
     company: "The Metabolomics Innovation Centre · SOIL-HUB",
+    links: { "SOIL-HUB": "https://caain.ca/projects/soil-hub-a-data-coordination-centre-to-aid-data-driven-decision-making-for-canadas-crop-farmers/" },
     location: "Edmonton, AB",
     dates: "jan – aug 2025",
     start: "2025-01",
@@ -89,6 +92,7 @@ export const projects = [
       "An Android app built by a seven-person team: waitlists, random draws, QR sign-up, geolocation, and a Gemini pipeline that sorts event tags into 21 categories.",
     tags: ["kotlin", "java", "firebase", "gemini"],
     figure: "lottery",
+    link: "https://github.com/CMPUT301W26spiral/spiral-events",
     featured: true,
   },
   {
@@ -96,6 +100,7 @@ export const projects = [
     description: "A TensorFlow CNN hooked up to OpenCV that reads facial expressions from a live webcam.",
     tags: ["tensorflow", "cnn", "opencv"],
     figure: "kernel",
+    link: "https://github.com/temii70/Emotion-Detection",
   },
   {
     name: "Lung Cancer Detection",
@@ -129,7 +134,7 @@ export const interests = [
   {
     title: "basketball",
     image: "/bball.png",
-    text: "Played for my junior and senior high school teams and still play for fun. Lakers fan, because LeBron.",
+    text: "Played for my junior and senior high school teams and still play for fun. Spur's fan, because Wemby.",
   },
   {
     title: "the gym",
