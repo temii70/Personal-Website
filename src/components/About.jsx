@@ -1,24 +1,24 @@
 import Reveal from "./ui/Reveal";
 import { Caption, ChapterTitle } from "./ui/Chapter";
-import Signal from "../art/Signal";
+import Voice from "../art/Voice";
 import { Anchor } from "../art/SignalLine";
 import { highlights, skills } from "../data";
 
-// Chapter 2 · pulse. The line arrives as noise and the heartbeat denoises out of it.
+// Chapter 2 · voice. The line arrives as noise, denoises into speech, and gets transcribed.
 export default function About() {
   return (
     <section id="About" className="relative scroll-mt-16 py-24 sm:py-32">
       <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-10">
-        <ChapterTitle caption="a pulse, once you clean it up">About me</ChapterTitle>
+        <ChapterTitle caption="a voice, once you listen closely">About me</ChapterTitle>
 
         <div className="relative">
-          {/* the line comes down the right margin, runs right to left through the heartbeat
-              (which starts and ends on its baseline, 63% down), and leaves down the left margin */}
-          <Anchor kind="end" dir="left" x="100%" y="63%" />
-          <Anchor kind="start" dir="left" x="0%" y="63%" />
-          <Signal className="block h-52 w-full touch-pan-y sm:h-60" />
+          {/* the line drops in from above at the right end, runs right to left through the waveform
+              (which starts and ends on its baseline, 42% down), and leaves down the left margin */}
+          <Anchor kind="end" dir="down" x="100%" y="42%" />
+          <Anchor kind="start" dir="left" x="0%" y="42%" />
+          <Voice className="block h-52 w-full touch-pan-y sm:h-60" />
         </div>
-        <Caption className="mt-2">move your cursor through it to add the noise back</Caption>
+        <Caption className="mt-2">talk over it (move your cursor through) and the transcript falls apart</Caption>
 
         <div className="mt-20 grid gap-14 md:grid-cols-[1.3fr_1fr]">
           <Reveal className="space-y-5 text-lg leading-relaxed text-ink-soft">

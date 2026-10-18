@@ -3,7 +3,7 @@ import { rng, prefersReducedMotion } from "./random";
 import { palette } from "../theme";
 
 // The one line that runs the length of the page, travelling in the margins between chapters. Each chapter's artwork *is* the line for a
-// while (a heartbeat, a forecast, a clothesline, a ball arc); chapters mark where the line
+// while (a voice waveform, a forecast, a clothesline, a ball arc); chapters mark where the line
 // enters and leaves their art with <Anchor>, and this component draws the stretches between,
 // inking them in as you scroll. Near the top the line is pure noise; it calms as you go.
 
@@ -33,13 +33,43 @@ function stretch(a, b, seed, pageWidth) {
     const u = 1 - t;
     let x = u * u * u * a.x + 3 * u * u * t * c1[0] + 3 * u * t * t * c2[0] + t * t * t * b.x;
     let y = u * u * u * a.y + 3 * u * u * t * c1[1] + 3 * u * t * t * c2[1] + t * t * t * b.y;
-    // noise: static near the top of the page, settling to a faint tremor; pinned at both ends
-    const amp = (0.8 + 26 * Math.exp(-y / 450)) * Math.sin(Math.PI * Math.min(1, t * 1.15));
+    // a pencil tremor, a touch shakier near the top; pinned at both ends
+    const amp = (0.8 + 3.5 * Math.exp(-y / 900)) * Math.sin(Math.PI * Math.min(1, t * 1.15));
     x += amp * ((rand() - 0.5) * 1.7 + Math.sin(i * 0.9 + phases[0]) * 0.3);
     y += amp * 0.25 * (rand() - 0.5);
     d += `${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`;
   }
   return { d, y0: Math.min(a.y, b.y), y1: Math.max(a.y, b.y) };
+}
+
+// A flourish: a smooth Catmull-Rom curve through `via` points a chapter has placed by hand
+// (loops welcome), leaving `a` and arriving at `b` along their directions.
+function flourish(a, vias, b, seed) {
+  const rand = rng(seed);
+  const [ax, ay] = DIRS[a.dir] || DIRS.down;
+  const [bx, by] = DIRS[b.dir] || DIRS.down;
+  const pts = [[a.x - ax * 160, a.y - ay * 160], [a.x, a.y], ...vias.map((v) => [v.x, v.y]), [b.x, b.y], [b.x + bx * 160, b.y + by * 160]];
+  const out = [];
+  for (let k = 1; k < pts.length - 2; k++) {
+    const [p0, p1, p2, p3] = [pts[k - 1], pts[k], pts[k + 1], pts[k + 2]];
+    const steps = Math.max(8, Math.round(Math.hypot(p2[0] - p1[0], p2[1] - p1[1]) / 5));
+    for (let i = k === 1 ? 0 : 1; i <= steps; i++) {
+      const t = i / steps;
+      const t2 = t * t;
+      const t3 = t2 * t;
+      const at = (j) => 0.5 * (2 * p1[j] + (-p0[j] + p2[j]) * t + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * t2 + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * t3);
+      out.push([at(0), at(1)]);
+    }
+  }
+  const last = out.length - 1;
+  const d = out
+    .map(([x, y], i) => {
+      const amp = 1.4 * Math.sin((Math.PI * i) / last);
+      return `${i ? "L" : "M"}${(x + amp * (rand() - 0.5)).toFixed(1)},${(y + amp * (rand() - 0.5)).toFixed(1)}`;
+    })
+    .join("");
+  const ys = out.map(([, y]) => y);
+  return { d, y0: Math.min(...ys), y1: Math.max(...ys) };
 }
 
 export default function SignalLine() {
@@ -60,11 +90,19 @@ export default function SignalLine() {
         });
 
       const out = [];
-      let from = { x: box.width * 0.93, y: 0, dir: "down" }; // the line starts at the top edge, in the right margin
+      // the line starts at the hero's `origin` mark (top right, under the nav)
+      let from = { x: box.width * 0.9, y: 0, dir: "down" };
+      let vias = [];
       for (const m of marks) {
-        if (m.kind === "end" && from) {
-          out.push(stretch(from, m, `stretch-${out.length}`, box.width));
+        if (m.kind === "origin") {
+          from = { x: m.x, y: m.y, dir: m.dir };
+        } else if (m.kind === "via") {
+          vias.push(m);
+        } else if (m.kind === "end" && from) {
+          const seed = `stretch-${out.length}`;
+          out.push(vias.length ? flourish(from, vias, m, seed) : stretch(from, m, seed, box.width));
           from = null;
+          vias = [];
         } else if (m.kind === "start") {
           from = m;
         }

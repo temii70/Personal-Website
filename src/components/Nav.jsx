@@ -3,7 +3,7 @@ import { FaBars, FaXmark } from "react-icons/fa6";
 import { profile } from "../data";
 
 const LINKS = [
-  { id: "About", label: "pulse" },
+  { id: "About", label: "voice" },
   { id: "Experience", label: "forecast" },
   { id: "Projects", label: "projects" },
   { id: "Contact", label: "say hi" },
