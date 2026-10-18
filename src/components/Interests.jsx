@@ -46,7 +46,7 @@ function NightArt({ w, h, arc }) {
       <path d={`M${hoopX - 24},${hoopY + 4} l6,28 h36 l6,-28 M${hoopX - 12},${hoopY + 4} l2,28 M${hoopX},${hoopY + 4} v28 M${hoopX + 12},${hoopY + 4} l-2,28`} stroke={palette.night} strokeOpacity="0.6" fill="none" />
       <ellipse cx={hoopX} cy={hoopY + 4} rx="26" ry="5" fill="none" stroke={palette.pink} strokeWidth="2.5" />
       {/* the ball, riso offset */}
-      <circle cx={bx + 2} cy={by + 2} r="10" fill={palette.pink} fillOpacity="0.6" />
+      <circle cx={bx + 2} cy={by + 2} r="10" fill={palette.misprint} fillOpacity="0" />
       <circle cx={bx} cy={by} r="10" fill={palette.yellow} />
       <path d={`M${bx - 10},${by} h20 M${bx},${by - 10} v20`} stroke={palette.navy} strokeWidth="1" />
     </svg>
@@ -91,7 +91,7 @@ export default function Interests() {
           {interests.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.1} className={i === 1 ? "sm:mt-10" : ""}>
               <figure>
-                <div className="rotate-[var(--r)] bg-night p-2 shadow-[5px_5px_0_rgba(255,95,162,0.5)]" style={{ "--r": `${[-2, 1.5, -1][i]}deg` }}>
+                <div className="rotate-[var(--r)] bg-night p-2 shadow-[3px_6px_16px_rgba(0,0,0,0.35)]" style={{ "--r": `${[-2, 1.5, -1][i]}deg` }}>
                   <img src={item.image} alt={item.title} className="aspect-square w-full object-cover" loading="lazy" />
                 </div>
                 <figcaption className="mt-5">

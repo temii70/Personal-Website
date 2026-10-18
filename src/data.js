@@ -11,13 +11,13 @@ export const profile = {
 
 export const highlights = [
   { value: "94%", label: "recall on a patent-pending fraud detection system at RBC" },
-  { value: "47%", label: "lower error forecasting temperature, months out" },
-  { value: "ICASSP '25", label: "research on hearing early dementia in speech" },
+  { value: "75.4%", label: "temperature-category accuracy, 42 points above climatology" },
+  { value: "59M+", label: "patient-event records in my clinical prediction pipelines" },
 ];
 
 export const experience = [
   {
-    role: "Data Engineering Intern",
+    role: "ML Data Engineering Intern",
     company: "Royal Bank of Canada · Amplify",
     location: "Vancouver, BC",
     dates: "summer 2026",
@@ -25,34 +25,34 @@ export const experience = [
     short: "rbc",
     points: [
       "Developed a patent-pending fraud detection system combining ML classification with LLM analysis: ==94% recall==, 85% F1, projected to stop ==$18M== in annual fraud losses.",
-      "Engineered a cascaded NLP pipeline over 23M+ unstructured text records a year using semantic embeddings, cutting operational costs by ==65%==.",
-      "Led experiments across 6+ architectures and tuned ensemble thresholds, lifting precision from ==49% to 77%==.",
+      "Engineered a cascaded NLP pipeline over 23M+ unstructured text records a year using semantic embeddings, cutting operational costs by ==65%== ($1.5M a year).",
+      "Built FastAPI services with PostgreSQL-backed async job tracking, load-tested to ==1,000 requests per second== and secured with OAuth2/OIDC, Keycloak and JWT roles.",
     ],
-    tags: ["llms", "nlp", "embeddings", "ensembles"],
+    tags: ["llms", "nlp", "fastapi", "postgresql"],
   },
   {
     role: "Machine Learning Research Intern",
-    company: "The Metabolomics Innovation Centre",
+    company: "The Metabolomics Innovation Centre · SOIL-HUB",
     location: "Edmonton, AB",
     dates: "jan – aug 2025",
     start: "2025-01",
     short: "tmic",
     points: [
-      "Improved a long-range temperature forecasting system: up to ==47% lower MAE==, 24.3% better on average across a six-year test set.",
-      "Built multivariate pipelines over 100+ meteorological features with temporal validation and ensemble ML, beating baselines in ==73% of test years==.",
-      "Benchmarked 20+ models, from ARIMA and SARIMA to LSTMs, Transformers, LightGBM and XGBoost.",
+      "Built Python and MySQL pipelines joining local weather observations with global climate indices across 82 Alberta counties and 63 years of data.",
+      "Developed CatBoost models for 3 county clusters and 12 forecast horizons, using 132 lagged features to capture seasonal and regional patterns.",
+      "Reached ==75.4% temperature-category accuracy==, 42.1 points above climatology, across 259,776 predictions spanning 22 test years.",
     ],
-    tags: ["time series", "forecasting", "gradient boosting"],
+    tags: ["time series", "catboost", "forecasting"],
   },
   {
     role: "Machine Learning Research Assistant",
     company: "University of Alberta",
     location: "Edmonton, AB",
-    dates: "sep 2024 – apr 2026",
+    dates: "sep – dec 2024",
     start: "2024-09",
     short: "u of a",
     points: [
-      "Built a 3-class dementia / MCI detection system from Whisper speech embeddings and ensemble classifiers, contributing to research presented at ==ICASSP 2025==.",
+      "Developed a 3-class cognitive impairment detection system from Whisper speech embeddings with Random Forest and XGBoost, separating healthy controls, MCI and dementia.",
       "Built survival-analysis and clinical prediction pipelines on MIMIC-IV: ==59M+ patient events== across 239K+ patients.",
       "Ran 15+ experiments across speech, ECG and clinical-record data.",
     ],
@@ -114,10 +114,10 @@ export const projects = [
 ];
 
 export const skills = {
-  languages: ["Python", "SQL", "Java", "C"],
-  "ml / ai": ["PyTorch", "TensorFlow", "scikit-learn", "Hugging Face", "XGBoost", "LightGBM", "OpenCV"],
+  languages: ["Python", "Java", "Go", "C", "C++", "JavaScript", "TypeScript", "SQL"],
+  "ml / ai": ["PyTorch", "TensorFlow", "scikit-learn", "Hugging Face", "XGBoost", "LightGBM", "CatBoost", "OpenCV"],
   "ai systems": ["LLMs", "RAG", "MCP", "vector search", "local inference"],
-  "data & infra": ["PostgreSQL", "Snowflake", "Firebase", "Docker", "Kubernetes", "AWS S3"],
+  "data & infra": ["FastAPI", "PostgreSQL", "MySQL", "Snowflake", "Redis", "Docker", "Kubernetes", "AWS S3"],
 };
 
 export const interests = [

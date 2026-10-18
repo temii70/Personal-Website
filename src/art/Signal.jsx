@@ -52,10 +52,10 @@ function drawSignal(ctx, width, height, canvas) {
     }
     ctx.globalAlpha = 1;
 
-    // ink the trace wherever neighbouring dots have settled: a pink misprint pass, then blue
+    // ink the trace wherever neighbouring dots have settled: in slate pencil
     ctx.lineWidth = 1.6;
     ctx.lineJoin = "round";
-    for (const [color, off, alpha] of [[palette.pink, 1.6, 0.55], [palette.blue, 0, 1]]) {
+    for (const [color, off, alpha] of [[palette.misprint, 0, 0], [palette.blue, 0, 1]]) {
       ctx.strokeStyle = color;
       ctx.globalAlpha = alpha;
       ctx.beginPath();

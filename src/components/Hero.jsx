@@ -20,7 +20,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 font-mono text-sm lowercase">
-            <a href="#Projects" className="bg-blue px-5 py-2.5 text-paper shadow-[3px_3px_0_#ff5fa2] transition hover:-translate-y-0.5 hover:shadow-[5px_5px_0_#ff5fa2]">
+            <a href="#Projects" className="bg-ink px-5 py-2.5 text-paper transition hover:bg-pink">
               see what i've made →
             </a>
             <a href="#Contact" className="text-ink underline decoration-pink decoration-2 underline-offset-4 hover:text-blue">

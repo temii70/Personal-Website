@@ -14,13 +14,16 @@ export function Anchor({ kind, dir = "down", x = "0%", y = "0%" }) {
   return <span aria-hidden data-signal={kind} data-dir={dir} className="pointer-events-none absolute h-0 w-0" style={{ left: x, top: y }} />;
 }
 
-function stretch(a, b, seed) {
+function stretch(a, b, seed, pageWidth) {
   const rand = rng(seed);
   const [ax, ay] = DIRS[a.dir] || DIRS.down;
   const [bx, by] = DIRS[b.dir] || DIRS.down;
-  const k = Math.max(90, Math.hypot(b.x - a.x, b.y - a.y) * 0.45);
-  const c1 = [a.x + ax * k, a.y + ay * k];
-  const c2 = [b.x - bx * k, b.y - by * k];
+  // sideways swing stays small so the line travels down the page margins instead of
+  // cutting across text; the vertical pull scales with the distance to cover
+  const kx = pageWidth < 768 ? 28 : 140;
+  const ky = Math.max(60, Math.abs(b.y - a.y) * 0.5);
+  const c1 = [a.x + ax * kx, a.y + ay * ky];
+  const c2 = [b.x - bx * kx, b.y - by * ky];
   const phases = [rand() * 6, rand() * 6, rand() * 6];
 
   const n = Math.max(12, Math.round(Math.hypot(b.x - a.x, b.y - a.y) / 5));
@@ -60,7 +63,7 @@ export default function SignalLine() {
       let from = { x: box.width * 0.93, y: 0, dir: "down" }; // the line starts at the top edge, in the right margin
       for (const m of marks) {
         if (m.kind === "end" && from) {
-          out.push(stretch(from, m, `stretch-${out.length}`));
+          out.push(stretch(from, m, `stretch-${out.length}`, box.width));
           from = null;
         } else if (m.kind === "start") {
           from = m;
@@ -100,7 +103,7 @@ export default function SignalLine() {
             ref={(el) => ((paths.current[i] ||= [])[0] = el)}
             d={s.d}
             transform="translate(1.6 1.4)"
-            stroke={palette.pink}
+            stroke={palette.misprint}
             strokeOpacity="0.55"
             strokeWidth="1.6"
             pathLength="1"
@@ -111,7 +114,7 @@ export default function SignalLine() {
             ref={(el) => ((paths.current[i] ||= [])[1] = el)}
             d={s.d}
             stroke={palette.blue}
-            strokeWidth="1.6"
+            strokeWidth="1.3"
             pathLength="1"
             strokeDasharray="1"
             strokeDashoffset="1"

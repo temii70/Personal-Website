@@ -19,8 +19,8 @@ function Card({ project, index }) {
       style={{ "--r": `${TILT[index % TILT.length]}deg` }}
     >
       {/* the clothes peg */}
-      <span aria-hidden className="absolute -top-3 left-1/2 z-10 h-7 w-3 -translate-x-1/2 rounded-[2px] bg-yellow shadow-[1.5px_1.5px_0_#ff5fa2]" />
-      <div className="bg-white p-5 shadow-[5px_5px_0_rgba(47,91,211,0.18)] sm:p-6">
+      <span aria-hidden className="absolute -top-3 left-1/2 z-10 h-7 w-3 -translate-x-1/2 rounded-[2px] bg-yellow shadow-[1px_1px_0_rgba(58,53,48,0.25)]" />
+      <div className="bg-white p-5 shadow-[3px_6px_14px_rgba(58,53,48,0.13)] sm:p-6">
         <Figure kind={project.figure} seed={project.name} className={project.featured ? "h-24 w-24" : "h-16 w-16"} />
         <h3 className={`mt-3 font-display leading-tight text-ink ${project.featured ? "text-3xl" : "text-2xl"}`}>{project.name}</h3>
         <p className="mt-2 leading-relaxed text-ink-soft">{project.description}</p>
@@ -48,7 +48,7 @@ function Clothesline({ items, offset, reverse = false }) {
   return (
     <div className="relative pt-1">
       <svg aria-hidden className="absolute inset-x-0 top-0 h-20 w-full overflow-visible" viewBox="0 0 1000 80" preserveAspectRatio="none">
-        <path d={`M0,${LINE_Y} Q500,${LINE_Y + 2 * SAG} 1000,${LINE_Y}`} transform="translate(0 2)" fill="none" stroke={palette.pink} strokeOpacity="0.55" strokeWidth="1.6" vectorEffect="non-scaling-stroke" />
+        <path d={`M0,${LINE_Y} Q500,${LINE_Y + 2 * SAG} 1000,${LINE_Y}`} transform="translate(0 2)" fill="none" stroke={palette.misprint} strokeOpacity="0.55" strokeWidth="1.6" vectorEffect="non-scaling-stroke" />
         <path d={`M0,${LINE_Y} Q500,${LINE_Y + 2 * SAG} 1000,${LINE_Y}`} fill="none" stroke={palette.blue} strokeWidth="1.6" vectorEffect="non-scaling-stroke" />
       </svg>
       <Anchor kind="end" dir={reverse ? "left" : "right"} x={reverse ? "100%" : "0%"} y={`${LINE_Y}px`} />

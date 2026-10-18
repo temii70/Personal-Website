@@ -35,7 +35,7 @@ export default function About() {
 
           <Reveal delay={0.1} className="mx-auto w-60 sm:w-72 md:mx-0 md:justify-self-end">
             <figure className="rotate-[2deg]">
-              <div className="bg-white p-2.5 shadow-[6px_6px_0_rgba(255,95,162,0.45)]">
+              <div className="bg-white p-2.5 shadow-[3px_6px_16px_rgba(58,53,48,0.15)]">
                 <img src="/headshot2.webp" alt="Temi Otun" className="aspect-[4/5] w-full object-cover" />
               </div>
               <figcaption className="mt-3 font-mono text-xs lowercase text-ink-soft">me, mid-thought</figcaption>

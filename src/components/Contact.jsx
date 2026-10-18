@@ -33,7 +33,7 @@ function Flatline({ beat }) {
     <div className="relative">
       <Anchor kind="end" dir="left" x="100%" y="50%" />
       <svg aria-hidden className="block h-28 w-full overflow-visible" viewBox="0 0 1000 120" preserveAspectRatio="none">
-        <motion.path d={FLAT} animate={{ d: beat ? BEAT : FLAT }} transition={{ duration: 0.25 }} transform="translate(0 2)" fill="none" stroke={palette.pink} strokeOpacity="0.55" strokeWidth="1.6" vectorEffect="non-scaling-stroke" />
+        <motion.path d={FLAT} animate={{ d: beat ? BEAT : FLAT }} transition={{ duration: 0.25 }} transform="translate(0 2)" fill="none" stroke={palette.misprint} strokeOpacity="0.55" strokeWidth="1.6" vectorEffect="non-scaling-stroke" />
         <motion.path d={FLAT} animate={{ d: beat ? BEAT : FLAT }} transition={{ duration: 0.25 }} fill="none" stroke={palette.blue} strokeWidth="1.6" vectorEffect="non-scaling-stroke" />
       </svg>
       {/* where the signal ends */}
@@ -131,7 +131,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="bg-blue px-6 py-3 text-paper shadow-[3px_3px_0_#ff5fa2] transition hover:-translate-y-0.5 hover:shadow-[5px_5px_0_#ff5fa2] disabled:opacity-60"
+                  className="bg-ink px-6 py-3 text-paper transition hover:bg-pink disabled:opacity-60"
                 >
                   {status === "sending" ? "sending…" : "send it →"}
                 </button>

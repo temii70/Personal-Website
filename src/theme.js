@@ -1,15 +1,18 @@
-// Risograph palette. Keep in sync with tailwind.config in public/index.html.
+// Pencil-on-paper palette. Keep in sync with tailwind.config in public/index.html.
+// (Token names kept from the earlier palette so components didn't need renaming.)
 export const palette = {
-  paper: "#f6f3ec",
-  ink: "#1f2230",
-  inkSoft: "#5d6070",
-  blue: "#2f5bd3", // the signal line and most drawings
-  pink: "#ff5fa2", // misprint layer and accents
-  yellow: "#ffc83d",
-  navy: "#18203d", // night chapter
-  night: "#e9e6f5", // text on navy
+  paper: "#f4eee4",
+  ink: "#3a3530",
+  inkSoft: "#6f675e",
+  blue: "#56709f", // slate: the signal line and most drawings
+  pink: "#c2603f", // rust: small accents
+  yellow: "#d9a94b", // ochre
+  moss: "#7d9a6c",
+  navy: "#26231f", // night chapter
+  night: "#efe8dc", // text on the night chapter
+  misprint: "transparent", // the old riso offset layer, now switched off
 
   // names the art pieces use
-  pen: "#2f5bd3",
-  signal: "#ff5fa2",
+  pen: "#56709f",
+  signal: "#c2603f",
 };

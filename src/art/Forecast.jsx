@@ -100,7 +100,7 @@ export default function Forecast({ jobs, className = "" }) {
 
         {/* the forecast */}
         <motion.g variants={after(1.9)}>
-          <polygon points={c.band} fill={palette.yellow} fillOpacity="0.55" />
+          <polygon points={c.band} fill={palette.yellow} fillOpacity="0.3" />
           <path d={c.median} fill="none" stroke={palette.pink} strokeWidth="1.6" strokeDasharray="5 6" />
           <text x={X1} y={c.bandTop - 26} textAnchor="end" className="fill-ink font-mono" fontSize="15">
             next: ?
@@ -111,8 +111,8 @@ export default function Forecast({ jobs, className = "" }) {
         </motion.g>
 
         {/* the line itself, riso misprint underneath */}
-        <motion.path d={c.line} transform="translate(2 2)" fill="none" stroke={palette.pink} strokeOpacity="0.55" strokeWidth="2" strokeLinejoin="round" variants={draw} />
-        <motion.path d={c.line} fill="none" stroke={palette.blue} strokeWidth="2" strokeLinejoin="round" variants={draw} />
+        <motion.path d={c.line} transform="translate(2 2)" fill="none" stroke={palette.misprint} strokeOpacity="0.55" strokeWidth="1.6" strokeLinejoin="round" variants={draw} />
+        <motion.path d={c.line} fill="none" stroke={palette.blue} strokeWidth="1.6" strokeLinejoin="round" variants={draw} />
 
         {/* jobs */}
         {c.points.map((p, i) => (
