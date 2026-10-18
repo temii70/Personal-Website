@@ -2,7 +2,7 @@
 
 My personal site: [temiotun.com](https://temiotun.com)
 
-![The opening of the site: the name, a loop of pencil line, a row of decision trees, and a speech waveform with its transcript](website.webp)
+![The opening of the site: the name, a loop of pencil line, a row of decision trees, and a speech waveform with its transcript](public/website.webp)
 
 I'm a computing science student at the University of Alberta who builds machine learning and data systems. This site is meant to feel like a sketchbook rather than a template: soft pencil on warm paper, hand-lettered captions, and generative drawings that are all small ML ideas.
 
