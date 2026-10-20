@@ -1,5 +1,6 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import Reveal from "./ui/Reveal";
+import { Caption } from "./ui/Chapter";
 import RandomForest from "../art/RandomForest";
 import { Anchor } from "../art/SignalLine";
 import { profile } from "../data";
@@ -38,7 +39,9 @@ export default function Hero() {
       </div>
       <div className="relative z-10 mx-auto w-full max-w-5xl px-6 pb-56 pt-32 sm:px-10 sm:pb-64">
         <Reveal>
-          <h1 className="name mt-5 font-name text-7xl font-light leading-[0.9] text-ink sm:text-9xl">
+          {/* a handwritten lead-in, tucked up against the name like a note in the margin */}
+          <Caption className="!text-2xl sm:!text-3xl">hi, my name is</Caption>
+          <h1 className="name mt-1 font-name text-7xl font-light leading-[0.9] text-ink sm:text-9xl">
             Temi Otun
           </h1>
           <p className="mt-8 max-w-xl text-xl leading-relaxed text-ink-soft">
