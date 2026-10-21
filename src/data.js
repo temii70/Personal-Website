@@ -85,6 +85,7 @@ export const projects = [
     tags: ["rag", "agents", "mcp", "ollama"],
     figure: "knn",
     featured: true,
+    link: "https://github.com/temii70/LocalRagAgent",
   },
   {
     name: "Event Lottery System",
